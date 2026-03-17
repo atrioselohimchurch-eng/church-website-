@@ -31,7 +31,9 @@ body{font-family:'Lato',sans-serif;background:var(--ivory);color:var(--charcoal)
 
 /* ═══ NAV ═══ */
 nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:76px;border-bottom:2px solid var(--gold);}
-.nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;cursor:pointer;}
+.nav-brand img{height:54px;width:auto;border-radius:4px;}
+.footer-logo-row img{height:64px;width:auto;border-radius:4px;}
+
 .nav-brand-text .name{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:var(--white);line-height:1.1;letter-spacing:.02em;}
 .nav-brand-text .loc{font-size:10px;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;}
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
@@ -362,27 +364,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 56px
 <!-- NAV -->
 <nav>
   <div class="nav-brand" onclick="showPage('home')">
-    <!-- LOGO SVG — based on brand guide: gold laurel, black shield, open Bible, cross -->
-    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="25" cy="25" r="24" fill="#1A1A1A" stroke="#C9A84C" stroke-width="1.2"/>
-      <!-- Shield -->
-      <path d="M25 8L37 14V27C37 35 25 42 25 42C25 42 13 35 13 27V14L25 8Z" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1.3"/>
-      <!-- Bible pages -->
-      <rect x="20" y="19" width="10" height="8" rx="1" fill="#C9A84C" opacity="0.9"/>
-      <line x1="25" y1="19" x2="25" y2="27" stroke="#1A1A1A" stroke-width="0.8"/>
-      <!-- Cross on bible -->
-      <line x1="25" y1="13" x2="25" y2="18" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
-      <!-- Laurel left -->
-      <path d="M13 20 Q10 18 11 15 Q13 17 13 20Z" fill="#C9A84C" opacity="0.7"/>
-      <path d="M13 24 Q9 23 9 20 Q12 21 13 24Z" fill="#C9A84C" opacity="0.6"/>
-      <path d="M13 28 Q9 28 10 25 Q12 26 13 28Z" fill="#C9A84C" opacity="0.5"/>
-      <!-- Laurel right -->
-      <path d="M37 20 Q40 18 39 15 Q37 17 37 20Z" fill="#C9A84C" opacity="0.7"/>
-      <path d="M37 24 Q41 23 41 20 Q38 21 37 24Z" fill="#C9A84C" opacity="0.6"/>
-      <path d="M37 28 Q41 28 40 25 Q38 26 37 28Z" fill="#C9A84C" opacity="0.5"/>
-      <!-- Stars -->
-      <text x="19" y="46" font-size="4" fill="#C9A84C" opacity="0.8">★ FLEMINGTON NJ ★</text>
-    </svg>
+    <img src="Atrios_Elohim_Church_-_1.png" alt="Atrios Elohim Church Logo" style="height:54px;width:auto;"/>
     <div class="nav-brand-text">
       <div class="name">Atrios Elohim Church</div>
       <div class="loc">Flemington, NJ</div>
@@ -858,7 +840,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 56px
           <p style="font-size:12px;color:rgba(255,255,255,.35);text-align:center;margin-top:16px;font-style:italic;">All donations are tax-deductible. Atrios Elohim Church is a registered non-profit organisation.</p>
           <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);">
             <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Other Ways to Give</div>
-            <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;">You may also give by cash or cheque during any of our services. Make cheques payable to <strong style="color:rgba(255,255,255,.7);">Atrios Elohim Church</strong>.<br>Questions? Email us at <a href="mailto:Atrioselohimchurch@gmail.com" style="color:var(--gold);">Atrioselohimchurch@gmail.com</a></p>
+            <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;">You may also give by cash or cheque during any of our services. Make cheques payable to <strong style="color:rgba(255,255,255,.7);">Atrios Elohim Church</strong>.<br>Questions? Email us at <a href="/cdn-cgi/l/email-protection#652411170c0a1600090a0d0c08060d1017060d250208040c094b060a08" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="357441475c5a4650595a5d5c58565d4047565d755258545c591b565a58">[email&#160;protected]</span></a></p>
           </div>
         </div>
       </div>
@@ -907,7 +889,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 56px
           </div>
           <div class="contact-item">
             <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div><div class="contact-item-title">Email</div><div class="contact-item-text"><a href="mailto:Atrioselohimchurch@gmail.com">Atrioselohimchurch@gmail.com</a></div></div>
+            <div><div class="contact-item-title">Email</div><div class="contact-item-text"><a href="/cdn-cgi/l/email-protection#79380d0b10160a1c15161110141a110c0b1a11391e14181015571a1614"><span class="__cf_email__" data-cfemail="fbba8f899294889e979493929698938e899893bb9c969a9297d5989496">[email&#160;protected]</span></a></div></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
@@ -981,13 +963,13 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 56px
   <div class="footer-grid">
     <div>
       <div class="footer-logo-row">
-        <svg width="48" height="48" viewBox="0 0 50 50" fill="none"><circle cx="25" cy="25" r="24" fill="#1A1A1A" stroke="#C9A84C" stroke-width="1.2"/><path d="M25 8L37 14V27C37 35 25 42 25 42C25 42 13 35 13 27V14L25 8Z" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1.3"/><rect x="20" y="19" width="10" height="8" rx="1" fill="#C9A84C" opacity="0.9"/><line x1="25" y1="19" x2="25" y2="27" stroke="#1A1A1A" stroke-width="0.8"/><line x1="25" y1="13" x2="25" y2="18" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <img src="Atrios_Elohim_Church_-_1.png" alt="Atrios Elohim Church Logo" style="height:64px;width:auto;"/>
         <div><div class="footer-brand-name">Atrios Elohim Church</div><div class="footer-brand-sub">Flemington, NJ</div></div>
       </div>
       <p class="footer-tagline">"To glorify God by making disciples of all nations."</p>
       <div class="footer-contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>6 Court Street, Flemington, NJ</div>
       <div class="footer-contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:9085313821">(908) 531-3821</a></div>
-      <div class="footer-contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:Atrioselohimchurch@gmail.com">Atrioselohimchurch@gmail.com</a></div>
+      <div class="footer-contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="/cdn-cgi/l/email-protection#58192c2a31372b3d34373031353b302d2a3b30183f35393134763b3735"><span class="__cf_email__" data-cfemail="31704543585e42545d5e59585c52594443525971565c50585d1f525e5c">[email&#160;protected]</span></a></div>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
@@ -1033,7 +1015,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 56px
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
@@ -1042,18 +1024,4 @@ function showPage(id) {
   if(navEl) navEl.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function openMobile(){ document.getElementById('mobileMenu').classList.add('open'); }
-function closeMobile(){ document.getElementById('mobileMenu').classList.remove('open'); }
-function submitForm(){
-  document.getElementById('formSuccess').style.display = 'block';
-  setTimeout(()=>{ document.getElementById('formSuccess').style.display='none'; },5000);
-}
-document.querySelectorAll('.give-btn-amt').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.closest('section,div').querySelectorAll('.give-btn-amt').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
-</script>
-</body>
-</html>
+function openMobile(){ document.getElementById('mobileMenu').classL
