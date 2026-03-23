@@ -386,6 +386,112 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
+/* NAV DROPDOWN */
+.nav-dropdown-wrap{position:relative;}
+.nav-dropdown-wrap>a{display:flex;align-items:center;gap:5px;}
+.nav-dropdown-wrap>a svg{transition:transform .2s;}
+.nav-dropdown-wrap:hover>a svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--onyx);border:1px solid rgba(201,168,76,.25);border-top:3px solid var(--gold);border-radius:4px;min-width:220px;box-shadow:0 16px 48px rgba(0,0,0,.45);z-index:300;}
+.nav-dropdown-wrap:hover .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu a{display:block;padding:14px 20px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);transition:background .2s,color .2s;cursor:pointer;}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{background:rgba(201,168,76,.1);color:var(--gold);}
+.nav-dropdown-label{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);cursor:pointer;transition:color .2s;}
+.nav-dropdown-label:hover,.nav-dropdown-wrap:hover .nav-dropdown-label{color:var(--gold);}
+
+/* GET INVOLVED PAGE */
+.involved-page-hero{position:relative;height:500px;background:var(--onyx);display:flex;align-items:center;overflow:hidden;}
+.inv-pg-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px;}
+.inv-pg-step{position:relative;background:var(--white);border-radius:8px;padding:44px 36px;border-bottom:4px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;}
+.inv-pg-step:hover{transform:translateY(-6px);box-shadow:0 20px 56px rgba(0,0,0,.14);}
+.inv-pg-step-num{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:rgba(201,168,76,.12);line-height:1;margin-bottom:16px;}
+.inv-pg-step-icon{width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.inv-pg-step-icon svg{color:var(--onyx);}
+.inv-pg-step-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--onyx);margin-bottom:12px;}
+.inv-pg-step-desc{font-size:14px;line-height:1.75;color:var(--charcoal);}
+
+/* DROPDOWN SECTIONS */
+.accordion-section{background:var(--ivory);padding:110px 0;}
+.accordion-wrap{max-width:960px;margin:0 auto;}
+.accordion-item{border:1px solid rgba(201,168,76,.2);border-radius:6px;margin-bottom:16px;overflow:hidden;transition:border-color .2s;}
+.accordion-item.open{border-color:var(--gold);}
+.accordion-header{display:flex;align-items:center;justify-content:space-between;padding:24px 32px;cursor:pointer;background:var(--white);transition:background .2s;}
+.accordion-item.open .accordion-header{background:var(--onyx);}
+.accordion-header-left{display:flex;align-items:center;gap:18px;}
+.accordion-header-icon{width:46px;height:46px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.accordion-header-icon svg{color:var(--gold);}
+.accordion-item.open .accordion-header-icon{background:rgba(201,168,76,.2);}
+.accordion-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--onyx);transition:color .2s;}
+.accordion-item.open .accordion-title{color:var(--white);}
+.accordion-subtitle{font-size:13px;color:var(--grey);margin-top:4px;transition:color .2s;}
+.accordion-item.open .accordion-subtitle{color:rgba(255,255,255,.5);}
+.accordion-chevron{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,border-color .2s;}
+.accordion-chevron svg{color:var(--gold);transition:transform .3s;}
+.accordion-item.open .accordion-chevron{background:var(--gold);border-color:var(--gold);}
+.accordion-item.open .accordion-chevron svg{color:var(--onyx);transform:rotate(180deg);}
+.accordion-body{display:none;background:var(--onyx);padding:0 32px 36px;}
+.accordion-item.open .accordion-body{display:block;}
+.accordion-body-inner{padding-top:32px;border-top:1px solid rgba(201,168,76,.15);}
+.accordion-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px;}
+.accordion-card{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.12);border-radius:6px;padding:28px 24px;transition:border-color .2s,background .2s;}
+.accordion-card:hover{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.06);}
+.accordion-card-icon{width:44px;height:44px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.accordion-card-icon svg{color:var(--gold);}
+.accordion-card-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.accordion-card-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,.55);}
+.accordion-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+
+/* VOLUNTEER FORM */
+.vol-form-section{background:var(--onyx);padding:110px 0;}
+.vol-form-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+.vol-form-info .label{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.vol-form-info .label::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.vol-form-info h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:20px;}
+.vol-form-info p{font-size:16px;line-height:1.8;color:rgba(255,255,255,.65);margin-bottom:32px;}
+.vol-benefits{display:flex;flex-direction:column;gap:16px;}
+.vol-benefit{display:flex;align-items:flex-start;gap:14px;}
+.vol-benefit-icon{width:36px;height:36px;background:rgba(201,168,76,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.vol-benefit-icon svg{color:var(--gold);}
+.vol-benefit-text{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;}
+.vol-benefit-text strong{color:var(--white);display:block;margin-bottom:2px;}
+
+@media(max-width:960px){
+  .inv-pg-steps{grid-template-columns:1fr 1fr;}
+  .accordion-grid{grid-template-columns:1fr;}
+  .vol-form-grid{grid-template-columns:1fr;}
+  .accordion-header{padding:20px 20px;}
+  .accordion-body{padding:0 20px 28px;}
+}
+@media(max-width:600px){
+  .inv-pg-steps{grid-template-columns:1fr;}
+}
+
+/* VISIT PAGE */
+.visit-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px;}
+.visit-svc-card{background:var(--white);border-radius:8px;padding:40px 32px;border-top:4px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;}
+.visit-svc-card:hover{transform:translateY(-5px);box-shadow:0 20px 56px rgba(0,0,0,.13);}
+.visit-svc-day{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.visit-svc-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--onyx);margin-bottom:6px;}
+.visit-svc-time{font-size:28px;font-weight:900;color:var(--onyx);font-family:'Playfair Display',serif;margin-bottom:16px;}
+.visit-svc-desc{font-size:14px;line-height:1.7;color:var(--grey);}
+.visit-svc-icon{width:52px;height:52px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.visit-svc-icon svg{color:var(--gold);}
+.visit-expect-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:56px;}
+.visit-expect-item{display:flex;gap:20px;align-items:flex-start;}
+.visit-expect-icon{width:52px;height:52px;background:var(--onyx);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.visit-expect-icon svg{color:var(--gold);}
+.visit-expect-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--onyx);margin-bottom:8px;}
+.visit-expect-text{font-size:14px;line-height:1.75;color:var(--charcoal);}
+.visit-faq-item{border-bottom:1px solid rgba(26,26,26,.1);padding:24px 0;}
+.visit-faq-item:last-child{border-bottom:none;}
+.visit-faq-q{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.visit-faq-q svg{flex-shrink:0;transition:transform .3s;color:var(--gold);}
+.visit-faq-item.faq-open .visit-faq-q svg{transform:rotate(180deg);}
+.visit-faq-a{font-size:14px;line-height:1.8;color:rgba(255,255,255,.6);display:none;padding-top:4px;}
+.visit-faq-item.faq-open .visit-faq-a{display:block;}
+@media(max-width:960px){.visit-svc-grid{grid-template-columns:1fr 1fr;}.visit-expect-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.visit-svc-grid{grid-template-columns:1fr;}}
+
 @media(max-width:960px){
   nav{padding:0 20px;}
   .nav-links{display:none;}
@@ -425,8 +531,10 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   <button class="mobile-close" onclick="closeMobile()">✕</button>
   <a onclick="showPage('home');closeMobile()" data-en="Home" data-es="Inicio">Home</a>
   <a onclick="showPage('about');closeMobile()" data-en="About Us" data-es="Quiénes Somos">About Us</a>
+  <a onclick="showPage('visit');closeMobile()" data-en="Plan a Visit" data-es="Visítanos">Plan a Visit</a>
   <a onclick="showPage('sermons');closeMobile()" data-en="Sermons" data-es="Sermones">Sermons</a>
   <a onclick="showPage('events');closeMobile()" data-en="Events" data-es="Eventos">Events</a>
+  <a onclick="showPage('involved');closeMobile()" data-en="Get Involved" data-es="Involúcrate">Get Involved</a>
   <a onclick="showPage('give');closeMobile()" data-en="Give" data-es="Dar">Give</a>
   <a onclick="showPage('contact');closeMobile()" data-en="Contact" data-es="Contacto">Contact</a>
   <div class="mobile-lang">
@@ -454,8 +562,18 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
     <ul class="nav-links">
       <li><a onclick="showPage('home')" id="nav-home" class="active" data-en="Home" data-es="Inicio">Home</a></li>
       <li><a onclick="showPage('about')" id="nav-about" data-en="About Us" data-es="Quiénes Somos">About Us</a></li>
+      <li><a onclick="showPage('visit')" id="nav-visit" data-en="Plan a Visit" data-es="Visítanos">Plan a Visit</a></li>
       <li><a onclick="showPage('sermons')" id="nav-sermons" data-en="Sermons" data-es="Sermones">Sermons</a></li>
       <li><a onclick="showPage('events')" id="nav-events" data-en="Events" data-es="Eventos">Events</a></li>
+      <!-- GET INVOLVED DROPDOWN -->
+      <li class="nav-dropdown-wrap">
+        <span class="nav-dropdown-label" id="nav-involved" onclick="showPage('involved')" data-en="Get Involved" data-es="Involúcrate">Get Involved <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a onclick="showPage('involved')" data-en="Get Involved — Overview" data-es="Involúcrate — Resumen">Get Involved — Overview</a>
+          <a onclick="showPage('involved');setTimeout(function(){document.getElementById('family-groups-acc').scrollIntoView({behavior:'smooth'})},150)" data-en="Family Groups" data-es="Grupos Familiares">Family Groups</a>
+          <a onclick="showPage('involved');setTimeout(function(){document.getElementById('outreach-acc').scrollIntoView({behavior:'smooth'})},150)" data-en="Community Outreach" data-es="Alcance Comunitario">Community Outreach</a>
+        </div>
+      </li>
       <li><a onclick="showPage('contact')" id="nav-contact" data-en="Contact" data-es="Contacto">Contact</a></li>
       <li><a onclick="showPage('give')" id="nav-give" class="nav-give" data-en="Give" data-es="Dar">Give</a></li>
     </ul>
@@ -492,7 +610,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <h1 class="hero-h1" data-en="Where Faith<br>Meets Every<br>Generation" data-es="Donde la Fe<br>Alcanza a<br>Cada Generación">Where Faith<br>Meets Every<br>Generation</h1>
         <p class="hero-sub" data-en="A multigenerational, multicultural community of faith in Flemington, NJ — committed to worship, discipleship, and serving our community and the world." data-es="Una comunidad de fe multigeneracional y multicultural en Flemington, NJ — comprometida con la adoración, el discipulado y el servicio a nuestra comunidad y el mundo.">A multigenerational, multicultural community of faith in Flemington, NJ — committed to worship, discipleship, and serving our community and the world.</p>
         <div class="hero-ctas">
-          <a onclick="showPage('about')" class="btn btn-gold" data-en="Plan a Visit" data-es="Planifica tu Visita">Plan a Visit</a>
+          <a onclick="showPage('visit')" class="btn btn-gold" data-en="Plan a Visit" data-es="Planifica tu Visita">Plan a Visit</a>
           <a onclick="showPage('sermons')" class="btn btn-outline" data-en="Watch Online" data-es="Ver en Línea">Watch Online</a>
         </div>
       </div>
@@ -534,7 +652,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <div class="welcome-strip-text" data-en="New here? You belong here." data-es="¿Nuevo aquí? Aquí perteneces.">New here? You belong here.</div>
         <div class="welcome-strip-sub" data-en="No dress code. No requirements. Just come as you are." data-es="Sin código de vestimenta. Sin requisitos. Ven tal como eres.">No dress code. No requirements. Just come as you are.</div>
       </div>
-      <a onclick="showPage('about')" class="btn" style="background:var(--onyx);color:var(--gold);border:2px solid var(--onyx);padding:12px 28px;font-size:12px;" data-en="Plan Your Visit" data-es="Planifica tu Visita">Plan Your Visit</a>
+      <a onclick="showPage('visit')" class="btn" style="background:var(--onyx);color:var(--gold);border:2px solid var(--onyx);padding:12px 28px;font-size:12px;" data-en="Plan Your Visit" data-es="Planifica tu Visita">Plan Your Visit</a>
     </div>
   </div>
 
@@ -696,7 +814,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
           <div class="section-label" data-en="Serve" data-es="Servir">Serve</div>
           <h2 class="section-heading white" data-en="Be a Force<br>for Good" data-es="Sé una Fuerza<br>para el Bien">Be a Force<br>for Good</h2>
           <p class="section-body muted" data-en="This church runs on big-hearted people who aren't afraid to roll up their sleeves. Whether greeting at the door, leading worship, or serving our neighbours — your hands are needed." data-es="Esta iglesia funciona gracias a personas de gran corazón que no temen arremangarse. Ya sea saludando en la puerta, liderando la adoración o sirviendo a nuestros vecinos — tus manos son necesarias.">This church runs on big-hearted people who aren't afraid to roll up their sleeves. Whether greeting at the door, leading worship, or serving our neighbours — your hands are needed.</p>
-          <a onclick="showPage('contact')" class="btn btn-gold" data-en="Get Involved" data-es="Involúcrate">Get Involved</a>
+          <a onclick="showPage('involved')" class="btn btn-gold" data-en="Get Involved" data-es="Involúcrate">Get Involved</a>
         </div>
         <div class="inv-cards">
           <div class="inv-card">
@@ -763,12 +881,39 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
       <p class="section-body" style="max-width:780px;" data-en="Atrios Elohim Church is a multigenerational, multicultural community of faith located at 6 Court Street in Flemington, NJ. We are a congregation committed to worship, discipleship, and authentic service — building lives on the unshakeable foundation of God's Word." data-es="Atrios Elohim Church es una comunidad de fe multigeneracional y multicultural ubicada en 6 Court Street en Flemington, NJ. Somos una congregación comprometida con la adoración, el discipulado y el servicio auténtico — edificando vidas sobre el fundamento inquebrantable de la Palabra de Dios.">Atrios Elohim Church is a multigenerational, multicultural community of faith located at 6 Court Street in Flemington, NJ. We are a congregation committed to worship, discipleship, and authentic service — building lives on the unshakeable foundation of God's Word.</p>
       <div class="mission-grid">
         <div class="mission-box">
-          <div class="mission-box-title" data-en="Our Mission" data-es="Nuestra Misión">Our Mission</div>
-          <p class="mission-box-text" data-en="To glorify God by making disciples of all nations, cultivating a community rooted in Scripture, prayer, and authentic love." data-es="Glorificar a Dios haciendo discípulos de todas las naciones, cultivando una comunidad arraigada en la Escritura, la oración y el amor auténtico.">To glorify God by making disciples of all nations, cultivating a community rooted in Scripture, prayer, and authentic love.</p>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><div style="width:48px;height:48px;background:rgba(201,168,76,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="mission-box-title" style="margin-bottom:0;" data-en="Our Mission" data-es="Nuestra Misión">Our Mission</div></div>
+          <p class="mission-box-text" style="font-size:16px;font-weight:600;color:var(--soft-gold);margin-bottom:16px;font-style:italic;" data-en="&ldquo;To glorify God by making disciples of all nations, cultivating a community rooted in Scripture, prayer, and authentic love.&rdquo;" data-es="&ldquo;Glorificar a Dios haciendo discípulos de todas las naciones, cultivando una comunidad arraigada en la Escritura, la oración y el amor auténtico.&rdquo;">&ldquo;To glorify God by making disciples of all nations, cultivating a community rooted in Scripture, prayer, and authentic love.&rdquo;</p>
+          <p class="mission-box-text" data-en="Everything we do at Atrios Elohim Church flows from this mission. We are not simply a gathering place — we are a sending community. We gather on Sundays to worship, to be filled with God's Word, and to be sharpened by the Holy Spirit. But the moment the service ends, the mission begins." data-es="Todo lo que hacemos en Atrios Elohim Church fluye de esta misión. No somos simplemente un lugar de reunión — somos una comunidad enviadora. Nos reunimos los domingos para adorar, para ser llenados de la Palabra de Dios y para ser afilados por el Espíritu Santo. Pero en el momento en que el servicio termina, la misión comienza.">Everything we do at Atrios Elohim Church flows from this mission. We are not simply a gathering place — we are a sending community. We gather on Sundays to worship, to be filled with God's Word, and to be sharpened by the Holy Spirit. But the moment the service ends, the mission begins.</p>
+          <p class="mission-box-text" data-en="Making disciples means more than teaching people facts about the Bible. It means walking alongside people through every season of life — celebrating their victories, sitting with them in their pain, and calling out the greatness God has placed inside of them. It means building relationships so deep that transformation cannot be avoided." data-es="Hacer discípulos significa más que enseñarle a la gente datos sobre la Biblia. Significa caminar junto a las personas en cada temporada de la vida — celebrando sus victorias, sentándose con ellos en su dolor y llamando a la grandeza que Dios ha puesto dentro de ellos.">Making disciples means more than teaching people facts about the Bible. It means walking alongside people through every season of life — celebrating their victories, sitting with them in their pain, and calling out the greatness God has placed inside of them.</p>
+          <p class="mission-box-text" data-en="We are a multicultural church by conviction, not by accident. We believe the Kingdom of God looks like every tribe, tongue, and nation — and we strive every day to reflect that reality right here in Flemington, NJ." data-es="Somos una iglesia multicultural por convicción, no por accidente. Creemos que el Reino de Dios se parece a cada tribu, lengua y nación — y nos esforzamos cada día por reflejar esa realidad aquí en Flemington, NJ.">We are a multicultural church by conviction, not by accident. We believe the Kingdom of God looks like every tribe, tongue, and nation — and we strive every day to reflect that reality right here in Flemington, NJ.</p>
         </div>
         <div class="mission-box">
-          <div class="mission-box-title" data-en="Our Vision" data-es="Nuestra Visión">Our Vision</div>
-          <p class="mission-box-text" data-en="A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world." data-es="Una iglesia multigeneracional próspera donde cada persona se encuentra con el Dios vivo, es transformada por el Evangelio y es enviada a servir a su comunidad y al mundo.">A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world.</p>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><div style="width:48px;height:48px;background:rgba(201,168,76,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="mission-box-title" style="margin-bottom:0;" data-en="Our Vision" data-es="Nuestra Visión">Our Vision</div></div>
+          <p class="mission-box-text" style="font-size:16px;font-weight:600;color:var(--soft-gold);margin-bottom:16px;font-style:italic;" data-en="&ldquo;A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world.&rdquo;" data-es="&ldquo;Una iglesia multigeneracional próspera donde cada persona se encuentra con el Dios vivo, es transformada por el Evangelio y es enviada a servir a su comunidad y al mundo.&rdquo;">&ldquo;A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world.&rdquo;</p>
+          <p class="mission-box-text" data-en="We are building something that will outlast any of us. Our vision is not simply for today — it is for the next generation and the generation after that. We are planting seeds of faith in Flemington, NJ that we believe will bear fruit for decades to come." data-es="Estamos construyendo algo que nos sobrevivirá a todos. Nuestra visión no es solo para hoy — es para la próxima generación y la generación después de esa. Estamos plantando semillas de fe en Flemington, NJ que creemos darán fruto por décadas.">We are building something that will outlast any of us. Our vision is not simply for today — it is for the next generation and the generation after that. We are planting seeds of faith in Flemington, NJ that we believe will bear fruit for decades to come.</p>
+          <p class="mission-box-text" data-en="&ldquo;Thriving&rdquo; means more than growing in numbers. It means growing in depth — in prayer, in love, in generosity, in boldness. We want to be a church where the presence of God is so tangible that lives are healed, families are restored, and the broken are made whole." data-es="&ldquo;Próspera&rdquo; significa más que crecer en números. Significa crecer en profundidad — en oración, en amor, en generosidad, en valentía. Queremos ser una iglesia donde la presencia de Dios sea tan tangible que las vidas sean sanadas, las familias restauradas y los quebrantados sean hechos completos.">&ldquo;Thriving&rdquo; means more than growing in numbers. It means growing in depth — in prayer, in love, in generosity, in boldness. We want to be a church where the presence of God is so tangible that lives are healed, families are restored, and the broken are made whole.</p>
+          <p class="mission-box-text" data-en="&ldquo;Sent&rdquo; is the word that defines what makes us different. Every person who comes through our doors will eventually be equipped and released — into their workplace, their neighbourhood, their family, and yes, to the nations. That is the heartbeat of Atrios Elohim Church." data-es="&ldquo;Enviada&rdquo; es la palabra que define lo que nos hace diferentes. Cada persona que pase por nuestras puertas será eventualmente equipada y enviada — a su lugar de trabajo, su vecindario, su familia y sí, a las naciones. Ese es el corazón de Atrios Elohim Church.">&ldquo;Sent&rdquo; is the word that defines what makes us different. Every person who comes through our doors will eventually be equipped and released — into their workplace, their neighbourhood, their family, and yes, to the nations. That is the heartbeat of Atrios Elohim Church.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY TIMELINE -->
+  <section style="background:var(--onyx);padding:110px 0;">
+    <div class="inner">
+      <div class="section-label" style="color:var(--soft-gold);" data-en="How We Got Here" data-es="Cómo Llegamos Aquí">How We Got Here</div>
+      <h2 class="section-heading white" data-en="Our Story" data-es="Nuestra Historia">Our Story</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:56px;">
+        <div>
+          <p style="font-size:16px;line-height:1.85;color:rgba(255,255,255,.65);margin-bottom:24px;" data-en="Atrios Elohim Church was born out of a simple but radical conviction — that the church of Jesus Christ was never meant to be a spectator sport. From the very beginning, Apostol Edwin Colop gathered a small group of believers in Flemington, NJ with one purpose: to encounter God together and then go change the world." data-es="Atrios Elohim Church nació de una convicción simple pero radical — que la iglesia de Jesucristo nunca fue pensada para ser un deporte de espectadores. Desde el principio, el Apóstol Edwin Colop reunió a un pequeño grupo de creyentes en Flemington, NJ con un propósito: encontrarse con Dios juntos y luego ir a cambiar el mundo.">Atrios Elohim Church was born out of a simple but radical conviction — that the church of Jesus Christ was never meant to be a spectator sport. From the very beginning, Apostol Edwin Colop gathered a small group of believers in Flemington, NJ with one purpose: to encounter God together and then go change the world.</p>
+          <p style="font-size:16px;line-height:1.85;color:rgba(255,255,255,.65);margin-bottom:24px;" data-en="What began as a small gathering quickly became a movement. People from different backgrounds, different cultures, and different life experiences found something rare here — a community where they were not just welcomed but truly known. A place where worship was real, preaching was honest, and love was demonstrated not just proclaimed." data-es="Lo que comenzó como una pequeña reunión rápidamente se convirtió en un movimiento. Personas de diferentes orígenes, diferentes culturas y diferentes experiencias de vida encontraron algo raro aquí — una comunidad donde no solo eran bienvenidos sino verdaderamente conocidos.">What began as a small gathering quickly became a movement. People from different backgrounds, different cultures, and different life experiences found something rare here — a community where they were not just welcomed but truly known. A place where worship was real, preaching was honest, and love was demonstrated not just proclaimed.</p>
+          <p style="font-size:16px;line-height:1.85;color:rgba(255,255,255,.65);" data-en="Today, Atrios Elohim Church stands as a testament to what God can do with a faithful remnant. We have seen baptisms in rivers, street ministry that has fed hundreds, chaplains commissioned to serve their communities, and families transformed by the power of the Gospel. And we believe the best is still ahead." data-es="Hoy, Atrios Elohim Church es un testimonio de lo que Dios puede hacer con un remanente fiel. Hemos visto bautismos en ríos, ministerio callejero que ha alimentado a cientos, capellanes comisionados para servir a sus comunidades y familias transformadas por el poder del Evangelio. Y creemos que lo mejor aún está por venir.">Today, Atrios Elohim Church stands as a testament to what God can do with a faithful remnant. We have seen baptisms in rivers, street ministry that has fed hundreds, chaplains commissioned to serve their communities, and families transformed by the power of the Gospel. And we believe the best is still ahead.</p>
+        </div>
+        <div>
+          <div style="display:flex;gap:20px;padding-bottom:32px;border-bottom:1px solid rgba(201,168,76,.12);"><div style="width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px;" data-en="Founded in Flemington" data-es="Fundada en Flemington">Founded in Flemington</div><p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;" data-en="A small gathering of believers united by a hunger for God's presence and a passion to reach their community." data-es="Una pequeña reunión de creyentes unidos por un hambre de la presencia de Dios y una pasión por alcanzar a su comunidad.">A small gathering of believers united by a hunger for God's presence and a passion to reach their community.</p></div></div>
+          <div style="display:flex;gap:20px;padding:32px 0;border-bottom:1px solid rgba(201,168,76,.12);"><div style="width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px;" data-en="Community Grows" data-es="La Comunidad Crece">Community Grows</div><p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;" data-en="Families and individuals from across the region find a home — and the church expands its ministries and outreach programs." data-es="Familias e individuos de toda la región encuentran un hogar — y la iglesia amplía sus ministerios y programas de alcance.">Families and individuals from across the region find a home — and the church expands its ministries and outreach programs.</p></div></div>
+          <div style="display:flex;gap:20px;padding:32px 0;border-bottom:1px solid rgba(201,168,76,.12);"><div style="width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px;" data-en="Street Ministry Launches" data-es="Lanza el Ministerio Callejero">Street Ministry Launches</div><p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;" data-en="The church takes the Gospel beyond four walls — feeding hundreds on the streets of New Jersey and demonstrating God's love in action." data-es="La iglesia lleva el Evangelio más allá de cuatro paredes — alimentando a cientos en las calles de Nueva Jersey y demostrando el amor de Dios en acción.">The church takes the Gospel beyond four walls — feeding hundreds on the streets of New Jersey and demonstrating God's love in action.</p></div></div>
+          <div style="display:flex;gap:20px;padding-top:32px;"><div style="width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px;" data-en="Chaplaincy Program Established" data-es="Programa de Capellanía Establecido">Chaplaincy Program Established</div><p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;" data-en="Atrios Elohim begins training and commissioning chaplains — equipping believers to carry God's presence into every corner of society." data-es="Atrios Elohim comienza a entrenar y comisionar capellanes — equipando a los creyentes para llevar la presencia de Dios a cada rincón de la sociedad.">Atrios Elohim begins training and commissioning chaplains — equipping believers to carry God's presence into every corner of society.</p></div></div>
         </div>
       </div>
     </div>
@@ -970,6 +1115,235 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   </section>
 </div>
 
+<!-- ═══ GET INVOLVED ═══ -->
+<div class="page" id="page-involved">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('476964805_954499930121161_9010086688706564236_n.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow" data-en="Join the Mission" data-es="Únete a la Misión">Join the Mission</div>
+      <h1 data-en="Get Involved" data-es="Involúcrate">Get Involved</h1>
+    </div>
+    <div class="page-hero-line"></div>
+  </section>
+
+  <!-- INTRO / HOW TO GET STARTED -->
+  <section style="background:var(--ivory);padding:110px 0;">
+    <div class="inner">
+      <div style="max-width:720px;margin-bottom:64px;">
+        <div class="section-label" data-en="You Have a Role Here" data-es="Tienes un Rol Aquí">You Have a Role Here</div>
+        <h2 class="section-heading" data-en="This Church Runs<br>on People Like You" data-es="Esta Iglesia Funciona<br>con Personas Como Tú">This Church Runs<br>on People Like You</h2>
+        <p class="section-body" data-en="At Atrios Elohim Church, we believe every member is a minister. Whether you are brand new or have been here for years, there is a place for your gifts, your time, and your passion. From family groups to community outreach — we want you involved." data-es="En Atrios Elohim Church, creemos que cada miembro es un ministro. Ya seas nuevo o lleves años con nosotros, hay un lugar para tus dones, tu tiempo y tu pasión. Desde grupos familiares hasta alcance comunitario — queremos que estés involucrado.">At Atrios Elohim Church, we believe every member is a minister. Whether you are brand new or have been here for years, there is a place for your gifts, your time, and your passion. From family groups to community outreach — we want you involved.</p>
+      </div>
+      <div class="inv-pg-steps">
+        <div class="inv-pg-step">
+          <div class="inv-pg-step-num">01</div>
+          <div class="inv-pg-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="inv-pg-step-title" data-en="Join a Group" data-es="Únete a un Grupo">Join a Group</div>
+          <p class="inv-pg-step-desc" data-en="Start by connecting with a Family Group — a small community of people walking through life and faith together." data-es="Comienza conectándote con un Grupo Familiar — una pequeña comunidad de personas que caminan juntos en la vida y la fe.">Start by connecting with a Family Group — a small community of people walking through life and faith together.</p>
+        </div>
+        <div class="inv-pg-step">
+          <div class="inv-pg-step-num">02</div>
+          <div class="inv-pg-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="inv-pg-step-title" data-en="Discover Your Gifts" data-es="Descubre Tus Dones">Discover Your Gifts</div>
+          <p class="inv-pg-step-desc" data-en="We'll help you find where your talents fit — worship, hospitality, prayer, outreach, children's ministry, and more." data-es="Te ayudaremos a encontrar dónde encajan tus talentos — adoración, hospitalidad, oración, alcance, ministerio de niños y más.">We'll help you find where your talents fit — worship, hospitality, prayer, outreach, children's ministry, and more.</p>
+        </div>
+        <div class="inv-pg-step">
+          <div class="inv-pg-step-num">03</div>
+          <div class="inv-pg-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <div class="inv-pg-step-title" data-en="Serve the World" data-es="Sirve al Mundo">Serve the World</div>
+          <p class="inv-pg-step-desc" data-en="From street outreach in Flemington to chaplaincy — we are a church that goes beyond four walls to serve our community and the nations." data-es="Desde el alcance callejero en Flemington hasta la capellanía — somos una iglesia que va más allá de cuatro paredes para servir a nuestra comunidad y las naciones.">From street outreach in Flemington to chaplaincy — we are a church that goes beyond four walls to serve our community and the nations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCORDION DROPDOWNS -->
+  <section class="accordion-section" id="accordion-main">
+    <div class="inner">
+      <div class="section-label center" data-en="Explore Your Options" data-es="Explora Tus Opciones">Explore Your Options</div>
+      <h2 class="section-heading" style="text-align:center;margin-bottom:56px;" data-en="Ways to Get Involved" data-es="Formas de Involucrarte">Ways to Get Involved</h2>
+
+      <div class="accordion-wrap">
+
+        <!-- ── FAMILY GROUPS ── -->
+        <div class="accordion-item" id="family-groups-acc">
+          <div class="accordion-header" onclick="toggleAccordion('family-groups-acc')">
+            <div class="accordion-header-left">
+              <div class="accordion-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div>
+                <div class="accordion-title" data-en="Family Groups" data-es="Grupos Familiares">Family Groups</div>
+                <div class="accordion-subtitle" data-en="Connect with community · Small groups · Life together" data-es="Conéctate con la comunidad · Grupos pequeños · Vida juntos">Connect with community · Small groups · Life together</div>
+              </div>
+            </div>
+            <div class="accordion-chevron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,.65);margin-bottom:8px;" data-en="Family Groups are the heartbeat of life at Atrios Elohim Church. These small gatherings of 8–15 people meet regularly to study God's Word, pray together, share meals, and support one another through the joys and challenges of everyday life. No matter your background, age, or life stage — there is a Family Group for you." data-es="Los Grupos Familiares son el corazón de la vida en Atrios Elohim Church. Estas pequeñas reuniones de 8 a 15 personas se reúnen regularmente para estudiar la Palabra de Dios, orar juntos, compartir comidas y apoyarse mutuamente en las alegrías y desafíos de la vida cotidiana. Sin importar tu origen, edad o etapa de vida — hay un Grupo Familiar para ti.">Family Groups are the heartbeat of life at Atrios Elohim Church. These small gatherings of 8–15 people meet regularly to study God's Word, pray together, share meals, and support one another through the joys and challenges of everyday life. No matter your background, age, or life stage — there is a Family Group for you.</p>
+              <div class="accordion-grid">
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+                  <div class="accordion-card-title" data-en="Bible Study Groups" data-es="Grupos de Estudio Bíblico">Bible Study Groups</div>
+                  <p class="accordion-card-desc" data-en="Dive deep into Scripture together in an intimate, discussion-based setting. We explore the Bible book by book, chapter by chapter." data-es="Sumérgete profundamente en las Escrituras juntos en un ambiente íntimo y de discusión. Exploramos la Biblia libro por libro, capítulo por capítulo.">Dive deep into Scripture together in an intimate, discussion-based setting. We explore the Bible book by book, chapter by chapter.</p>
+                </div>
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                  <div class="accordion-card-title" data-en="Men's Group" data-es="Grupo de Hombres">Men's Group</div>
+                  <p class="accordion-card-desc" data-en="A brotherhood of men pursuing faith, accountability, and growth together. Building strong men of God who lead their families and communities." data-es="Una hermandad de hombres que buscan la fe, la rendición de cuentas y el crecimiento juntos. Formando hombres de Dios que lideran sus familias y comunidades.">A brotherhood of men pursuing faith, accountability, and growth together. Building strong men of God who lead their families and communities.</p>
+                </div>
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+                  <div class="accordion-card-title" data-en="Women's Group" data-es="Grupo de Mujeres">Women's Group</div>
+                  <p class="accordion-card-desc" data-en="A sisterhood of women growing in faith, finding community, and supporting one another through prayer, worship, and authentic relationship." data-es="Una hermandad de mujeres que crecen en la fe, encuentran comunidad y se apoyan mutuamente a través de la oración, la adoración y relaciones auténticas.">A sisterhood of women growing in faith, finding community, and supporting one another through prayer, worship, and authentic relationship.</p>
+                </div>
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg></div>
+                  <div class="accordion-card-title" data-en="Young Families Group" data-es="Grupo de Familias Jóvenes">Young Families Group</div>
+                  <p class="accordion-card-desc" data-en="For parents of young children navigating faith, marriage, and parenthood together. A supportive community for the season of raising a family." data-es="Para padres de niños pequeños que navegan juntos la fe, el matrimonio y la paternidad. Una comunidad de apoyo para la temporada de criar una familia.">For parents of young children navigating faith, marriage, and parenthood together. A supportive community for the season of raising a family.</p>
+                </div>
+              </div>
+              <div class="accordion-cta">
+                <a onclick="showPage('contact')" class="btn btn-gold" style="padding:13px 28px;font-size:12px;" data-en="Join a Family Group" data-es="Únete a un Grupo Familiar">Join a Family Group</a>
+                <a onclick="showPage('contact')" class="btn btn-outline-gold" style="padding:12px 28px;font-size:12px;background:transparent;" data-en="Start a New Group" data-es="Iniciar un Nuevo Grupo">Start a New Group</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── COMMUNITY OUTREACH ── -->
+        <div class="accordion-item" id="outreach-acc">
+          <div class="accordion-header" onclick="toggleAccordion('outreach-acc')">
+            <div class="accordion-header-left">
+              <div class="accordion-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div>
+                <div class="accordion-title" data-en="Community Outreach" data-es="Alcance Comunitario">Community Outreach</div>
+                <div class="accordion-subtitle" data-en="Serve Flemington · Street ministry · Missions · Chaplaincy" data-es="Sirve a Flemington · Ministerio callejero · Misiones · Capellanía">Serve Flemington · Street ministry · Missions · Chaplaincy</div>
+              </div>
+            </div>
+            <div class="accordion-chevron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,.65);margin-bottom:8px;" data-en="At Atrios Elohim Church we believe the Gospel has to be lived out in the streets, not just proclaimed from a pulpit. Our outreach teams regularly go into the community — serving meals, praying for the sick, sharing hope with the homeless, and bringing the love of Jesus to those who need it most." data-es="En Atrios Elohim Church creemos que el Evangelio tiene que vivirse en las calles, no solo proclamarse desde un púlpito. Nuestros equipos de alcance van regularmente a la comunidad — sirviendo comidas, orando por los enfermos, compartiendo esperanza con los sin hogar y llevando el amor de Jesús a quienes más lo necesitan.">At Atrios Elohim Church we believe the Gospel has to be lived out in the streets, not just proclaimed from a pulpit. Our outreach teams regularly go into the community — serving meals, praying for the sick, sharing hope with the homeless, and bringing the love of Jesus to those who need it most.</p>
+              <div class="accordion-grid">
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                  <div class="accordion-card-title" data-en="Street Ministry" data-es="Ministerio Callejero">Street Ministry</div>
+                  <p class="accordion-card-desc" data-en="Join our teams as we bring food, clothing, prayer, and the Gospel to the streets of New Jersey. We regularly serve homeless neighbours and vulnerable communities." data-es="Únete a nuestros equipos mientras llevamos comida, ropa, oración y el Evangelio a las calles de Nueva Jersey. Regularmente servimos a vecinos sin hogar y comunidades vulnerables.">Join our teams as we bring food, clothing, prayer, and the Gospel to the streets of New Jersey. We regularly serve homeless neighbours and vulnerable communities.</p>
+                </div>
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+                  <div class="accordion-card-title" data-en="Prayer Outreach" data-es="Alcance de Oración">Prayer Outreach</div>
+                  <p class="accordion-card-desc" data-en="Our prayer teams go out into the community to pray for individuals on the spot — in parks, hospitals, and wherever people are gathered." data-es="Nuestros equipos de oración salen a la comunidad para orar por personas en el momento — en parques, hospitales y donde sea que la gente esté reunida.">Our prayer teams go out into the community to pray for individuals on the spot — in parks, hospitals, and wherever people are gathered.</p>
+                </div>
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+                  <div class="accordion-card-title" data-en="Chaplaincy Program" data-es="Programa de Capellanía">Chaplaincy Program</div>
+                  <p class="accordion-card-desc" data-en="Get trained and commissioned as a chaplain to serve in hospitals, prisons, schools, and workplaces — bringing God's peace to every sphere of society." data-es="Recibe entrenamiento y sé comisionado como capellán para servir en hospitales, prisiones, escuelas y lugares de trabajo — llevando la paz de Dios a cada esfera de la sociedad.">Get trained and commissioned as a chaplain to serve in hospitals, prisons, schools, and workplaces — bringing God's peace to every sphere of society.</p>
+                </div>
+                <div class="accordion-card">
+                  <div class="accordion-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div class="accordion-card-title" data-en="Missions Support" data-es="Apoyo a Misiones">Missions Support</div>
+                  <p class="accordion-card-desc" data-en="Support our local and international missions through giving, prayer, and going. We believe the Great Commission is for every believer." data-es="Apoya nuestras misiones locales e internacionales a través de la ofrenda, la oración y el ir. Creemos que la Gran Comisión es para cada creyente.">Support our local and international missions through giving, prayer, and going. We believe the Great Commission is for every believer.</p>
+                </div>
+              </div>
+              <div class="accordion-cta">
+                <a onclick="showPage('contact')" class="btn btn-gold" style="padding:13px 28px;font-size:12px;" data-en="Join an Outreach Team" data-es="Únete a un Equipo de Alcance">Join an Outreach Team</a>
+                <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-outline-gold" style="padding:12px 28px;font-size:12px;background:transparent;" data-en="See Our Outreach on Facebook" data-es="Ver Nuestro Alcance en Facebook">See Our Outreach on Facebook</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end accordion-wrap -->
+    </div>
+  </section>
+
+  <!-- VOLUNTEER SIGN UP FORM -->
+  <section class="vol-form-section">
+    <div class="inner">
+      <div class="vol-form-grid">
+        <div class="vol-form-info">
+          <div class="label" data-en="Take the Next Step" data-es="Da el Siguiente Paso">Take the Next Step</div>
+          <h2 data-en="Ready to<br>Get Involved?" data-es="¿Listo para<br>Involucrarte?">Ready to<br>Get Involved?</h2>
+          <p data-en="Fill out the form and one of our team members will be in touch with you within 1–2 days to help you find the perfect place to serve." data-es="Completa el formulario y uno de los miembros de nuestro equipo se pondrá en contacto contigo dentro de 1 a 2 días para ayudarte a encontrar el lugar perfecto para servir.">Fill out the form and one of our team members will be in touch with you within 1–2 days to help you find the perfect place to serve.</p>
+          <div class="vol-benefits">
+            <div class="vol-benefit">
+              <div class="vol-benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+              <div class="vol-benefit-text"><strong data-en="Real Community" data-es="Comunidad Real">Real Community</strong><span data-en="You'll be placed with a team that becomes family — not just a volunteer role." data-es="Serás parte de un equipo que se convierte en familia — no solo un rol de voluntario.">You'll be placed with a team that becomes family — not just a volunteer role.</span></div>
+            </div>
+            <div class="vol-benefit">
+              <div class="vol-benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="vol-benefit-text"><strong data-en="Your Gifts Matter" data-es="Tus Dones Importan">Your Gifts Matter</strong><span data-en="We match you to a role that fits your personality, gifts, and availability." data-es="Te emparejamos con un rol que se adapte a tu personalidad, dones y disponibilidad.">We match you to a role that fits your personality, gifts, and availability.</span></div>
+            </div>
+            <div class="vol-benefit">
+              <div class="vol-benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+              <div class="vol-benefit-text"><strong data-en="Make Real Impact" data-es="Haz un Impacto Real">Make Real Impact</strong><span data-en="Your service changes lives — in our church, in Flemington, and across the world." data-es="Tu servicio cambia vidas — en nuestra iglesia, en Flemington y en todo el mundo.">Your service changes lives — in our church, in Flemington, and across the world.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-title" data-en="Volunteer Sign-Up" data-es="Registro de Voluntario">Volunteer Sign-Up</div>
+          <div class="form-sub" data-en="Tell us about yourself and where you'd like to serve." data-es="Cuéntanos sobre ti y dónde te gustaría servir.">Tell us about yourself and where you'd like to serve.</div>
+          <div class="form-row">
+            <div class="form-group"><label data-en="First Name" data-es="Nombre">First Name</label><input type="text" data-placeholder-en="John" data-placeholder-es="Juan" placeholder="John"/></div>
+            <div class="form-group"><label data-en="Last Name" data-es="Apellido">Last Name</label><input type="text" data-placeholder-en="Smith" data-placeholder-es="García" placeholder="Smith"/></div>
+          </div>
+          <div class="form-group"><label data-en="Email Address" data-es="Correo Electrónico">Email Address</label><input type="email" placeholder="john@email.com"/></div>
+          <div class="form-group"><label data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label><input type="tel" placeholder="(908) 000-0000"/></div>
+          <div class="form-group"><label data-en="I'm interested in" data-es="Me interesa">I'm interested in</label>
+            <select>
+              <option data-en="Family Groups" data-es="Grupos Familiares">Family Groups</option>
+              <option data-en="Bible Study Group" data-es="Grupo de Estudio Bíblico">Bible Study Group</option>
+              <option data-en="Men's Group" data-es="Grupo de Hombres">Men's Group</option>
+              <option data-en="Women's Group" data-es="Grupo de Mujeres">Women's Group</option>
+              <option data-en="Young Families Group" data-es="Grupo de Familias Jóvenes">Young Families Group</option>
+              <option data-en="Street Ministry / Outreach" data-es="Ministerio Callejero / Alcance">Street Ministry / Outreach</option>
+              <option data-en="Prayer Outreach Team" data-es="Equipo de Alcance de Oración">Prayer Outreach Team</option>
+              <option data-en="Chaplaincy Program" data-es="Programa de Capellanía">Chaplaincy Program</option>
+              <option data-en="Worship Team" data-es="Equipo de Adoración">Worship Team</option>
+              <option data-en="Hospitality" data-es="Hospitalidad">Hospitality</option>
+              <option data-en="Children's Ministry" data-es="Ministerio de Niños">Children's Ministry</option>
+              <option data-en="Other" data-es="Otro">Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-en="Tell us about yourself" data-es="Cuéntanos sobre ti">Tell us about yourself</label><textarea data-placeholder-en="Share your gifts, availability, or any questions you have..." data-placeholder-es="Comparte tus dones, disponibilidad o cualquier pregunta que tengas..." placeholder="Share your gifts, availability, or any questions you have..."></textarea></div>
+          <button class="form-submit" onclick="submitVolForm()" data-en="Sign Me Up →" data-es="Registrarme →">Sign Me Up →</button>
+          <div class="form-success" id="volFormSuccess" data-en="✓ Thank you! We'll be in touch within 1–2 days to connect you with your team." data-es="✓ ¡Gracias! Nos pondremos en contacto en 1 a 2 días para conectarte con tu equipo.">✓ Thank you! We'll be in touch within 1–2 days to connect you with your team.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTREACH PHOTOS STRIP -->
+  <section style="background:var(--onyx);padding:0;overflow:hidden;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);height:280px;">
+      <div style="overflow:hidden;"><img src="477798116_954502700120884_8089935550528402387_n.jpg" alt="Outreach" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block;"/></div>
+      <div style="overflow:hidden;"><img src="476675589_954502656787555_2429214692221371809_n.jpg" alt="Outreach" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block;"/></div>
+      <div style="overflow:hidden;"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt="Community" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block;"/></div>
+      <div style="overflow:hidden;"><img src="477160286_954500270121127_5162141681045928069_n.jpg" alt="Ministry" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block;"/></div>
+    </div>
+  </section>
+
+  <section class="scripture-banner">
+    <div class="scripture-inner"><div class="scripture-rule"></div><div>
+      <p class="scripture-text" data-en='"We are therefore Christ\'s ambassadors, as though God were making his appeal through us."' data-es='"Así que somos embajadores de Cristo, como si Dios les rogara a ustedes por medio de nosotros."'>"We are therefore Christ's ambassadors, as though God were making his appeal through us."</p>
+      <div class="scripture-ref" data-en="2 Corinthians 5:20" data-es="2 Corintios 5:20">2 Corinthians 5:20</div>
+    </div></div>
+  </section>
+
+</div>
 <!-- ═══ GIVE ═══ -->
 <div class="page" id="page-give">
   <section class="page-hero">
@@ -1167,6 +1541,191 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   </section>
 </div>
 
+<!-- ═══ VISIT ═══ -->
+<div class="page" id="page-visit">
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('476964805_954499930121161_9010086688706564236_n.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow" data-en="We're Expecting You" data-es="Te Estamos Esperando">We're Expecting You</div>
+      <h1 data-en="Plan Your Visit" data-es="Planifica tu Visita">Plan Your Visit</h1>
+    </div>
+    <div class="page-hero-line"></div>
+  </section>
+
+  <!-- SERVICE TIMES -->
+  <section style="background:var(--ivory);padding:110px 0;">
+    <div class="inner">
+      <div class="section-label" data-en="When We Meet" data-es="Cuándo Nos Reunimos">When We Meet</div>
+      <h2 class="section-heading" data-en="Service Times &<br>Schedule" data-es="Horarios de Servicio<br>y Programación">Service Times &<br>Schedule</h2>
+      <p class="section-body" style="max-width:680px;" data-en="We would love to see you this week. Whether it's your first time or you've been attending for years, every service is a fresh encounter with God. Here's when and where we meet:" data-es="Nos encantaría verte esta semana. Ya sea que sea tu primera vez o lleves años asistiendo, cada servicio es un encuentro fresco con Dios. Aquí está cuándo y dónde nos reunimos:">We would love to see you this week. Whether it's your first time or you've been attending for years, every service is a fresh encounter with God. Here's when and where we meet:</p>
+      <div class="visit-svc-grid">
+        <div class="visit-svc-card">
+          <div class="visit-svc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="visit-svc-day" data-en="Every Sunday" data-es="Cada Domingo">Every Sunday</div>
+          <div class="visit-svc-name" data-en="Morning Worship Service" data-es="Servicio de Adoración Matutino">Morning Worship Service</div>
+          <div class="visit-svc-time">1:00 PM</div>
+          <p class="visit-svc-desc" data-en="Our main Sunday gathering features Spirit-led worship, powerful preaching from God's Word by Apostol Edwin Colop, and a warm community ready to welcome you. Plan to arrive a few minutes early to find a seat and meet some of our team." data-es="Nuestra reunión principal del domingo presenta adoración guiada por el Espíritu, poderosa predicación de la Palabra de Dios por el Apóstol Edwin Colop y una cálida comunidad lista para recibirte. Planea llegar unos minutos antes para encontrar un asiento y conocer a algunos de nuestro equipo.">Our main Sunday gathering features Spirit-led worship, powerful preaching from God's Word by Apostol Edwin Colop, and a warm community ready to welcome you. Plan to arrive a few minutes early to find a seat and meet some of our team.</p>
+        </div>
+        <div class="visit-svc-card">
+          <div class="visit-svc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <div class="visit-svc-day" data-en="Every Wednesday" data-es="Cada Miércoles">Every Wednesday</div>
+          <div class="visit-svc-name" data-en="Prayer Night & Discipleship" data-es="Noche de Oración y Discipulado">Prayer Night & Discipleship</div>
+          <div class="visit-svc-time">9:00 PM</div>
+          <p class="visit-svc-desc" data-en="Our midweek gathering is designed to go deep. It is a time of concentrated prayer, intercession, and discipleship study — where we sharpen one another in the Word and stand together in faith for the needs of our community. This is where warriors are made." data-es="Nuestra reunión de mitad de semana está diseñada para profundizar. Es un tiempo de oración concentrada, intercesión y estudio de discipulado — donde nos afilamos mutuamente en la Palabra y nos mantenemos juntos en fe por las necesidades de nuestra comunidad.">Our midweek gathering is designed to go deep. It is a time of concentrated prayer, intercession, and discipleship study — where we sharpen one another in the Word and stand together in faith for the needs of our community. This is where warriors are made.</p>
+        </div>
+        <div class="visit-svc-card">
+          <div class="visit-svc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="visit-svc-day" data-en="Every Friday" data-es="Cada Viernes">Every Friday</div>
+          <div class="visit-svc-name" data-en="Friday Night Service" data-es="Servicio del Viernes por la Noche">Friday Night Service</div>
+          <div class="visit-svc-time">8:00 PM</div>
+          <p class="visit-svc-desc" data-en="Friday nights at Atrios Elohim are electric. Come expecting an encounter with God through powerful worship, prophetic ministry, and the move of the Holy Spirit. This service is a favourite for many in our congregation — come and see why." data-es="Los viernes por la noche en Atrios Elohim son eléctricos. Ven esperando un encuentro con Dios a través de una poderosa adoración, ministerio profético y el mover del Espíritu Santo. Este servicio es el favorito de muchos en nuestra congregación — ven y descubre por qué.">Friday nights at Atrios Elohim are electric. Come expecting an encounter with God through powerful worship, prophetic ministry, and the move of the Holy Spirit. This service is a favourite for many in our congregation — come and see why.</p>
+        </div>
+      </div>
+
+      <!-- ADDRESS CARD -->
+      <div style="margin-top:56px;background:var(--onyx);border-radius:8px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;" data-en="Our Location" data-es="Nuestra Ubicación">Our Location</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:12px;">6 Court Street</div>
+          <div style="font-size:18px;color:rgba(255,255,255,.65);margin-bottom:24px;">Flemington, NJ</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:28px;" data-en="We are located in the heart of Flemington, NJ. Street parking is available around the building. If you need directions or have any questions, don't hesitate to call us." data-es="Estamos ubicados en el corazón de Flemington, NJ. Hay estacionamiento en la calle alrededor del edificio. Si necesitas indicaciones o tienes alguna pregunta, no dudes en llamarnos.">We are located in the heart of Flemington, NJ. Street parking is available around the building. If you need directions or have any questions, don't hesitate to call us.</div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="https://maps.google.com/?q=6+Court+Street+Flemington+NJ" target="_blank" class="btn btn-gold" style="padding:13px 26px;font-size:12px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-en="Get Directions" data-es="Obtener Direcciones">Get Directions</span></a>
+            <a href="tel:9085313821" class="btn btn-outline-gold" style="padding:12px 26px;font-size:12px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(908) 531-3821</a>
+          </div>
+        </div>
+        <div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:6px;padding:28px 24px;">
+            <div style="font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;" data-en="Weekly Schedule" data-es="Horario Semanal">Weekly Schedule</div>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.07);"><span style="font-size:14px;color:rgba(255,255,255,.65);" data-en="Sunday" data-es="Domingo">Sunday</span><span style="font-size:14px;font-weight:700;color:var(--white);">1:00 PM</span></div>
+              <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.07);"><span style="font-size:14px;color:rgba(255,255,255,.65);" data-en="Wednesday" data-es="Miércoles">Wednesday</span><span style="font-size:14px;font-weight:700;color:var(--white);">9:00 PM</span></div>
+              <div style="display:flex;justify-content:space-between;"><span style="font-size:14px;color:rgba(255,255,255,.65);" data-en="Friday" data-es="Viernes">Friday</span><span style="font-size:14px;font-weight:700;color:var(--white);">8:00 PM</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section style="background:var(--onyx);padding:110px 0;">
+    <div class="inner">
+      <div class="section-label" style="color:var(--soft-gold);" data-en="First Time Here?" data-es="¿Primera Vez Aquí?">First Time Here?</div>
+      <h2 class="section-heading white" data-en="What to Expect<br>When You Visit" data-es="Qué Esperar<br>Cuando Visites">What to Expect<br>When You Visit</h2>
+      <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);max-width:680px;margin-top:8px;" data-en="We know visiting a new church can feel like a big step. We want to make it as easy and comfortable as possible. Here is everything you need to know before you walk through our doors." data-es="Sabemos que visitar una nueva iglesia puede parecer un gran paso. Queremos hacerlo lo más fácil y cómodo posible. Aquí está todo lo que necesitas saber antes de entrar por nuestras puertas.">We know visiting a new church can feel like a big step. We want to make it as easy and comfortable as possible. Here is everything you need to know before you walk through our doors.</p>
+      <div class="visit-expect-grid">
+        <div class="visit-expect-item">
+          <div class="visit-expect-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <div><div class="visit-expect-title" data-en="No Dress Code" data-es="Sin Código de Vestimenta">No Dress Code</div><p class="visit-expect-text" data-en="Come exactly as you are. You will see people in suits and people in jeans — both are equally welcome. God looks at your heart, and so do we." data-es="Ven exactamente como eres. Verás personas con trajes y personas con jeans — ambos son igualmente bienvenidos. Dios mira tu corazón, y nosotros también.">Come exactly as you are. You will see people in suits and people in jeans — both are equally welcome. God looks at your heart, and so do we.</p></div>
+        </div>
+        <div class="visit-expect-item">
+          <div class="visit-expect-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg></div>
+          <div><div class="visit-expect-title" data-en="Authentic Worship" data-es="Adoración Auténtica">Authentic Worship</div><p class="visit-expect-text" data-en="Our worship is real, passionate, and full of the Holy Spirit. Come ready to engage — whether that means raising your hands, sitting quietly, or somewhere in between. There is no performance here, just genuine praise." data-es="Nuestra adoración es real, apasionada y llena del Espíritu Santo. Ven listo para participar — ya sea que eso signifique levantar las manos, sentarte en silencio o algo entre los dos. No hay actuación aquí, solo alabanza genuina.">Our worship is real, passionate, and full of the Holy Spirit. Come ready to engage — whether that means raising your hands, sitting quietly, or somewhere in between. There is no performance here, just genuine praise.</p></div>
+        </div>
+        <div class="visit-expect-item">
+          <div class="visit-expect-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+          <div><div class="visit-expect-title" data-en="Biblical, Relevant Preaching" data-es="Predicación Bíblica y Relevante">Biblical, Relevant Preaching</div><p class="visit-expect-text" data-en="Apostol Edwin Colop preaches directly from Scripture with clarity, authority, and practical application for your everyday life. You will leave with something to hold onto. Services typically run 90 minutes to 2 hours." data-es="El Apóstol Edwin Colop predica directamente de las Escrituras con claridad, autoridad y aplicación práctica para tu vida cotidiana. Saldrás con algo a lo que aferrarte. Los servicios generalmente duran de 90 minutos a 2 horas.">Apostol Edwin Colop preaches directly from Scripture with clarity, authority, and practical application for your everyday life. You will leave with something to hold onto. Services typically run 90 minutes to 2 hours.</p></div>
+        </div>
+        <div class="visit-expect-item">
+          <div class="visit-expect-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div><div class="visit-expect-title" data-en="A Welcoming Community" data-es="Una Comunidad Acogedora">A Welcoming Community</div><p class="visit-expect-text" data-en="From the moment you walk in, our hospitality team is ready to greet you, answer your questions, and help you feel at home. You are not just a visitor — you are family from the moment you step through the door." data-es="Desde el momento en que entras, nuestro equipo de hospitalidad está listo para recibirte, responder tus preguntas y ayudarte a sentirte en casa. No eres solo un visitante — eres familia desde el momento en que cruzas la puerta.">From the moment you walk in, our hospitality team is ready to greet you, answer your questions, and help you feel at home. You are not just a visitor — you are family from the moment you step through the door.</p></div>
+        </div>
+        <div class="visit-expect-item">
+          <div class="visit-expect-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg></div>
+          <div><div class="visit-expect-title" data-en="Children Are Welcome" data-es="Los Niños Son Bienvenidos">Children Are Welcome</div><p class="visit-expect-text" data-en="We love kids at Atrios Elohim Church. Children are welcome in the main service. Ask our hospitality team about what children's programming is currently available for your child's age group." data-es="Amamos a los niños en Atrios Elohim Church. Los niños son bienvenidos en el servicio principal. Pregunta a nuestro equipo de hospitalidad sobre qué programas infantiles están disponibles actualmente para el grupo de edad de tu hijo.">We love kids at Atrios Elohim Church. Children are welcome in the main service. Ask our hospitality team about what children's programming is currently available for your child's age group.</p></div>
+        </div>
+        <div class="visit-expect-item">
+          <div class="visit-expect-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <div><div class="visit-expect-title" data-en="Prayer Ministry Available" data-es="Ministerio de Oración Disponible">Prayer Ministry Available</div><p class="visit-expect-text" data-en="Our prayer team is available at every service to pray with you personally. Whether you are carrying a burden, seeking healing, or simply want someone to stand with you in prayer — we are here. No request is too big or too small." data-es="Nuestro equipo de oración está disponible en cada servicio para orar contigo personalmente. Ya sea que lleves una carga, busques sanidad o simplemente quieras que alguien esté contigo en oración — estamos aquí.">Our prayer team is available at every service to pray with you personally. Whether you are carrying a burden, seeking healing, or simply want someone to stand with you in prayer — we are here. No request is too big or too small.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH ONLINE -->
+  <section style="background:var(--navy);padding:90px 0;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 50% 50%,rgba(201,168,76,.07) 0%,transparent 70%);"></div>
+    <div class="inner" style="position:relative;z-index:1;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div>
+          <div class="section-label" data-en="Can't Make It in Person?" data-es="¿No Puedes Venir en Persona?">Can't Make It in Person?</div>
+          <h2 class="section-heading white" data-en="Watch Us Online" data-es="Míranos en Línea">Watch Us Online</h2>
+          <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);margin-bottom:32px;" data-en="If you can't be with us in person, you can still be part of what God is doing at Atrios Elohim Church. We stream our services live on Facebook every Sunday at 1:00 PM, and all messages are available on YouTube after each service." data-es="Si no puedes estar con nosotros en persona, aún puedes ser parte de lo que Dios está haciendo en Atrios Elohim Church. Transmitimos nuestros servicios en vivo en Facebook cada domingo a la 1:00 PM y todos los mensajes están disponibles en YouTube después de cada servicio.">If you can't be with us in person, you can still be part of what God is doing at Atrios Elohim Church. We stream our services live on Facebook every Sunday at 1:00 PM, and all messages are available on YouTube after each service.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span data-en="Watch on Facebook" data-es="Ver en Facebook">Watch on Facebook</span></a>
+            <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="display:flex;align-items:center;gap:8px;border-color:rgba(255,255,255,.35);"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg><span data-en="YouTube Channel" data-es="Canal de YouTube">YouTube Channel</span></a>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:40px 36px;">
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:24px;" data-en="Online Service Times" data-es="Horarios de Servicio en Línea">Online Service Times</div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.07);">
+              <div><div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);" data-en="Sunday Live" data-es="Domingo en Vivo">Sunday Live</div><div style="font-size:15px;color:var(--white);" data-en="Facebook Live Stream" data-es="Transmisión en Vivo de Facebook">Facebook Live Stream</div></div>
+              <div style="font-size:16px;font-weight:700;color:var(--gold);">1:00 PM</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.07);">
+              <div><div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);" data-en="Friday Live" data-es="Viernes en Vivo">Friday Live</div><div style="font-size:15px;color:var(--white);" data-en="Facebook Live Stream" data-es="Transmisión en Vivo de Facebook">Facebook Live Stream</div></div>
+              <div style="font-size:16px;font-weight:700;color:var(--gold);">8:00 PM</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);" data-en="On Demand" data-es="Bajo Demanda">On Demand</div><div style="font-size:15px;color:var(--white);" data-en="YouTube — All Past Messages" data-es="YouTube — Todos los Mensajes Pasados">YouTube — All Past Messages</div></div>
+              <div style="font-size:16px;font-weight:700;color:var(--gold);" data-en="Anytime" data-es="Cuando Quieras">Anytime</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--onyx);padding:110px 0;">
+    <div class="inner">
+      <div class="section-label" style="color:var(--soft-gold);" data-en="Common Questions" data-es="Preguntas Comunes">Common Questions</div>
+      <h2 class="section-heading white" data-en="Frequently Asked<br>Questions" data-es="Preguntas<br>Frecuentes">Frequently Asked<br>Questions</h2>
+      <div style="max-width:860px;margin-top:56px;">
+        <div class="visit-faq-item" onclick="toggleFaq(this)">
+          <div class="visit-faq-q"><span data-en="Do I need to be a Christian to attend?" data-es="¿Necesito ser cristiano para asistir?">Do I need to be a Christian to attend?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="visit-faq-a" data-en="Absolutely not. Everyone is welcome at Atrios Elohim Church — regardless of where you are on your spiritual journey. Whether you are a long-time believer, a skeptic, or someone who has never stepped inside a church before, you are welcome here. We believe God meets people right where they are." data-es="Absolutamente no. Todos son bienvenidos en Atrios Elohim Church — independientemente de dónde estés en tu viaje espiritual. Ya seas un creyente de mucho tiempo, un escéptico o alguien que nunca ha entrado a una iglesia antes, eres bienvenido aquí. Creemos que Dios se encuentra con las personas exactamente donde están.">Absolutely not. Everyone is welcome at Atrios Elohim Church — regardless of where you are on your spiritual journey. Whether you are a long-time believer, a skeptic, or someone who has never stepped inside a church before, you are welcome here. We believe God meets people right where they are.</div>
+        </div>
+        <div class="visit-faq-item" onclick="toggleFaq(this)">
+          <div class="visit-faq-q"><span data-en="What language are the services in?" data-es="¿En qué idioma son los servicios?">What language are the services in?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="visit-faq-a" data-en="Our services are conducted primarily in Spanish, with English translation available. As a multicultural congregation, we strive to make every person feel at home regardless of their language background. If you have any specific accessibility needs, please contact us before your visit." data-es="Nuestros servicios se realizan principalmente en español, con traducción al inglés disponible. Como congregación multicultural, nos esforzamos por hacer que cada persona se sienta en casa independientemente de su idioma. Si tienes necesidades de accesibilidad específicas, contáctanos antes de tu visita.">Our services are conducted primarily in Spanish, with English translation available. As a multicultural congregation, we strive to make every person feel at home regardless of their language background. If you have any specific accessibility needs, please contact us before your visit.</div>
+        </div>
+        <div class="visit-faq-item" onclick="toggleFaq(this)">
+          <div class="visit-faq-q"><span data-en="How long are the services?" data-es="¿Cuánto duran los servicios?">How long are the services?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="visit-faq-a" data-en="Sunday morning services typically last between 90 minutes and 2 hours. Wednesday Prayer Night and Friday services vary but generally run 1.5 to 2 hours. We never rush an encounter with God — but we also respect your time." data-es="Los servicios del domingo por la mañana generalmente duran entre 90 minutos y 2 horas. La Noche de Oración del miércoles y los servicios del viernes varían pero generalmente duran de 1.5 a 2 horas. Nunca apresuramos un encuentro con Dios — pero también respetamos tu tiempo.">Sunday morning services typically last between 90 minutes and 2 hours. Wednesday Prayer Night and Friday services vary but generally run 1.5 to 2 hours. We never rush an encounter with God — but we also respect your time.</div>
+        </div>
+        <div class="visit-faq-item" onclick="toggleFaq(this)">
+          <div class="visit-faq-q"><span data-en="Is there parking available?" data-es="¿Hay estacionamiento disponible?">Is there parking available?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="visit-faq-a" data-en="Street parking is available around 6 Court Street in Flemington. We recommend arriving a few minutes early on Sunday to find a spot. If you need any special parking assistance, please contact us and we will do our best to accommodate you." data-es="El estacionamiento en la calle está disponible alrededor de 6 Court Street en Flemington. Recomendamos llegar unos minutos antes el domingo para encontrar un lugar. Si necesitas asistencia especial de estacionamiento, comunícate con nosotros y haremos nuestro mejor esfuerzo para acomodarte.">Street parking is available around 6 Court Street in Flemington. We recommend arriving a few minutes early on Sunday to find a spot. If you need any special parking assistance, please contact us and we will do our best to accommodate you.</div>
+        </div>
+        <div class="visit-faq-item" onclick="toggleFaq(this)">
+          <div class="visit-faq-q"><span data-en="Do you take up an offering during the service?" data-es="¿Se recoge una ofrenda durante el servicio?">Do you take up an offering during the service?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="visit-faq-a" data-en="Yes, we do receive a voluntary offering as part of our Sunday service. As a first-time guest you are our invited guest and there is absolutely no obligation to give. Giving is an act of worship for members and regular attenders — never a requirement for visitors." data-es="Sí, recibimos una ofrenda voluntaria como parte de nuestro servicio del domingo. Como invitado por primera vez, eres nuestro invitado y no hay absolutamente ninguna obligación de dar. Dar es un acto de adoración para miembros y asistentes regulares — nunca un requisito para los visitantes.">Yes, we do receive a voluntary offering as part of our Sunday service. As a first-time guest you are our invited guest and there is absolutely no obligation to give. Giving is an act of worship for members and regular attenders — never a requirement for visitors.</div>
+        </div>
+        <div class="visit-faq-item" onclick="toggleFaq(this)">
+          <div class="visit-faq-q"><span data-en="I'm going through a difficult time. Can the church help?" data-es="Estoy pasando por un momento difícil. ¿Puede ayudarme la iglesia?">I'm going through a difficult time. Can the church help?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="visit-faq-a" data-en="Yes — and we want to. At Atrios Elohim Church, we believe the church is most needed when life is hardest. Our prayer team is available at every service. You can also reach out to us directly via phone or email and we will connect you with the right support. You do not have to face this alone." data-es="Sí — y queremos hacerlo. En Atrios Elohim Church, creemos que la iglesia es más necesaria cuando la vida es más difícil. Nuestro equipo de oración está disponible en cada servicio. También puedes comunicarte con nosotros directamente por teléfono o correo electrónico y te conectaremos con el apoyo adecuado. No tienes que enfrentar esto solo.">Yes — and we want to. At Atrios Elohim Church, we believe the church is most needed when life is hardest. Our prayer team is available at every service. You can also reach out to us directly via phone or email and we will connect you with the right support. You do not have to face this alone.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- READY TO VISIT CTA -->
+  <section style="background:var(--gold);padding:90px 0;">
+    <div class="inner" style="text-align:center;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:900;color:var(--onyx);margin-bottom:16px;" data-en="We'll See You Sunday." data-es="Te Veremos el Domingo.">We'll See You Sunday.</h2>
+      <p style="font-size:18px;color:rgba(26,26,26,.7);margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto;" data-en="6 Court Street, Flemington NJ · Sundays at 1:00 PM · Come as you are." data-es="6 Court Street, Flemington NJ · Domingos a la 1:00 PM · Ven como eres.">6 Court Street, Flemington NJ · Sundays at 1:00 PM · Come as you are.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://maps.google.com/?q=6+Court+Street+Flemington+NJ" target="_blank" class="btn" style="background:var(--onyx);color:var(--white);display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-en="Get Directions" data-es="Obtener Direcciones">Get Directions</span></a>
+        <a onclick="showPage('contact')" class="btn btn-outline" style="border-color:var(--onyx);color:var(--onyx);" data-en="Contact Us First" data-es="Contáctanos Primero">Contact Us First</a>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-grid">
@@ -1229,6 +1788,26 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 </footer>
 
 <script>
+/* === ACCORDION === */
+function toggleAccordion(id) {
+  var item = document.getElementById(id);
+  var isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.accordion-item').forEach(function(a){a.classList.remove('open');});
+  // Open clicked if it was closed
+  if (!isOpen) item.classList.add('open');
+}
+
+function submitVolForm(){
+  var s=document.getElementById('volFormSuccess');
+  if(s){
+    var msg = currentLang === 'es' ? '✓ ¡Gracias! Nos pondremos en contacto en 1 a 2 días para conectarte con tu equipo.' : '✓ Thank you! We\'ll be in touch within 1–2 days to connect you with your team.';
+    s.textContent = msg;
+    s.style.display='block';
+    setTimeout(function(){s.style.display='none';},6000);
+  }
+}
+
 /* === EMAIL (Cloudflare-safe) === */
 (function(){
   var e='Atrioselohimchurch'+'@'+'gmail.com';
@@ -1304,6 +1883,13 @@ document.addEventListener('click', function(e) {
   var switcher = document.querySelector('.lang-switcher');
   if (switcher && !switcher.contains(e.target)) closeLangDropdown();
 });
+
+/* === FAQ TOGGLE === */
+function toggleFaq(item) {
+  var isOpen = item.classList.contains('faq-open');
+  document.querySelectorAll('.visit-faq-item').forEach(function(i){ i.classList.remove('faq-open'); });
+  if (!isOpen) item.classList.add('faq-open');
+}
 
 /* === PAGE NAV === */
 function showPage(id) {
