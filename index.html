@@ -1,45 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Atrios Elohim Church — Flemington, NJ</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600&display=swap" rel="stylesheet"/>
 <style>
-/* === VARIABLES === */
-:root{--onyx:#1A1A1A;--gold:#C9A84C;--soft-gold:#E8D5A3;--navy:#1E2E4F;--ivory:#F8F3EA;--crimson:#8B2323;--charcoal:#2E2E2E;--grey:#6B7280;--white:#ffffff;}
+:root{--onyx:#1A1A1A;--gold:#C9A84C;--soft-gold:#E8D5A3;--navy:#1E2E4F;--ivory:#F8F3EA;--charcoal:#2E2E2E;--grey:#6B7280;--white:#ffffff;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Lato',sans-serif;background:var(--ivory);color:var(--charcoal);overflow-x:hidden;}
-
-/* === PAGES === */
 .page{display:none;min-height:100vh;}
 .page.active{display:block!important;}
 
-/* === ANNOUNCEMENT === */
+/* ANNOUNCEMENT */
 .ann-bar{background:var(--navy);color:var(--white);text-align:center;padding:10px 20px;font-size:13px;font-weight:600;letter-spacing:.05em;}
 .ann-bar a{color:var(--soft-gold);text-decoration:underline;cursor:pointer;}
 
-/* === NAV === */
+/* NAV */
 nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:80px;border-bottom:2px solid var(--gold);}
 .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;cursor:pointer;}
 .nav-brand img{height:60px;width:auto;mix-blend-mode:lighten;}
 .nav-brand-text .name{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:#fff;line-height:1.1;}
 .nav-brand-text .loc{font-size:11px;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;}
-.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-right{display:flex;align-items:center;gap:20px;}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none;}
 .nav-links a{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .2s;cursor:pointer;}
 .nav-links a:hover,.nav-links a.active{color:var(--gold);}
 .nav-give{background:var(--gold)!important;color:var(--onyx)!important;padding:10px 22px;border-radius:2px;}
 .nav-give:hover{background:var(--soft-gold)!important;}
+
+/* LANGUAGE SWITCHER */
+.lang-switcher{position:relative;display:flex;align-items:center;}
+.lang-btn{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:8px 14px;color:var(--white);font-size:12px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.lang-btn:hover{border-color:var(--gold);background:rgba(201,168,76,.1);}
+.lang-btn svg{transition:transform .2s;}
+.lang-btn.open svg{transform:rotate(180deg);}
+.lang-dropdown{display:none;position:absolute;top:calc(100% + 8px);right:0;background:var(--onyx);border:1px solid rgba(201,168,76,.3);border-radius:4px;overflow:hidden;min-width:140px;box-shadow:0 12px 40px rgba(0,0,0,.4);}
+.lang-dropdown.open{display:block;}
+.lang-option{display:flex;align-items:center;gap:10px;padding:12px 16px;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);cursor:pointer;transition:all .2s;border-bottom:1px solid rgba(255,255,255,.06);}
+.lang-option:last-child{border-bottom:none;}
+.lang-option:hover,.lang-option.selected{background:rgba(201,168,76,.12);color:var(--gold);}
+.lang-flag{width:20px;height:14px;border-radius:2px;object-fit:cover;flex-shrink:0;}
+
+/* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--onyx);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--onyx);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{font-family:'Playfair Display',serif;font-size:28px;color:var(--white);text-decoration:none;cursor:pointer;transition:color .2s;}
+.mobile-menu a{font-family:'Playfair Display',serif;font-size:26px;color:var(--white);text-decoration:none;cursor:pointer;transition:color .2s;}
 .mobile-menu a:hover{color:var(--gold);}
+.mobile-menu .mobile-lang{display:flex;gap:16px;margin-top:8px;}
+.mobile-menu .mlang-btn{font-size:14px;font-weight:700;padding:10px 24px;border:1.5px solid rgba(201,168,76,.4);border-radius:3px;color:var(--white);cursor:pointer;transition:all .2s;}
+.mobile-menu .mlang-btn.active,.mobile-menu .mlang-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--onyx);}
 .mobile-close{position:absolute;top:28px;right:28px;font-size:32px;color:var(--white);cursor:pointer;background:none;border:none;}
 
-/* === BUTTONS === */
+/* BUTTONS */
 .btn{display:inline-block;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:16px 38px;border:none;cursor:pointer;text-decoration:none;transition:all .2s;border-radius:2px;}
 .btn-gold{background:var(--gold);color:var(--onyx);}
 .btn-gold:hover{background:var(--soft-gold);transform:translateY(-2px);}
@@ -48,7 +64,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .btn-outline-gold{background:transparent;color:var(--gold);border:1.5px solid var(--gold);}
 .btn-outline-gold:hover{background:var(--gold);color:var(--onyx);}
 
-/* === COMMON === */
+/* COMMON */
 .section-label{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
 .section-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
 .section-label.center{justify-content:center;}
@@ -59,7 +75,10 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .section-body.muted{color:rgba(255,255,255,.65);}
 .inner{max-width:1240px;margin:0 auto;padding:0 52px;}
 
-/* === HERO === */
+/* ICON CARDS (replacing emojis) */
+.icon-svg{display:flex;align-items:center;justify-content:center;}
+
+/* HERO */
 .hero{position:relative;min-height:95vh;display:flex;align-items:center;overflow:hidden;background:var(--onyx);}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,.96) 0%,rgba(26,26,26,.8) 45%,rgba(30,46,79,.55) 100%);}
@@ -74,11 +93,14 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
 .hero-line{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold) 0%,var(--soft-gold) 50%,var(--gold) 100%);}
 
-/* === SERVICE CARD === */
+/* SERVICE CARD */
 .hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.28);border-radius:8px;padding:36px 40px;backdrop-filter:blur(12px);animation:fadeUp 1.1s .2s ease both;}
 .hero-card-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid rgba(201,168,76,.25);}
 .svc-row{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .svc-row:last-child{border-bottom:none;}
+.svc-left{display:flex;align-items:flex-start;gap:12px;}
+.svc-icon{width:34px;height:34px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.svc-icon svg{color:var(--gold);}
 .svc-day{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
 .svc-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--white);}
 .svc-detail{font-size:12px;color:rgba(255,255,255,.38);margin-top:3px;}
@@ -86,13 +108,13 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .hero-addr{margin-top:24px;padding-top:16px;border-top:1px solid rgba(201,168,76,.18);display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.45);}
 .hero-addr svg{color:var(--gold);flex-shrink:0;}
 
-/* === WELCOME STRIP === */
+/* WELCOME STRIP */
 .welcome-strip{background:var(--gold);padding:28px 52px;}
 .welcome-strip-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
 .welcome-strip-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--onyx);}
 .welcome-strip-sub{font-size:14px;color:rgba(26,26,26,.7);margin-top:4px;}
 
-/* === ABOUT STRIP === */
+/* ABOUT STRIP */
 .about-strip{padding:110px 0;background:var(--ivory);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
 .about-img-stack{position:relative;height:520px;}
@@ -102,16 +124,17 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .aimg-sec{width:52%;height:250px;bottom:0;right:0;z-index:2;box-shadow:0 16px 48px rgba(0,0,0,.22);}
 .aimg-badge{position:absolute;bottom:-18px;left:22px;z-index:3;background:var(--gold);color:var(--onyx);padding:13px 20px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
 
-/* === VALUES === */
+/* VALUES */
 .values-strip{background:var(--onyx);padding:110px 0;}
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px;}
 .value-card{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.12);border-top:3px solid var(--gold);border-radius:6px;padding:40px 32px;transition:transform .2s,border-color .2s;}
 .value-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.4);}
-.value-icon{font-size:32px;margin-bottom:18px;}
+.value-icon-wrap{width:56px;height:56px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.value-icon-wrap svg{color:var(--gold);}
 .value-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:12px;}
 .value-desc{font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);}
 
-/* === SCRIPTURE === */
+/* SCRIPTURE */
 .scripture-banner{background:var(--navy);padding:90px 0;position:relative;overflow:hidden;}
 .scripture-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 50% 50%,rgba(201,168,76,.07) 0%,transparent 70%);}
 .scripture-inner{max-width:820px;margin:0 auto;padding:0 52px;position:relative;z-index:1;display:flex;gap:28px;align-items:flex-start;}
@@ -119,7 +142,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .scripture-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3.2vw,36px);color:var(--white);line-height:1.5;margin-bottom:16px;}
 .scripture-ref{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
 
-/* === SERMON === */
+/* SERMON */
 .sermon-section{background:var(--ivory);padding:110px 0;}
 .sermon-card{background:var(--onyx);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:420px;}
 .sermon-thumb{display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
@@ -137,41 +160,43 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .sermon-desc{font-size:15px;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:32px;}
 .sermon-btns{display:flex;gap:12px;flex-wrap:wrap;}
 
-/* === PHOTO STRIP (home) === */
+/* PHOTO STRIP */
 .photo-strip{background:var(--onyx);padding:80px 0;overflow:hidden;}
-.photo-strip-scroll{display:flex;gap:0;}
+.photo-strip-scroll{display:flex;}
 .photo-strip-item{flex:0 0 25%;height:320px;overflow:hidden;position:relative;}
 .photo-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
 .photo-strip-item:hover img{transform:scale(1.06);}
 .photo-strip-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.7) 0%,transparent 50%);}
 
-/* === MINISTRIES === */
-.min-section{background:var(--onyx);padding:110px 0;}
-.min-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;}
-.min-card{background:rgba(255,255,255,.04);border-radius:6px;padding:38px 28px;text-align:center;transition:transform .2s;border-top:3px solid var(--gold);cursor:pointer;}
-.min-card:hover{transform:translateY(-7px);}
-.min-icon{width:62px;height:62px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;}
-.min-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px;}
-.min-desc{font-size:13px;line-height:1.65;color:rgba(255,255,255,.5);}
-
-/* === OUTREACH STRIP === */
+/* OUTREACH */
 .outreach-strip{background:var(--ivory);padding:110px 0;}
 .outreach-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
 .outreach-img{border-radius:8px;overflow:hidden;height:460px;}
 .outreach-img img{width:100%;height:100%;object-fit:cover;display:block;}
 
-/* === INVOLVED === */
+/* MINISTRIES */
+.min-section{background:var(--onyx);padding:110px 0;}
+.min-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;}
+.min-card{background:rgba(255,255,255,.04);border-radius:6px;padding:38px 28px;text-align:center;transition:transform .2s;border-top:3px solid var(--gold);cursor:pointer;}
+.min-card:hover{transform:translateY(-7px);}
+.min-icon{width:62px;height:62px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.min-icon svg{color:var(--gold);}
+.min-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.min-desc{font-size:13px;line-height:1.65;color:rgba(255,255,255,.5);}
+
+/* INVOLVED */
 .inv-section{background:var(--navy);padding:110px 0;position:relative;overflow:hidden;}
 .inv-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 80% 50%,rgba(201,168,76,.07) 0%,transparent 65%);}
 .inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;position:relative;z-index:1;}
 .inv-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .inv-card{background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.2);border-radius:6px;padding:28px 24px;cursor:pointer;transition:all .2s;}
 .inv-card:hover{background:rgba(201,168,76,.1);border-color:var(--gold);}
-.inv-card-icon{font-size:28px;margin-bottom:12px;}
+.inv-card-icon{width:48px;height:48px;background:rgba(201,168,76,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.inv-card-icon svg{color:var(--gold);}
 .inv-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;}
 .inv-card-desc{font-size:13px;line-height:1.6;color:rgba(255,255,255,.5);}
 
-/* === GIVE STRIP === */
+/* GIVE STRIP */
 .give-strip{background:var(--ivory);padding:110px 0;}
 .give-inner-wrap{max-width:900px;margin:0 auto;text-align:center;padding:0 52px;}
 .give-amounts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
@@ -179,7 +204,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .give-btn-amt:hover,.give-btn-amt.active{background:var(--gold);color:var(--onyx);}
 .give-note{font-size:13px;color:var(--grey);margin-top:20px;font-style:italic;}
 
-/* === PAGE HERO === */
+/* PAGE HERO */
 .page-hero{position:relative;height:500px;background:var(--onyx);display:flex;align-items:center;overflow:hidden;}
 .page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35;}
 .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,26,26,.97) 0%,rgba(26,26,26,.65) 100%);}
@@ -189,7 +214,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,64px);font-weight:900;color:var(--white);line-height:1.08;}
 .page-hero-line{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold) 0%,var(--soft-gold) 50%,var(--gold) 100%);}
 
-/* === PHOTO GALLERY === */
+/* GALLERY */
 .gallery-section{background:var(--onyx);padding:110px 0;}
 .gallery-filters{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap;}
 .gallery-filter{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;border:1.5px solid rgba(201,168,76,.3);border-radius:2px;background:transparent;color:rgba(255,255,255,.5);cursor:pointer;transition:all .2s;}
@@ -203,7 +228,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .gallery-item:hover .gallery-item-overlay{opacity:1;}
 .gallery-item-label{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--white);}
 
-/* === LIGHTBOX === */
+/* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:500;align-items:center;justify-content:center;}
 .lightbox.open{display:flex;}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border:2px solid rgba(201,168,76,.3);border-radius:4px;}
@@ -212,21 +237,18 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .lightbox-prev{left:20px;}
 .lightbox-next{right:20px;}
 
-/* === BAPTISM SECTION === */
+/* BAPTISM / CHAPLAIN */
 .baptism-section{background:var(--ivory);padding:110px 0;}
 .baptism-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;}
-.baptism-img{border-radius:8px;overflow:hidden;height:400px;position:relative;}
+.baptism-img{border-radius:8px;overflow:hidden;height:400px;}
 .baptism-img img{width:100%;height:100%;object-fit:cover;display:block;}
-.baptism-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.5) 0%,transparent 50%);}
-
-/* === CHAPLAIN SECTION === */
 .chaplain-section{background:var(--onyx);padding:110px 0;}
 .chaplain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;}
 .chaplain-img{border-radius:6px;overflow:hidden;height:320px;}
 .chaplain-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
 .chaplain-img:hover img{transform:scale(1.04);}
 
-/* === PASTOR === */
+/* PASTOR / BELIEFS / MISSION */
 .pastor-section{background:var(--ivory);padding:110px 0;}
 .pastor-grid{display:grid;grid-template-columns:420px 1fr;gap:80px;align-items:start;}
 .pastor-photo-box{border-radius:8px;overflow:hidden;border:3px solid var(--gold);}
@@ -236,8 +258,6 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .pastor-bio-text{font-size:16px;line-height:1.85;color:var(--charcoal);margin-bottom:20px;}
 .pastor-quote{border-left:3px solid var(--gold);padding-left:22px;margin-top:32px;}
 .pastor-quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--charcoal);line-height:1.6;}
-
-/* === BELIEFS === */
 .beliefs-section{background:var(--onyx);padding:110px 0;}
 .beliefs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:64px;}
 .belief-item{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.12);border-radius:6px;padding:32px 36px;display:flex;gap:20px;align-items:flex-start;transition:border-color .2s;}
@@ -245,14 +265,12 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .belief-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:rgba(201,168,76,.25);flex-shrink:0;line-height:1;}
 .belief-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:8px;}
 .belief-text{font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);}
-
-/* === MISSION GRID === */
 .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px;}
 .mission-box{background:var(--onyx);border-radius:6px;padding:44px 40px;border-top:3px solid var(--gold);}
 .mission-box-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white);margin-bottom:16px;}
 .mission-box-text{font-size:15px;line-height:1.8;color:rgba(255,255,255,.6);}
 
-/* === SERMONS PAGE === */
+/* SERMONS PAGE */
 .sermons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;}
 .stc{background:var(--onyx);border-radius:6px;overflow:hidden;cursor:pointer;transition:transform .2s;}
 .stc:hover{transform:translateY(-5px);}
@@ -266,7 +284,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .stc-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3;}
 .stc-date{font-size:12px;color:rgba(255,255,255,.4);}
 
-/* === EVENTS PAGE === */
+/* EVENTS */
 .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px;}
 .ev-card{background:var(--onyx);border-radius:6px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;}
 .ev-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.3);}
@@ -280,7 +298,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .ev-info{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:16px;line-height:1.6;}
 .ev-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:2px;background:rgba(201,168,76,.15);color:var(--gold);}
 
-/* === CONTACT === */
+/* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start;margin-top:64px;}
 .contact-info-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--onyx);margin-bottom:28px;}
 .contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(26,26,26,.08);}
@@ -309,16 +327,17 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .map-box p{color:rgba(255,255,255,.4);font-size:14px;}
 .map-box a{color:var(--gold);font-size:14px;font-weight:600;text-decoration:none;}
 
-/* === GIVE PAGE === */
+/* GIVE PAGE */
 .give-page-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start;margin-top:64px;}
 .give-form-card{background:var(--onyx);border-radius:8px;padding:56px 52px;}
 .give-why-item{display:flex;gap:20px;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid rgba(26,26,26,.1);}
 .give-why-item:last-child{border-bottom:none;}
-.give-why-icon{width:52px;height:52px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;}
+.give-why-icon{width:52px;height:52px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.give-why-icon svg{color:var(--onyx);}
 .give-why-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--onyx);margin-bottom:8px;}
 .give-why-text{font-size:14px;line-height:1.75;color:var(--charcoal);}
 
-/* === FOOTER === */
+/* FOOTER */
 footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px 32px;}
 .footer-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.08);}
 .footer-logo-row{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
@@ -340,10 +359,8 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 .social-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;color:var(--gold);text-decoration:none;font-size:14px;font-weight:700;transition:all .2s;}
 .social-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--onyx);}
 
-/* === ANIMATIONS === */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
-/* === RESPONSIVE === */
 @media(max-width:960px){
   nav{padding:0 20px;}
   .nav-links{display:none;}
@@ -358,8 +375,9 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   .about-img-stack{height:340px;}
   .form-row{grid-template-columns:1fr;}
   .form-wrap,.give-form-card{padding:32px 24px;}
-  .give-inner-wrap,.photo-strip-scroll{padding:0 20px;}
+  .give-inner-wrap{padding:0 20px;}
   .photo-strip-item{flex:0 0 50%;}
+  .lang-btn span.lang-label{display:none;}
 }
 @media(max-width:600px){
   .values-grid,.min-grid,.beliefs-grid,.sermons-grid,.events-grid,.gallery-grid,.baptism-grid,.chaplain-grid,.inv-cards{grid-template-columns:1fr;}
@@ -380,16 +398,23 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="closeMobile()">✕</button>
-  <a onclick="showPage('home');closeMobile()">Home</a>
-  <a onclick="showPage('about');closeMobile()">About Us</a>
-  <a onclick="showPage('sermons');closeMobile()">Sermons</a>
-  <a onclick="showPage('events');closeMobile()">Events</a>
-  <a onclick="showPage('give');closeMobile()">Give</a>
-  <a onclick="showPage('contact');closeMobile()">Contact</a>
+  <a onclick="showPage('home');closeMobile()" data-en="Home" data-es="Inicio">Home</a>
+  <a onclick="showPage('about');closeMobile()" data-en="About Us" data-es="Quiénes Somos">About Us</a>
+  <a onclick="showPage('sermons');closeMobile()" data-en="Sermons" data-es="Sermones">Sermons</a>
+  <a onclick="showPage('events');closeMobile()" data-en="Events" data-es="Eventos">Events</a>
+  <a onclick="showPage('give');closeMobile()" data-en="Give" data-es="Dar">Give</a>
+  <a onclick="showPage('contact');closeMobile()" data-en="Contact" data-es="Contacto">Contact</a>
+  <div class="mobile-lang">
+    <div class="mlang-btn active" onclick="setLang('en');closeMobile()">🇺🇸 English</div>
+    <div class="mlang-btn" onclick="setLang('es');closeMobile()">🇲🇽 Español</div>
+  </div>
 </div>
 
 <!-- ANNOUNCEMENT -->
-<div class="ann-bar">🙏 Join us this Sunday at 1:00 PM — <a onclick="showPage('contact')">6 Court Street, Flemington NJ</a></div>
+<div class="ann-bar">
+  <span data-en="🙏 Join us this Sunday at 1:00 PM —" data-es="🙏 Únete a nosotros este domingo a la 1:00 PM —">🙏 Join us this Sunday at 1:00 PM —</span>
+  <a onclick="showPage('contact')" data-en=" 6 Court Street, Flemington NJ" data-es=" 6 Court Street, Flemington NJ"> 6 Court Street, Flemington NJ</a>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -400,20 +425,37 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
       <div class="loc">Flemington, NJ</div>
     </div>
   </div>
-  <ul class="nav-links">
-    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a onclick="showPage('about')" id="nav-about">About Us</a></li>
-    <li><a onclick="showPage('sermons')" id="nav-sermons">Sermons</a></li>
-    <li><a onclick="showPage('events')" id="nav-events">Events</a></li>
-    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
-    <li><a onclick="showPage('give')" id="nav-give" class="nav-give">Give</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')" id="nav-home" class="active" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a onclick="showPage('about')" id="nav-about" data-en="About Us" data-es="Quiénes Somos">About Us</a></li>
+      <li><a onclick="showPage('sermons')" id="nav-sermons" data-en="Sermons" data-es="Sermones">Sermons</a></li>
+      <li><a onclick="showPage('events')" id="nav-events" data-en="Events" data-es="Eventos">Events</a></li>
+      <li><a onclick="showPage('contact')" id="nav-contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      <li><a onclick="showPage('give')" id="nav-give" class="nav-give" data-en="Give" data-es="Dar">Give</a></li>
+    </ul>
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+      <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-label" id="langLabel">EN</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        <div class="lang-option selected" onclick="setLang('en')">
+          <span style="font-size:18px;">🇺🇸</span> English
+        </div>
+        <div class="lang-option" onclick="setLang('es')">
+          <span style="font-size:18px;">🇲🇽</span> Español
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="hamburger" onclick="openMobile()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- ═══════════ HOME ═══════════ -->
+<!-- ═══ HOME ═══ -->
 <div class="page active" id="page-home">
-
   <section class="hero">
     <div class="hero-bg" style="background-image:url('476964805_954499930121161_9010086688706564236_n.jpg');"></div>
     <div class="hero-overlay"></div>
@@ -421,20 +463,41 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
     <div class="hero-glow"></div>
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-eyebrow">Welcome to Atrios Elohim Church</div>
-        <h1 class="hero-h1">Where Faith<br>Meets Every<br>Generation</h1>
-        <p class="hero-sub">A multigenerational, multicultural community of faith in Flemington, NJ — committed to worship, discipleship, and serving our community and the world.</p>
+        <div class="hero-eyebrow" data-en="Welcome to Atrios Elohim Church" data-es="Bienvenido a Atrios Elohim Church">Welcome to Atrios Elohim Church</div>
+        <h1 class="hero-h1" data-en="Where Faith<br>Meets Every<br>Generation" data-es="Donde la Fe<br>Alcanza a<br>Cada Generación">Where Faith<br>Meets Every<br>Generation</h1>
+        <p class="hero-sub" data-en="A multigenerational, multicultural community of faith in Flemington, NJ — committed to worship, discipleship, and serving our community and the world." data-es="Una comunidad de fe multigeneracional y multicultural en Flemington, NJ — comprometida con la adoración, el discipulado y el servicio a nuestra comunidad y el mundo.">A multigenerational, multicultural community of faith in Flemington, NJ — committed to worship, discipleship, and serving our community and the world.</p>
         <div class="hero-ctas">
-          <a onclick="showPage('about')" class="btn btn-gold">Plan a Visit</a>
-          <a onclick="showPage('sermons')" class="btn btn-outline">Watch Online</a>
+          <a onclick="showPage('about')" class="btn btn-gold" data-en="Plan a Visit" data-es="Planifica tu Visita">Plan a Visit</a>
+          <a onclick="showPage('sermons')" class="btn btn-outline" data-en="Watch Online" data-es="Ver en Línea">Watch Online</a>
         </div>
       </div>
       <div class="hero-card">
-        <div class="hero-card-title">Join Us in Worship</div>
-        <div class="svc-row"><div><div class="svc-day">Sunday</div><div class="svc-name">Morning Worship</div><div class="svc-detail">6 Court St, Flemington</div></div><div class="svc-time">1:00 PM</div></div>
-        <div class="svc-row"><div><div class="svc-day">Wednesday</div><div class="svc-name">Prayer Night & Discipleship</div><div class="svc-detail">Midweek service</div></div><div class="svc-time">TBD</div></div>
-        <div class="svc-row"><div><div class="svc-day">Friday</div><div class="svc-name">Friday Night Service</div><div class="svc-detail">Evening worship</div></div><div class="svc-time">8:00 PM</div></div>
-        <div class="hero-addr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>6 Court Street, Flemington, NJ</div>
+        <div class="hero-card-title" data-en="Join Us in Worship" data-es="Únete a Nosotros">Join Us in Worship</div>
+        <div class="svc-row">
+          <div class="svc-left">
+            <div class="svc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="svc-day" data-en="Sunday" data-es="Domingo">Sunday</div><div class="svc-name" data-en="Morning Worship" data-es="Adoración Matutina">Morning Worship</div><div class="svc-detail">6 Court St, Flemington</div></div>
+          </div>
+          <div class="svc-time">1:00 PM</div>
+        </div>
+        <div class="svc-row">
+          <div class="svc-left">
+            <div class="svc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <div><div class="svc-day" data-en="Wednesday" data-es="Miércoles">Wednesday</div><div class="svc-name" data-en="Prayer Night & Discipleship" data-es="Noche de Oración y Discipulado">Prayer Night & Discipleship</div><div class="svc-detail" data-en="Midweek service" data-es="Servicio entre semana">Midweek service</div></div>
+          </div>
+          <div class="svc-time">9:00 PM</div>
+        </div>
+        <div class="svc-row">
+          <div class="svc-left">
+            <div class="svc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div><div class="svc-day" data-en="Friday" data-es="Viernes">Friday</div><div class="svc-name" data-en="Friday Night Service" data-es="Servicio Viernes por la Noche">Friday Night Service</div><div class="svc-detail" data-en="Evening worship" data-es="Adoración nocturna">Evening worship</div></div>
+          </div>
+          <div class="svc-time">8:00 PM</div>
+        </div>
+        <div class="hero-addr">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          6 Court Street, Flemington, NJ
+        </div>
       </div>
     </div>
     <div class="hero-line"></div>
@@ -442,8 +505,11 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 
   <div class="welcome-strip">
     <div class="welcome-strip-inner">
-      <div><div class="welcome-strip-text">New here? You belong here.</div><div class="welcome-strip-sub">No dress code. No requirements. Just come as you are.</div></div>
-      <a onclick="showPage('about')" class="btn" style="background:var(--onyx);color:var(--gold);border:2px solid var(--onyx);padding:12px 28px;font-size:12px;">Plan Your Visit</a>
+      <div>
+        <div class="welcome-strip-text" data-en="New here? You belong here." data-es="¿Nuevo aquí? Aquí perteneces.">New here? You belong here.</div>
+        <div class="welcome-strip-sub" data-en="No dress code. No requirements. Just come as you are." data-es="Sin código de vestimenta. Sin requisitos. Ven tal como eres.">No dress code. No requirements. Just come as you are.</div>
+      </div>
+      <a onclick="showPage('about')" class="btn" style="background:var(--onyx);color:var(--gold);border:2px solid var(--onyx);padding:12px 28px;font-size:12px;" data-en="Plan Your Visit" data-es="Planifica tu Visita">Plan Your Visit</a>
     </div>
   </div>
 
@@ -451,16 +517,16 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
     <div class="inner">
       <div class="about-grid">
         <div>
-          <div class="section-label">Who We Are</div>
-          <h2 class="section-heading">A Church for<br>All Nations</h2>
-          <p class="section-body">Atrios Elohim Church is a multigenerational, multicultural community of faith in Flemington, NJ. We are committed to worship, discipleship, and service — building lives on the foundation of God's Word.</p>
-          <p class="section-body">Under the leadership of Apostol Edwin Colop, our congregation welcomes everyone — from every background and every generation — to encounter the living God and be sent to serve their community and the world.</p>
-          <a onclick="showPage('about')" class="btn btn-gold">Learn More About Us</a>
+          <div class="section-label" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</div>
+          <h2 class="section-heading" data-en="A Church for<br>All Nations" data-es="Una Iglesia para<br>Todas las Naciones">A Church for<br>All Nations</h2>
+          <p class="section-body" data-en="Atrios Elohim Church is a multigenerational, multicultural community of faith in Flemington, NJ. We are committed to worship, discipleship, and service — building lives on the foundation of God's Word." data-es="Atrios Elohim Church es una comunidad de fe multigeneracional y multicultural en Flemington, NJ. Estamos comprometidos con la adoración, el discipulado y el servicio — edificando vidas sobre el fundamento de la Palabra de Dios.">Atrios Elohim Church is a multigenerational, multicultural community of faith in Flemington, NJ. We are committed to worship, discipleship, and service — building lives on the foundation of God's Word.</p>
+          <p class="section-body" data-en="Under the leadership of Apostol Edwin Colop, our congregation welcomes everyone — from every background and every generation — to encounter the living God and be sent to serve their community and the world." data-es="Bajo el liderazgo del Apóstol Edwin Colop, nuestra congregación da la bienvenida a todos — de todo origen y generación — para encontrarse con el Dios vivo y ser enviados a servir a su comunidad y al mundo.">Under the leadership of Apostol Edwin Colop, our congregation welcomes everyone — from every background and every generation — to encounter the living God and be sent to serve their community and the world.</p>
+          <a onclick="showPage('about')" class="btn btn-gold" data-en="Learn More About Us" data-es="Conoce Más Sobre Nosotros">Learn More About Us</a>
         </div>
         <div class="about-img-stack">
           <div class="aimg aimg-main"><img src="477762119_954500310121123_556817394323726053_n.jpg" alt="Apostol Colop preaching"/></div>
           <div class="aimg aimg-sec"><img src="477160286_954500270121127_5162141681045928069_n.jpg" alt="Prayer ministry"/></div>
-          <div class="aimg-badge">Flemington, NJ · Est. 2025</div>
+          <div class="aimg-badge" data-en="Flemington, NJ · Est. 2025" data-es="Flemington, NJ · Fund. 2025">Flemington, NJ · Est. 2025</div>
         </div>
       </div>
     </div>
@@ -468,20 +534,43 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 
   <section class="values-strip">
     <div class="inner">
-      <div class="section-label" style="color:var(--soft-gold);">What We Stand On</div>
-      <h2 class="section-heading white">Our Core Values</h2>
+      <div class="section-label" style="color:var(--soft-gold);" data-en="What We Stand On" data-es="En Lo Que Creemos">What We Stand On</div>
+      <h2 class="section-heading white" data-en="Our Core Values" data-es="Nuestros Valores Fundamentales">Our Core Values</h2>
       <div class="values-grid">
-        <div class="value-card"><div class="value-icon">📖</div><div class="value-title">Scripture-Centred</div><p class="value-desc">We build our lives and ministry on the authority of God's Word — it is our foundation for everything we do.</p></div>
-        <div class="value-card"><div class="value-icon">🙏</div><div class="value-title">Prayerful Dependence</div><p class="value-desc">We seek God first in every decision and endeavour, trusting Him to lead and direct our steps.</p></div>
-        <div class="value-card"><div class="value-icon">🤝</div><div class="value-title">Radical Hospitality</div><p class="value-desc">Every person who walks through our doors is welcomed with grace — no exceptions, no conditions.</p></div>
-        <div class="value-card"><div class="value-icon">🌍</div><div class="value-title">Missional Living</div><p class="value-desc">We exist not for ourselves but for the redemption of the world — locally and globally.</p></div>
-        <div class="value-card"><div class="value-icon">⭐</div><div class="value-title">Excellence & Integrity</div><p class="value-desc">We pursue quality as an act of worship and stewardship in everything we put our hands to.</p></div>
-        <div class="value-card"><div class="value-icon">👨‍👩‍👧‍👦</div><div class="value-title">Multigenerational</div><p class="value-desc">From the youngest child to the most seasoned elder — every generation has a place and purpose here.</p></div>
+        <div class="value-card">
+          <div class="value-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+          <div class="value-title" data-en="Scripture-Centred" data-es="Centrados en la Escritura">Scripture-Centred</div>
+          <p class="value-desc" data-en="We build our lives and ministry on the authority of God's Word — it is our foundation for everything we do." data-es="Edificamos nuestras vidas y ministerio sobre la autoridad de la Palabra de Dios — es nuestra fundación para todo lo que hacemos.">We build our lives and ministry on the authority of God's Word — it is our foundation for everything we do.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <div class="value-title" data-en="Prayerful Dependence" data-es="Dependencia en Oración">Prayerful Dependence</div>
+          <p class="value-desc" data-en="We seek God first in every decision and endeavour, trusting Him to lead and direct our steps." data-es="Buscamos a Dios primero en cada decisión y esfuerzo, confiando en que Él guíe y dirija nuestros pasos.">We seek God first in every decision and endeavour, trusting Him to lead and direct our steps.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="value-title" data-en="Radical Hospitality" data-es="Hospitalidad Radical">Radical Hospitality</div>
+          <p class="value-desc" data-en="Every person who walks through our doors is welcomed with grace — no exceptions, no conditions." data-es="Cada persona que entra por nuestras puertas es bienvenida con gracia — sin excepciones, sin condiciones.">Every person who walks through our doors is welcomed with grace — no exceptions, no conditions.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <div class="value-title" data-en="Missional Living" data-es="Vida Misional">Missional Living</div>
+          <p class="value-desc" data-en="We exist not for ourselves but for the redemption of the world — locally and globally." data-es="Existimos no para nosotros mismos sino para la redención del mundo — local y globalmente.">We exist not for ourselves but for the redemption of the world — locally and globally.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="value-title" data-en="Excellence & Integrity" data-es="Excelencia e Integridad">Excellence & Integrity</div>
+          <p class="value-desc" data-en="We pursue quality as an act of worship and stewardship in everything we put our hands to." data-es="Buscamos la calidad como un acto de adoración y mayordomía en todo lo que hacemos.">We pursue quality as an act of worship and stewardship in everything we put our hands to.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="value-title" data-en="Multigenerational" data-es="Multigeneracional">Multigenerational</div>
+          <p class="value-desc" data-en="From the youngest child to the most seasoned elder — every generation has a place and purpose here." data-es="Desde el niño más pequeño hasta el anciano más experimentado — cada generación tiene un lugar y propósito aquí.">From the youngest child to the most seasoned elder — every generation has a place and purpose here.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- REAL PHOTO STRIP -->
   <section class="photo-strip">
     <div class="photo-strip-scroll">
       <div class="photo-strip-item"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt="Community prayer"/></div>
@@ -492,14 +581,20 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   </section>
 
   <section class="scripture-banner">
-    <div class="scripture-inner"><div class="scripture-rule"></div><div><p class="scripture-text">"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."</p><div class="scripture-ref">Jeremiah 29:11</div></div></div>
+    <div class="scripture-inner"><div class="scripture-rule"></div><div>
+      <p class="scripture-text" data-en='"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."' data-es='"Porque yo sé los planes que tengo para vosotros —declara el Señor— planes de bienestar y no de calamidad, para daros un futuro y una esperanza."'>"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."</p>
+      <div class="scripture-ref" data-en="Jeremiah 29:11" data-es="Jeremías 29:11">Jeremiah 29:11</div>
+    </div></div>
   </section>
 
   <section class="sermon-section">
     <div class="inner">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
-        <div><div class="section-label">Watch & Listen</div><h2 class="section-heading" style="margin-bottom:0;">Latest Message</h2></div>
-        <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline-gold" style="padding:12px 24px;font-size:12px;">All Messages</a>
+        <div>
+          <div class="section-label" data-en="Watch & Listen" data-es="Ver y Escuchar">Watch & Listen</div>
+          <h2 class="section-heading" style="margin-bottom:0;" data-en="Latest Message" data-es="Último Mensaje">Latest Message</h2>
+        </div>
+        <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline-gold" style="padding:12px 24px;font-size:12px;" data-en="All Messages" data-es="Todos los Mensajes">All Messages</a>
       </div>
       <div class="sermon-card">
         <div class="sermon-thumb">
@@ -511,29 +606,27 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
           </div>
         </div>
         <div class="sermon-info">
-          <div class="sermon-series">Current Series · [Series Name]</div>
-          <h3 class="sermon-title">[This Week's Message]</h3>
-          <p class="sermon-desc">Join Apostol Edwin Colop every Sunday at 1:00 PM. Watch live on Facebook or catch up any time on YouTube — new messages posted weekly.</p>
+          <div class="sermon-series" data-en="Current Series · [Series Name]" data-es="Serie Actual · [Nombre de la Serie]">Current Series · [Series Name]</div>
+          <h3 class="sermon-title" data-en="[This Week's Message]" data-es="[Mensaje de Esta Semana]">[This Week's Message]</h3>
+          <p class="sermon-desc" data-en="Join Apostol Edwin Colop every Sunday at 1:00 PM. Watch live on Facebook or catch up any time on YouTube — new messages posted weekly." data-es="Únete al Apóstol Edwin Colop cada domingo a la 1:00 PM. Mira en vivo en Facebook o ponerte al día en YouTube — nuevos mensajes publicados semanalmente.">Join Apostol Edwin Colop every Sunday at 1:00 PM. Watch live on Facebook or catch up any time on YouTube — new messages posted weekly.</p>
           <div class="sermon-btns">
-            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="padding:12px 24px;font-size:12px;">Watch on Facebook</a>
-            <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="padding:11px 24px;font-size:12px;border-color:rgba(201,168,76,.4);color:var(--soft-gold);">YouTube</a>
+            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="padding:12px 24px;font-size:12px;" data-en="Watch on Facebook" data-es="Ver en Facebook">Watch on Facebook</a>
+            <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="padding:11px 24px;font-size:12px;border-color:rgba(201,168,76,.4);color:var(--soft-gold);" data-en="YouTube" data-es="YouTube">YouTube</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OUTREACH HIGHLIGHT -->
   <section class="outreach-strip">
     <div class="inner">
       <div class="outreach-grid">
         <div class="outreach-img"><img src="477798116_954502700120884_8089935550528402387_n.jpg" alt="Street outreach ministry"/></div>
         <div>
-          <div class="section-label">Community Outreach</div>
-          <h2 class="section-heading">Serving Our<br>Neighbours</h2>
-          <p class="section-body">Atrios Elohim Church believes the church exists not for itself but for the world. We regularly take the Gospel and God's love to the streets — serving meals, praying, and sharing hope with those who need it most.</p>
-          <p class="section-body">From street ministry to chaplaincy, our congregation is committed to being the hands and feet of Jesus in our community and beyond.</p>
-          <a onclick="showPage('about')" class="btn btn-gold">Learn More</a>
+          <div class="section-label" data-en="Community Outreach" data-es="Alcance Comunitario">Community Outreach</div>
+          <h2 class="section-heading" data-en="Serving Our<br>Neighbours" data-es="Sirviendo a<br>Nuestros Vecinos">Serving Our<br>Neighbours</h2>
+          <p class="section-body" data-en="Atrios Elohim Church believes the church exists not for itself but for the world. We regularly take the Gospel and God's love to the streets — serving meals, praying, and sharing hope with those who need it most." data-es="Atrios Elohim Church cree que la iglesia no existe para sí misma sino para el mundo. Regularmente llevamos el Evangelio y el amor de Dios a las calles — sirviendo comidas, orando y compartiendo esperanza con quienes más lo necesitan.">Atrios Elohim Church believes the church exists not for itself but for the world. We regularly take the Gospel and God's love to the streets — serving meals, praying, and sharing hope with those who need it most.</p>
+          <a onclick="showPage('about')" class="btn btn-gold" data-en="Learn More" data-es="Saber Más">Learn More</a>
         </div>
       </div>
     </div>
@@ -542,15 +635,31 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   <section class="min-section">
     <div class="inner">
       <div style="text-align:center;max-width:600px;margin:0 auto;">
-        <div class="section-label center" style="color:var(--soft-gold);">Our Ministries</div>
-        <h2 class="section-heading white">A Place for Everyone</h2>
-        <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.6);">From the youngest child to the most seasoned elder, there is a home for you here.</p>
+        <div class="section-label center" style="color:var(--soft-gold);" data-en="Our Ministries" data-es="Nuestros Ministerios">Our Ministries</div>
+        <h2 class="section-heading white" data-en="A Place for Everyone" data-es="Un Lugar para Todos">A Place for Everyone</h2>
+        <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.6);" data-en="From the youngest child to the most seasoned elder, there is a home for you here." data-es="Desde el niño más pequeño hasta el anciano más experimentado, aquí hay un hogar para ti.">From the youngest child to the most seasoned elder, there is a home for you here.</p>
       </div>
       <div class="min-grid">
-        <div class="min-card"><div class="min-icon">👶</div><div class="min-name">Children</div><p class="min-desc">Dynamic, age-appropriate programming where kids encounter God in fun and meaningful ways every Sunday.</p></div>
-        <div class="min-card"><div class="min-icon">🙌</div><div class="min-name">Youth</div><p class="min-desc">A safe space for teenagers to discover identity, build real friendships, and develop their own faith.</p></div>
-        <div class="min-card"><div class="min-icon">👥</div><div class="min-name">Young Adults</div><p class="min-desc">Community, discipleship, and purpose for young people navigating life and faith together.</p></div>
-        <div class="min-card"><div class="min-icon">🌍</div><div class="min-name">Missions</div><p class="min-desc">Reaching our neighbourhood and the nations — because the Gospel of Jesus has no borders.</p></div>
+        <div class="min-card">
+          <div class="min-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <div class="min-name" data-en="Children" data-es="Niños">Children</div>
+          <p class="min-desc" data-en="Dynamic, age-appropriate programming where kids encounter God in fun and meaningful ways every Sunday." data-es="Programación dinámica y apropiada para la edad donde los niños encuentran a Dios de manera divertida y significativa cada domingo.">Dynamic, age-appropriate programming where kids encounter God in fun and meaningful ways every Sunday.</p>
+        </div>
+        <div class="min-card">
+          <div class="min-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="min-name" data-en="Youth" data-es="Juventud">Youth</div>
+          <p class="min-desc" data-en="A safe space for teenagers to discover identity, build real friendships, and develop their own faith." data-es="Un espacio seguro para que los adolescentes descubran su identidad, construyan amistades reales y desarrollen su propia fe.">A safe space for teenagers to discover identity, build real friendships, and develop their own faith.</p>
+        </div>
+        <div class="min-card">
+          <div class="min-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg></div>
+          <div class="min-name" data-en="Young Adults" data-es="Jóvenes Adultos">Young Adults</div>
+          <p class="min-desc" data-en="Community, discipleship, and purpose for young people navigating life and faith together." data-es="Comunidad, discipulado y propósito para jóvenes que navegan la vida y la fe juntos.">Community, discipleship, and purpose for young people navigating life and faith together.</p>
+        </div>
+        <div class="min-card">
+          <div class="min-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <div class="min-name" data-en="Missions" data-es="Misiones">Missions</div>
+          <p class="min-desc" data-en="Reaching our neighbourhood and the nations — because the Gospel of Jesus has no borders." data-es="Alcanzando nuestro vecindario y las naciones — porque el Evangelio de Jesús no tiene fronteras.">Reaching our neighbourhood and the nations — because the Gospel of Jesus has no borders.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -559,16 +668,32 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
     <div class="inner">
       <div class="inv-grid">
         <div>
-          <div class="section-label">Serve</div>
-          <h2 class="section-heading white">Be a Force<br>for Good</h2>
-          <p class="section-body muted">This church runs on big-hearted people who aren't afraid to roll up their sleeves. Whether greeting at the door, leading worship, or serving our neighbours — your hands are needed.</p>
-          <a onclick="showPage('contact')" class="btn btn-gold">Get Involved</a>
+          <div class="section-label" data-en="Serve" data-es="Servir">Serve</div>
+          <h2 class="section-heading white" data-en="Be a Force<br>for Good" data-es="Sé una Fuerza<br>para el Bien">Be a Force<br>for Good</h2>
+          <p class="section-body muted" data-en="This church runs on big-hearted people who aren't afraid to roll up their sleeves. Whether greeting at the door, leading worship, or serving our neighbours — your hands are needed." data-es="Esta iglesia funciona gracias a personas de gran corazón que no temen arremangarse. Ya sea saludando en la puerta, liderando la adoración o sirviendo a nuestros vecinos — tus manos son necesarias.">This church runs on big-hearted people who aren't afraid to roll up their sleeves. Whether greeting at the door, leading worship, or serving our neighbours — your hands are needed.</p>
+          <a onclick="showPage('contact')" class="btn btn-gold" data-en="Get Involved" data-es="Involúcrate">Get Involved</a>
         </div>
         <div class="inv-cards">
-          <div class="inv-card"><div class="inv-card-icon">🎵</div><div class="inv-card-title">Worship Team</div><p class="inv-card-desc">Bring your gift of music or sound to lead the congregation in praise every week.</p></div>
-          <div class="inv-card"><div class="inv-card-icon">🤝</div><div class="inv-card-title">Hospitality</div><p class="inv-card-desc">Be the first face someone sees — welcoming every person with grace and warmth.</p></div>
-          <div class="inv-card"><div class="inv-card-icon">🙏</div><div class="inv-card-title">Prayer Team</div><p class="inv-card-desc">Stand in the gap for those who need intercession, support, and hope.</p></div>
-          <div class="inv-card"><div class="inv-card-icon">🌱</div><div class="inv-card-title">Community Care</div><p class="inv-card-desc">Serve Flemington and beyond through outreach and local missions.</p></div>
+          <div class="inv-card">
+            <div class="inv-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+            <div class="inv-card-title" data-en="Worship Team" data-es="Equipo de Adoración">Worship Team</div>
+            <p class="inv-card-desc" data-en="Bring your gift of music or sound to lead the congregation in praise every week." data-es="Trae tu don musical o de sonido para guiar a la congregación en alabanza cada semana.">Bring your gift of music or sound to lead the congregation in praise every week.</p>
+          </div>
+          <div class="inv-card">
+            <div class="inv-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+            <div class="inv-card-title" data-en="Hospitality" data-es="Hospitalidad">Hospitality</div>
+            <p class="inv-card-desc" data-en="Be the first face someone sees — welcoming every person with grace and warmth." data-es="Sé el primer rostro que alguien ve — dando la bienvenida a cada persona con gracia y calidez.">Be the first face someone sees — welcoming every person with grace and warmth.</p>
+          </div>
+          <div class="inv-card">
+            <div class="inv-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <div class="inv-card-title" data-en="Prayer Team" data-es="Equipo de Oración">Prayer Team</div>
+            <p class="inv-card-desc" data-en="Stand in the gap for those who need intercession, support, and hope." data-es="Intercede por quienes necesitan oración, apoyo y esperanza.">Stand in the gap for those who need intercession, support, and hope.</p>
+          </div>
+          <div class="inv-card">
+            <div class="inv-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="inv-card-title" data-en="Community Care" data-es="Cuidado Comunitario">Community Care</div>
+            <p class="inv-card-desc" data-en="Serve Flemington and beyond through outreach and local missions." data-es="Sirve a Flemington y más allá a través del alcance y misiones locales.">Serve Flemington and beyond through outreach and local missions.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -576,72 +701,77 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 
   <section class="give-strip">
     <div class="give-inner-wrap">
-      <div class="section-label center">Generosity</div>
-      <h2 class="section-heading" style="text-align:center;">Give to the Vision</h2>
-      <p class="section-body" style="text-align:center;max-width:540px;margin:0 auto 40px;">Your generosity fuels worship, discipleship, and mission. Every gift is an act of worship and a seed sown into God's Kingdom.</p>
+      <div class="section-label center" data-en="Generosity" data-es="Generosidad">Generosity</div>
+      <h2 class="section-heading" style="text-align:center;" data-en="Give to the Vision" data-es="Da a la Visión">Give to the Vision</h2>
+      <p class="section-body" style="text-align:center;max-width:540px;margin:0 auto 40px;" data-en="Your generosity fuels worship, discipleship, and mission. Every gift is an act of worship and a seed sown into God's Kingdom." data-es="Tu generosidad impulsa la adoración, el discipulado y la misión. Cada ofrenda es un acto de adoración y una semilla sembrada en el Reino de Dios.">Your generosity fuels worship, discipleship, and mission. Every gift is an act of worship and a seed sown into God's Kingdom.</p>
       <div class="give-amounts">
         <button class="give-btn-amt">$25</button>
         <button class="give-btn-amt active">$50</button>
         <button class="give-btn-amt">$100</button>
         <button class="give-btn-amt">$250</button>
-        <button class="give-btn-amt">Other</button>
+        <button class="give-btn-amt" data-en="Other" data-es="Otro">Other</button>
       </div>
-      <a onclick="showPage('give')" class="btn btn-gold" style="font-size:14px;padding:18px 52px;">Give Now</a>
-      <p class="give-note">Secure giving · All donations are tax-deductible</p>
+      <a onclick="showPage('give')" class="btn btn-gold" style="font-size:14px;padding:18px 52px;" data-en="Give Now" data-es="Dar Ahora">Give Now</a>
+      <p class="give-note" data-en="Secure giving · All donations are tax-deductible" data-es="Donación segura · Todas las donaciones son deducibles de impuestos">Secure giving · All donations are tax-deductible</p>
     </div>
   </section>
 </div>
 
-<!-- ═══════════ ABOUT ═══════════ -->
+<!-- ═══ ABOUT ═══ -->
 <div class="page" id="page-about">
   <section class="page-hero">
     <div class="page-hero-bg" style="background-image:url('477762119_954500310121123_556817394323726053_n.jpg');"></div>
     <div class="page-hero-overlay"></div>
-    <div class="page-hero-content"><div class="page-hero-eyebrow">Our Story</div><h1>About Atrios Elohim Church</h1></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow" data-en="Our Story" data-es="Nuestra Historia">Our Story</div>
+      <h1 data-en="About Atrios Elohim Church" data-es="Sobre Atrios Elohim Church">About Atrios Elohim Church</h1>
+    </div>
     <div class="page-hero-line"></div>
   </section>
 
-  <!-- WHO WE ARE -->
   <section style="background:var(--ivory);padding:110px 0;">
     <div class="inner">
-      <div class="section-label">Who We Are</div>
-      <h2 class="section-heading">A Community Rooted<br>in Scripture & Love</h2>
-      <p class="section-body" style="max-width:780px;">Atrios Elohim Church is a multigenerational, multicultural community of faith located at 6 Court Street in Flemington, NJ. We are a congregation committed to worship, discipleship, and authentic service — building lives on the unshakeable foundation of God's Word and glorifying Him by making disciples of all nations.</p>
-      <p class="section-body" style="max-width:780px;">Our doors are open to everyone regardless of background, culture, or life stage. We believe the church is at its best when it reflects the diversity of God's Kingdom.</p>
+      <div class="section-label" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</div>
+      <h2 class="section-heading" data-en="A Community Rooted<br>in Scripture & Love" data-es="Una Comunidad Arraigada<br>en la Escritura y el Amor">A Community Rooted<br>in Scripture & Love</h2>
+      <p class="section-body" style="max-width:780px;" data-en="Atrios Elohim Church is a multigenerational, multicultural community of faith located at 6 Court Street in Flemington, NJ. We are a congregation committed to worship, discipleship, and authentic service — building lives on the unshakeable foundation of God's Word." data-es="Atrios Elohim Church es una comunidad de fe multigeneracional y multicultural ubicada en 6 Court Street en Flemington, NJ. Somos una congregación comprometida con la adoración, el discipulado y el servicio auténtico — edificando vidas sobre el fundamento inquebrantable de la Palabra de Dios.">Atrios Elohim Church is a multigenerational, multicultural community of faith located at 6 Court Street in Flemington, NJ. We are a congregation committed to worship, discipleship, and authentic service — building lives on the unshakeable foundation of God's Word.</p>
       <div class="mission-grid">
-        <div class="mission-box"><div class="mission-box-title">Our Mission</div><p class="mission-box-text">To glorify God by making disciples of all nations, cultivating a community rooted in Scripture, prayer, and authentic love.</p></div>
-        <div class="mission-box"><div class="mission-box-title">Our Vision</div><p class="mission-box-text">A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world.</p></div>
+        <div class="mission-box">
+          <div class="mission-box-title" data-en="Our Mission" data-es="Nuestra Misión">Our Mission</div>
+          <p class="mission-box-text" data-en="To glorify God by making disciples of all nations, cultivating a community rooted in Scripture, prayer, and authentic love." data-es="Glorificar a Dios haciendo discípulos de todas las naciones, cultivando una comunidad arraigada en la Escritura, la oración y el amor auténtico.">To glorify God by making disciples of all nations, cultivating a community rooted in Scripture, prayer, and authentic love.</p>
+        </div>
+        <div class="mission-box">
+          <div class="mission-box-title" data-en="Our Vision" data-es="Nuestra Visión">Our Vision</div>
+          <p class="mission-box-text" data-en="A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world." data-es="Una iglesia multigeneracional próspera donde cada persona se encuentra con el Dios vivo, es transformada por el Evangelio y es enviada a servir a su comunidad y al mundo.">A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PASTOR -->
   <section class="pastor-section">
     <div class="inner">
-      <div class="section-label">Our Spiritual Leader</div>
-      <h2 class="section-heading">Meet Our Pastor</h2>
+      <div class="section-label" data-en="Our Spiritual Leader" data-es="Nuestro Líder Espiritual">Our Spiritual Leader</div>
+      <h2 class="section-heading" data-en="Meet Our Pastor" data-es="Conoce a Nuestro Pastor">Meet Our Pastor</h2>
       <div class="pastor-grid">
-        <div class="pastor-photo-box">
-          <img src="476804693_954500166787804_7009179695970226305_n.jpg" alt="Apostol Edwin Colop"/>
-        </div>
+        <div class="pastor-photo-box"><img src="476804693_954500166787804_7009179695970226305_n.jpg" alt="Apostol Edwin Colop"/></div>
         <div>
           <h3 class="pastor-name">Apostol Edwin Colop</h3>
-          <div class="pastor-role">Senior Pastor — Atrios Elohim Church</div>
-          <p class="pastor-bio-text">Apostol Edwin Colop leads Atrios Elohim Church with a heart for worship, discipleship, and the transformation of lives through the Gospel of Jesus Christ. His ministry is marked by a deep commitment to Scripture, radical hospitality, and a vision for a church where every generation — from every background — encounters the living God.</p>
-          <p class="pastor-bio-text">Under his leadership, Atrios Elohim Church has grown into a vibrant, multicultural community of faith in Flemington, NJ, reaching families and individuals across the region with the love and hope of Jesus Christ.</p>
-          <p class="pastor-bio-text">Apostol Colop's preaching is rooted in the authority of Scripture and delivered with warmth, authority, and power. He believes the church is called not only to gather but to be sent — to serve Flemington and the nations with the transforming power of the Gospel.</p>
-          <div class="pastor-quote"><p>"The church exists not for itself but for the redemption of the world. Every person who walks through our doors carries a destiny — and it is our honour to help them discover it."</p><div style="margin-top:12px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);">— Apostol Edwin Colop</div></div>
+          <div class="pastor-role" data-en="Senior Pastor — Atrios Elohim Church" data-es="Pastor Principal — Atrios Elohim Church">Senior Pastor — Atrios Elohim Church</div>
+          <p class="pastor-bio-text" data-en="Apostol Edwin Colop leads Atrios Elohim Church with a heart for worship, discipleship, and the transformation of lives through the Gospel of Jesus Christ. His ministry is marked by a deep commitment to Scripture, radical hospitality, and a vision for a church where every generation — from every background — encounters the living God." data-es="El Apóstol Edwin Colop lidera Atrios Elohim Church con un corazón para la adoración, el discipulado y la transformación de vidas a través del Evangelio de Jesucristo. Su ministerio se distingue por un profundo compromiso con la Escritura, la hospitalidad radical y una visión de iglesia donde cada generación — de todo origen — se encuentra con el Dios vivo.">Apostol Edwin Colop leads Atrios Elohim Church with a heart for worship, discipleship, and the transformation of lives through the Gospel of Jesus Christ. His ministry is marked by a deep commitment to Scripture, radical hospitality, and a vision for a church where every generation — from every background — encounters the living God.</p>
+          <p class="pastor-bio-text" data-en="Under his leadership, Atrios Elohim Church has grown into a vibrant, multicultural community of faith in Flemington, NJ, reaching families and individuals across the region with the love and hope of Jesus Christ." data-es="Bajo su liderazgo, Atrios Elohim Church ha crecido hasta convertirse en una vibrante comunidad multicultural de fe en Flemington, NJ, alcanzando a familias e individuos en toda la región con el amor y la esperanza de Jesucristo.">Under his leadership, Atrios Elohim Church has grown into a vibrant, multicultural community of faith in Flemington, NJ, reaching families and individuals across the region with the love and hope of Jesus Christ.</p>
+          <div class="pastor-quote">
+            <p data-en='"The church exists not for itself but for the redemption of the world. Every person who walks through our doors carries a destiny — and it is our honour to help them discover it."' data-es='"La iglesia no existe para sí misma sino para la redención del mundo. Cada persona que entra por nuestras puertas lleva un destino — y es nuestro honor ayudarles a descubrirlo."'>"The church exists not for itself but for the redemption of the world. Every person who walks through our doors carries a destiny — and it is our honour to help them discover it."</p>
+            <div style="margin-top:12px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);">— Apostol Edwin Colop</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BAPTISM -->
   <section class="baptism-section">
     <div class="inner">
-      <div class="section-label">New Life in Christ</div>
-      <h2 class="section-heading">Baptism &<br>New Beginnings</h2>
-      <p class="section-body" style="max-width:680px;">At Atrios Elohim Church, baptism is one of the most powerful moments in a believer's journey. We have had the joy of seeing many lives transformed and publicly declaring their faith through the waters of baptism.</p>
+      <div class="section-label" data-en="New Life in Christ" data-es="Nueva Vida en Cristo">New Life in Christ</div>
+      <h2 class="section-heading" data-en="Baptism &<br>New Beginnings" data-es="Bautismo y<br>Nuevos Comienzos">Baptism &<br>New Beginnings</h2>
+      <p class="section-body" style="max-width:680px;" data-en="At Atrios Elohim Church, baptism is one of the most powerful moments in a believer's journey. We have had the joy of seeing many lives transformed and publicly declaring their faith through the waters of baptism." data-es="En Atrios Elohim Church, el bautismo es uno de los momentos más poderosos en el caminar de un creyente. Hemos tenido el gozo de ver muchas vidas transformadas y declarar públicamente su fe a través de las aguas del bautismo.">At Atrios Elohim Church, baptism is one of the most powerful moments in a believer's journey. We have had the joy of seeing many lives transformed and publicly declaring their faith through the waters of baptism.</p>
       <div class="baptism-grid">
         <div class="baptism-img"><img src="476789980_953909333513554_4624479149404193254_n.jpg" alt="River baptism"/></div>
         <div class="baptism-img"><img src="476745107_953909356846885_504021427031218404_n.jpg" alt="Baptism celebration"/></div>
@@ -649,16 +779,15 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
     </div>
   </section>
 
-  <!-- CHAPLAIN PROGRAM -->
   <section class="chaplain-section">
     <div class="inner">
-      <div class="section-label" style="color:var(--soft-gold);">Ministry Beyond the Walls</div>
-      <h2 class="section-heading white">Chaplaincy Program</h2>
-      <p class="section-body muted" style="max-width:680px;">Atrios Elohim Church is proud to commission and support chaplains who serve in their communities, bringing the love and peace of God to those in need. Our chaplains are equipped, certified, and sent to serve.</p>
+      <div class="section-label" style="color:var(--soft-gold);" data-en="Ministry Beyond the Walls" data-es="Ministerio Más Allá de los Muros">Ministry Beyond the Walls</div>
+      <h2 class="section-heading white" data-en="Chaplaincy Program" data-es="Programa de Capellanía">Chaplaincy Program</h2>
+      <p class="section-body muted" style="max-width:680px;" data-en="Atrios Elohim Church is proud to commission and support chaplains who serve in their communities, bringing the love and peace of God to those in need. Our chaplains are equipped, certified, and sent to serve." data-es="Atrios Elohim Church se enorgullece de comisionar y apoyar a capellanes que sirven en sus comunidades, llevando el amor y la paz de Dios a quienes lo necesitan. Nuestros capellanes son equipados, certificados y enviados a servir.">Atrios Elohim Church is proud to commission and support chaplains who serve in their communities, bringing the love and peace of God to those in need. Our chaplains are equipped, certified, and sent to serve.</p>
       <div class="chaplain-grid">
         <div class="chaplain-img"><img src="616043250_1206617708242714_6658615048321309292_n.jpg" alt="Chaplain ceremony"/></div>
         <div class="chaplain-img"><img src="616852976_1206617761576042_5166054406636984606_n.jpg" alt="Chaplain commissioning"/></div>
-        <div class="chaplain-img"><img src="615342541_1206617811576037_2575473763529277822_n.jpg" alt="Chaplain receiving badge"/></div>
+        <div class="chaplain-img"><img src="615342541_1206617811576037_2575473763529277822_n.jpg" alt="Chaplain badge"/></div>
         <div class="chaplain-img"><img src="614171297_1206617874909364_215940292759993586_n.jpg" alt="Chaplain graduation"/></div>
       </div>
     </div>
@@ -667,72 +796,74 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   <!-- PHOTO GALLERY -->
   <section class="gallery-section">
     <div class="inner">
-      <div class="section-label" style="color:var(--soft-gold);">Life at Atrios Elohim</div>
-      <h2 class="section-heading white">Photo Gallery</h2>
-      <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:48px;max-width:600px;">A glimpse into the worship, community, outreach, and life of Atrios Elohim Church in Flemington, NJ.</p>
-
+      <div class="section-label" style="color:var(--soft-gold);" data-en="Life at Atrios Elohim" data-es="Vida en Atrios Elohim">Life at Atrios Elohim</div>
+      <h2 class="section-heading white" data-en="Photo Gallery" data-es="Galería de Fotos">Photo Gallery</h2>
+      <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:48px;max-width:600px;" data-en="A glimpse into the worship, community, outreach, and life of Atrios Elohim Church in Flemington, NJ." data-es="Un vistazo a la adoración, comunidad, alcance y vida de Atrios Elohim Church en Flemington, NJ.">A glimpse into the worship, community, outreach, and life of Atrios Elohim Church in Flemington, NJ.</p>
       <div class="gallery-filters">
-        <button class="gallery-filter active" onclick="filterGallery('all',this)">All</button>
-        <button class="gallery-filter" onclick="filterGallery('worship',this)">Worship</button>
-        <button class="gallery-filter" onclick="filterGallery('baptism',this)">Baptism</button>
-        <button class="gallery-filter" onclick="filterGallery('outreach',this)">Outreach</button>
-        <button class="gallery-filter" onclick="filterGallery('ministry',this)">Ministry</button>
+        <button class="gallery-filter active" onclick="filterGallery('all',this)" data-en="All" data-es="Todo">All</button>
+        <button class="gallery-filter" onclick="filterGallery('worship',this)" data-en="Worship" data-es="Adoración">Worship</button>
+        <button class="gallery-filter" onclick="filterGallery('baptism',this)" data-en="Baptism" data-es="Bautismo">Baptism</button>
+        <button class="gallery-filter" onclick="filterGallery('outreach',this)" data-en="Outreach" data-es="Alcance">Outreach</button>
+        <button class="gallery-filter" onclick="filterGallery('ministry',this)" data-en="Ministry" data-es="Ministerio">Ministry</button>
       </div>
-
       <div class="gallery-grid" id="galleryGrid">
-        <div class="gallery-item" data-cat="worship" onclick="openLightbox(this)"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt="Group prayer"/><div class="gallery-item-overlay"><span class="gallery-item-label">Community Prayer</span></div></div>
-        <div class="gallery-item" data-cat="worship" onclick="openLightbox(this)"><img src="477160286_954500270121127_5162141681045928069_n.jpg" alt="Prayer ministry"/><div class="gallery-item-overlay"><span class="gallery-item-label">Prayer Ministry</span></div></div>
-        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="477762119_954500310121123_556817394323726053_n.jpg" alt="Apostol Colop preaching"/><div class="gallery-item-overlay"><span class="gallery-item-label">Sunday Service</span></div></div>
-        <div class="gallery-item" data-cat="worship" onclick="openLightbox(this)"><img src="476804693_954500166787804_7009179695970226305_n.jpg" alt="Pastor praying"/><div class="gallery-item-overlay"><span class="gallery-item-label">Pastoral Ministry</span></div></div>
-        <div class="gallery-item" data-cat="baptism" onclick="openLightbox(this)"><img src="476789980_953909333513554_4624479149404193254_n.jpg" alt="Baptism"/><div class="gallery-item-overlay"><span class="gallery-item-label">Baptism Service</span></div></div>
-        <div class="gallery-item" data-cat="baptism" onclick="openLightbox(this)"><img src="476745107_953909356846885_504021427031218404_n.jpg" alt="River baptism"/><div class="gallery-item-overlay"><span class="gallery-item-label">River Baptism</span></div></div>
-        <div class="gallery-item" data-cat="outreach" onclick="openLightbox(this)"><img src="477798116_954502700120884_8089935550528402387_n.jpg" alt="Street outreach"/><div class="gallery-item-overlay"><span class="gallery-item-label">Street Outreach</span></div></div>
-        <div class="gallery-item" data-cat="outreach" onclick="openLightbox(this)"><img src="476675589_954502656787555_2429214692221371809_n.jpg" alt="Community service"/><div class="gallery-item-overlay"><span class="gallery-item-label">Community Service</span></div></div>
-        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="616043250_1206617708242714_6658615048321309292_n.jpg" alt="Chaplain ceremony"/><div class="gallery-item-overlay"><span class="gallery-item-label">Chaplain Commissioning</span></div></div>
-        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="616852976_1206617761576042_5166054406636984606_n.jpg" alt="Chaplain ceremony"/><div class="gallery-item-overlay"><span class="gallery-item-label">Chaplain Ceremony</span></div></div>
-        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="615342541_1206617811576037_2575473763529277822_n.jpg" alt="Chaplain badge"/><div class="gallery-item-overlay"><span class="gallery-item-label">Chaplain Graduation</span></div></div>
-        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="614171297_1206617874909364_215940292759993586_n.jpg" alt="Chaplain pinning"/><div class="gallery-item-overlay"><span class="gallery-item-label">Chaplain Pinning</span></div></div>
+        <div class="gallery-item" data-cat="worship" onclick="openLightbox(this)"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt="Group prayer"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Community Prayer" data-es="Oración Comunitaria">Community Prayer</span></div></div>
+        <div class="gallery-item" data-cat="worship" onclick="openLightbox(this)"><img src="477160286_954500270121127_5162141681045928069_n.jpg" alt="Prayer ministry"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Prayer Ministry" data-es="Ministerio de Oración">Prayer Ministry</span></div></div>
+        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="477762119_954500310121123_556817394323726053_n.jpg" alt="Preaching"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Sunday Service" data-es="Servicio Dominical">Sunday Service</span></div></div>
+        <div class="gallery-item" data-cat="worship" onclick="openLightbox(this)"><img src="476804693_954500166787804_7009179695970226305_n.jpg" alt="Pastor praying"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Pastoral Ministry" data-es="Ministerio Pastoral">Pastoral Ministry</span></div></div>
+        <div class="gallery-item" data-cat="baptism" onclick="openLightbox(this)"><img src="476789980_953909333513554_4624479149404193254_n.jpg" alt="Baptism"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Baptism Service" data-es="Servicio de Bautismo">Baptism Service</span></div></div>
+        <div class="gallery-item" data-cat="baptism" onclick="openLightbox(this)"><img src="476745107_953909356846885_504021427031218404_n.jpg" alt="River baptism"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="River Baptism" data-es="Bautismo en el Río">River Baptism</span></div></div>
+        <div class="gallery-item" data-cat="outreach" onclick="openLightbox(this)"><img src="477798116_954502700120884_8089935550528402387_n.jpg" alt="Street outreach"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Street Outreach" data-es="Alcance Callejero">Street Outreach</span></div></div>
+        <div class="gallery-item" data-cat="outreach" onclick="openLightbox(this)"><img src="476675589_954502656787555_2429214692221371809_n.jpg" alt="Community service"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Community Service" data-es="Servicio Comunitario">Community Service</span></div></div>
+        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="616043250_1206617708242714_6658615048321309292_n.jpg" alt="Chaplain ceremony"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Chaplain Commissioning" data-es="Comisionamiento de Capellán">Chaplain Commissioning</span></div></div>
+        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="616852976_1206617761576042_5166054406636984606_n.jpg" alt="Chaplain ceremony"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Chaplain Ceremony" data-es="Ceremonia de Capellán">Chaplain Ceremony</span></div></div>
+        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="615342541_1206617811576037_2575473763529277822_n.jpg" alt="Chaplain badge"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Chaplain Graduation" data-es="Graduación de Capellán">Chaplain Graduation</span></div></div>
+        <div class="gallery-item" data-cat="ministry" onclick="openLightbox(this)"><img src="614171297_1206617874909364_215940292759993586_n.jpg" alt="Chaplain pinning"/><div class="gallery-item-overlay"><span class="gallery-item-label" data-en="Chaplain Pinning" data-es="Imposición de Insignia">Chaplain Pinning</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- BELIEFS -->
   <section class="beliefs-section">
     <div class="inner">
-      <div class="section-label" style="color:var(--soft-gold);">What We Believe</div>
-      <h2 class="section-heading white">Our Core Beliefs</h2>
+      <div class="section-label" style="color:var(--soft-gold);" data-en="What We Believe" data-es="Lo Que Creemos">What We Believe</div>
+      <h2 class="section-heading white" data-en="Our Core Beliefs" data-es="Nuestras Creencias Fundamentales">Our Core Beliefs</h2>
       <div class="beliefs-grid">
-        <div class="belief-item"><div class="belief-num">01</div><div><div class="belief-title">The Bible</div><p class="belief-text">We believe the Bible is the inspired, infallible Word of God — our ultimate authority for faith and life.</p></div></div>
-        <div class="belief-item"><div class="belief-num">02</div><div><div class="belief-title">The Trinity</div><p class="belief-text">We believe in one God eternally existing in three persons — Father, Son, and Holy Spirit.</p></div></div>
-        <div class="belief-item"><div class="belief-num">03</div><div><div class="belief-title">Salvation</div><p class="belief-text">We believe salvation is by grace alone, through faith alone, in Christ alone — available to all who believe.</p></div></div>
-        <div class="belief-item"><div class="belief-num">04</div><div><div class="belief-title">The Holy Spirit</div><p class="belief-text">We believe in the ongoing work of the Holy Spirit — empowering believers for life, witness, and service.</p></div></div>
-        <div class="belief-item"><div class="belief-num">05</div><div><div class="belief-title">The Church</div><p class="belief-text">We believe the local church is God's primary instrument for advancing His Kingdom in the world.</p></div></div>
-        <div class="belief-item"><div class="belief-num">06</div><div><div class="belief-title">The Return of Christ</div><p class="belief-text">We believe in the literal, physical, and glorious return of Jesus Christ to establish His eternal Kingdom.</p></div></div>
+        <div class="belief-item"><div class="belief-num">01</div><div><div class="belief-title" data-en="The Bible" data-es="La Biblia">The Bible</div><p class="belief-text" data-en="We believe the Bible is the inspired, infallible Word of God — our ultimate authority for faith and life." data-es="Creemos que la Biblia es la Palabra de Dios inspirada e infalible — nuestra autoridad definitiva para la fe y la vida.">We believe the Bible is the inspired, infallible Word of God — our ultimate authority for faith and life.</p></div></div>
+        <div class="belief-item"><div class="belief-num">02</div><div><div class="belief-title" data-en="The Trinity" data-es="La Trinidad">The Trinity</div><p class="belief-text" data-en="We believe in one God eternally existing in three persons — Father, Son, and Holy Spirit." data-es="Creemos en un solo Dios que existe eternamente en tres personas — Padre, Hijo y Espíritu Santo.">We believe in one God eternally existing in three persons — Father, Son, and Holy Spirit.</p></div></div>
+        <div class="belief-item"><div class="belief-num">03</div><div><div class="belief-title" data-en="Salvation" data-es="La Salvación">Salvation</div><p class="belief-text" data-en="We believe salvation is by grace alone, through faith alone, in Christ alone — available to all who believe." data-es="Creemos que la salvación es por gracia sola, mediante la fe sola, en Cristo solo — disponible para todos los que creen.">We believe salvation is by grace alone, through faith alone, in Christ alone — available to all who believe.</p></div></div>
+        <div class="belief-item"><div class="belief-num">04</div><div><div class="belief-title" data-en="The Holy Spirit" data-es="El Espíritu Santo">The Holy Spirit</div><p class="belief-text" data-en="We believe in the ongoing work of the Holy Spirit — empowering believers for life, witness, and service." data-es="Creemos en la obra continua del Espíritu Santo — capacitando a los creyentes para la vida, el testimonio y el servicio.">We believe in the ongoing work of the Holy Spirit — empowering believers for life, witness, and service.</p></div></div>
+        <div class="belief-item"><div class="belief-num">05</div><div><div class="belief-title" data-en="The Church" data-es="La Iglesia">The Church</div><p class="belief-text" data-en="We believe the local church is God's primary instrument for advancing His Kingdom in the world." data-es="Creemos que la iglesia local es el instrumento principal de Dios para avanzar su Reino en el mundo.">We believe the local church is God's primary instrument for advancing His Kingdom in the world.</p></div></div>
+        <div class="belief-item"><div class="belief-num">06</div><div><div class="belief-title" data-en="The Return of Christ" data-es="El Retorno de Cristo">The Return of Christ</div><p class="belief-text" data-en="We believe in the literal, physical, and glorious return of Jesus Christ to establish His eternal Kingdom." data-es="Creemos en el retorno literal, físico y glorioso de Jesucristo para establecer su Reino eterno.">We believe in the literal, physical, and glorious return of Jesus Christ to establish His eternal Kingdom.</p></div></div>
       </div>
     </div>
   </section>
 
   <section class="scripture-banner">
-    <div class="scripture-inner"><div class="scripture-rule"></div><div><p class="scripture-text">"A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world."</p><div class="scripture-ref">Our Vision — Atrios Elohim Church</div></div></div>
+    <div class="scripture-inner"><div class="scripture-rule"></div><div>
+      <p class="scripture-text" data-en='"A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world."' data-es='"Una iglesia multigeneracional próspera donde cada persona se encuentra con el Dios vivo, es transformada por el Evangelio y es enviada a servir a su comunidad y al mundo."'>"A thriving, multigenerational church where every person encounters the living God, is transformed by the Gospel, and is sent to serve their community and the world."</p>
+      <div class="scripture-ref" data-en="Our Vision — Atrios Elohim Church" data-es="Nuestra Visión — Atrios Elohim Church">Our Vision — Atrios Elohim Church</div>
+    </div></div>
   </section>
 </div>
 
-<!-- ═══════════ SERMONS ═══════════ -->
+<!-- ═══ SERMONS ═══ -->
 <div class="page" id="page-sermons">
   <section class="page-hero">
     <div class="page-hero-bg" style="background-image:url('477762119_954500310121123_556817394323726053_n.jpg');"></div>
     <div class="page-hero-overlay"></div>
-    <div class="page-hero-content"><div class="page-hero-eyebrow">God's Word</div><h1>Sermons & Messages</h1></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow" data-en="God's Word" data-es="La Palabra de Dios">God's Word</div>
+      <h1 data-en="Sermons & Messages" data-es="Sermones y Mensajes">Sermons & Messages</h1>
+    </div>
     <div class="page-hero-line"></div>
   </section>
-
   <section style="background:var(--ivory);padding:110px 0;">
     <div class="inner">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
-        <div><div class="section-label">This Week</div><h2 class="section-heading" style="margin-bottom:0;">Featured Message</h2></div>
+        <div><div class="section-label" data-en="This Week" data-es="Esta Semana">This Week</div><h2 class="section-heading" style="margin-bottom:0;" data-en="Featured Message" data-es="Mensaje Destacado">Featured Message</h2></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="padding:12px 22px;font-size:12px;display:flex;align-items:center;gap:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook Live</a>
-          <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline-gold" style="padding:12px 22px;font-size:12px;">YouTube Channel</a>
+          <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="padding:12px 22px;font-size:12px;display:flex;align-items:center;gap:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span data-en="Facebook Live" data-es="En Vivo en Facebook">Facebook Live</span></a>
+          <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline-gold" style="padding:12px 22px;font-size:12px;" data-en="YouTube Channel" data-es="Canal de YouTube">YouTube Channel</a>
         </div>
       </div>
       <div class="sermon-card">
@@ -740,177 +871,219 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
           <img src="477762119_954500310121123_556817394323726053_n.jpg" alt="Apostol Colop preaching"/>
           <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="play-ring"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></a>
           <div class="watch-badges">
-            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="wbadge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook Live</a>
+            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="wbadge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a>
             <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="wbadge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>YouTube</a>
           </div>
         </div>
         <div class="sermon-info">
-          <div class="sermon-series">Current Series · [Series Name]</div>
-          <h3 class="sermon-title">[This Week's Message Title]</h3>
-          <p class="sermon-desc">Join Apostol Edwin Colop every Sunday at 1:00 PM as he brings a powerful, Scripture-rooted message of hope, faith, and transformation. Watch live on Facebook or catch up on YouTube.</p>
+          <div class="sermon-series" data-en="Current Series · [Series Name]" data-es="Serie Actual · [Nombre de la Serie]">Current Series · [Series Name]</div>
+          <h3 class="sermon-title" data-en="[This Week's Message Title]" data-es="[Título del Mensaje de Esta Semana]">[This Week's Message Title]</h3>
+          <p class="sermon-desc" data-en="Join Apostol Edwin Colop every Sunday at 1:00 PM as he brings a powerful, Scripture-rooted message of hope, faith, and transformation." data-es="Únete al Apóstol Edwin Colop cada domingo a la 1:00 PM mientras trae un poderoso mensaje arraigado en la Escritura de esperanza, fe y transformación.">Join Apostol Edwin Colop every Sunday at 1:00 PM as he brings a powerful, Scripture-rooted message of hope, faith, and transformation.</p>
           <div class="sermon-btns">
-            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="padding:12px 24px;font-size:12px;">Watch on Facebook</a>
-            <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="padding:11px 24px;font-size:12px;border-color:rgba(201,168,76,.4);color:var(--soft-gold);">YouTube Channel</a>
+            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="padding:12px 24px;font-size:12px;" data-en="Watch on Facebook" data-es="Ver en Facebook">Watch on Facebook</a>
+            <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="padding:11px 24px;font-size:12px;border-color:rgba(201,168,76,.4);color:var(--soft-gold);">YouTube</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <section style="background:var(--onyx);padding:110px 0;">
     <div class="inner">
-      <div class="section-label" style="color:var(--soft-gold);">Message Archive</div>
-      <h2 class="section-heading white">Recent Messages</h2>
+      <div class="section-label" style="color:var(--soft-gold);" data-en="Message Archive" data-es="Archivo de Mensajes">Message Archive</div>
+      <h2 class="section-heading white" data-en="Recent Messages" data-es="Mensajes Recientes">Recent Messages</h2>
       <div class="sermons-grid">
-        <div class="stc"><div class="stc-thumb"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series">[Series Name]</div><div class="stc-title">[Sermon Title]</div><div class="stc-date">March 16, 2026</div></div></div>
-        <div class="stc"><div class="stc-thumb"><img src="476804693_954500166787804_7009179695970226305_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series">[Series Name]</div><div class="stc-title">[Sermon Title]</div><div class="stc-date">March 9, 2026</div></div></div>
-        <div class="stc"><div class="stc-thumb"><img src="477160286_954500270121127_5162141681045928069_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series">[Series Name]</div><div class="stc-title">[Sermon Title]</div><div class="stc-date">March 2, 2026</div></div></div>
-        <div class="stc"><div class="stc-thumb"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series">[Series Name]</div><div class="stc-title">[Sermon Title]</div><div class="stc-date">February 23, 2026</div></div></div>
-        <div class="stc"><div class="stc-thumb"><img src="477762119_954500310121123_556817394323726053_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series">[Series Name]</div><div class="stc-title">[Sermon Title]</div><div class="stc-date">February 16, 2026</div></div></div>
-        <div class="stc"><div class="stc-thumb"><img src="476804693_954500166787804_7009179695970226305_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series">[Series Name]</div><div class="stc-title">[Sermon Title]</div><div class="stc-date">February 9, 2026</div></div></div>
+        <div class="stc"><div class="stc-thumb"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series" data-en="[Series Name]" data-es="[Nombre de la Serie]">[Series Name]</div><div class="stc-title" data-en="[Sermon Title]" data-es="[Título del Sermón]">[Sermon Title]</div><div class="stc-date">March 16, 2026</div></div></div>
+        <div class="stc"><div class="stc-thumb"><img src="476804693_954500166787804_7009179695970226305_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series" data-en="[Series Name]" data-es="[Nombre de la Serie]">[Series Name]</div><div class="stc-title" data-en="[Sermon Title]" data-es="[Título del Sermón]">[Sermon Title]</div><div class="stc-date">March 9, 2026</div></div></div>
+        <div class="stc"><div class="stc-thumb"><img src="477160286_954500270121127_5162141681045928069_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series" data-en="[Series Name]" data-es="[Nombre de la Serie]">[Series Name]</div><div class="stc-title" data-en="[Sermon Title]" data-es="[Título del Sermón]">[Sermon Title]</div><div class="stc-date">March 2, 2026</div></div></div>
+        <div class="stc"><div class="stc-thumb"><img src="476964805_954499930121161_9010086688706564236_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series" data-en="[Series Name]" data-es="[Nombre de la Serie]">[Series Name]</div><div class="stc-title" data-en="[Sermon Title]" data-es="[Título del Sermón]">[Sermon Title]</div><div class="stc-date">February 23, 2026</div></div></div>
+        <div class="stc"><div class="stc-thumb"><img src="477762119_954500310121123_556817394323726053_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series" data-en="[Series Name]" data-es="[Nombre de la Serie]">[Series Name]</div><div class="stc-title" data-en="[Sermon Title]" data-es="[Título del Sermón]">[Sermon Title]</div><div class="stc-date">February 16, 2026</div></div></div>
+        <div class="stc"><div class="stc-thumb"><img src="476804693_954500166787804_7009179695970226305_n.jpg" alt=""/><div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div class="stc-body"><div class="stc-series" data-en="[Series Name]" data-es="[Nombre de la Serie]">[Series Name]</div><div class="stc-title" data-en="[Sermon Title]" data-es="[Título del Sermón]">[Sermon Title]</div><div class="stc-date">February 9, 2026</div></div></div>
       </div>
-      <div style="text-align:center;margin-top:56px;"><a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-gold">View All on YouTube</a></div>
+      <div style="text-align:center;margin-top:56px;"><a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-gold" data-en="View All on YouTube" data-es="Ver Todo en YouTube">View All on YouTube</a></div>
     </div>
   </section>
 </div>
 
-<!-- ═══════════ EVENTS ═══════════ -->
+<!-- ═══ EVENTS ═══ -->
 <div class="page" id="page-events">
   <section class="page-hero">
     <div class="page-hero-bg" style="background-image:url('476964805_954499930121161_9010086688706564236_n.jpg');"></div>
     <div class="page-hero-overlay"></div>
-    <div class="page-hero-content"><div class="page-hero-eyebrow">Community</div><h1>Events & Gatherings</h1></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow" data-en="Community" data-es="Comunidad">Community</div>
+      <h1 data-en="Events & Gatherings" data-es="Eventos y Reuniones">Events & Gatherings</h1>
+    </div>
     <div class="page-hero-line"></div>
   </section>
-
   <section style="background:var(--ivory);padding:110px 0;">
     <div class="inner">
-      <div class="section-label">What's Coming</div>
-      <h2 class="section-heading">Upcoming Events</h2>
-      <p class="section-body" style="max-width:680px;">Stay connected with what God is doing at Atrios Elohim Church. Follow us on Facebook and YouTube to stay up to date with all new events and announcements.</p>
+      <div class="section-label" data-en="What's Coming" data-es="Próximamente">What's Coming</div>
+      <h2 class="section-heading" data-en="Upcoming Events" data-es="Próximos Eventos">Upcoming Events</h2>
+      <p class="section-body" style="max-width:680px;" data-en="Stay connected with what God is doing at Atrios Elohim Church. Follow us on Facebook and YouTube to stay up to date." data-es="Mantente conectado con lo que Dios está haciendo en Atrios Elohim Church. Síguenos en Facebook y YouTube para estar al día.">Stay connected with what God is doing at Atrios Elohim Church. Follow us on Facebook and YouTube to stay up to date.</p>
       <div class="events-grid">
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">21</div><div class="ev-meta-wrap"><span class="ev-month">March</span><span class="ev-dow">Friday</span></div></div><div class="ev-body"><h3 class="ev-title">Friday Night Service</h3><div class="ev-info">8:00 PM · 6 Court St, Flemington NJ<br>Evening worship & prayer</div><span class="ev-tag">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">23</div><div class="ev-meta-wrap"><span class="ev-month">March</span><span class="ev-dow">Sunday</span></div></div><div class="ev-body"><h3 class="ev-title">Sunday Morning Worship</h3><div class="ev-info">1:00 PM · 6 Court St, Flemington NJ<br>Come as you are</div><span class="ev-tag">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">26</div><div class="ev-meta-wrap"><span class="ev-month">March</span><span class="ev-dow">Wednesday</span></div></div><div class="ev-body"><h3 class="ev-title">Prayer Night & Discipleship</h3><div class="ev-info">Midweek Service<br>6 Court St, Flemington NJ</div><span class="ev-tag">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">28</div><div class="ev-meta-wrap"><span class="ev-month">March</span><span class="ev-dow">Friday</span></div></div><div class="ev-body"><h3 class="ev-title">Friday Night Service</h3><div class="ev-info">8:00 PM · 6 Court St, Flemington NJ<br>Evening worship & prayer</div><span class="ev-tag">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">30</div><div class="ev-meta-wrap"><span class="ev-month">March</span><span class="ev-dow">Sunday</span></div></div><div class="ev-body"><h3 class="ev-title">Sunday Morning Worship</h3><div class="ev-info">1:00 PM · 6 Court St, Flemington NJ<br>Come as you are</div><span class="ev-tag">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num" style="font-size:24px;line-height:1.5;">TBD</div><div class="ev-meta-wrap"><span class="ev-month">Coming</span><span class="ev-dow">Soon</span></div></div><div class="ev-body"><h3 class="ev-title">Special Event</h3><div class="ev-info">Details coming soon<br>Follow us on Facebook for updates</div><span class="ev-tag" style="background:rgba(139,35,35,.2);color:#c97a7a;">Special</span></div></div>
+        <div class="ev-card"><div class="ev-band"><div class="ev-num">21</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Friday" data-es="Viernes">Friday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Friday Night Service" data-es="Servicio Viernes por la Noche">Friday Night Service</h3><div class="ev-info">8:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
+        <div class="ev-card"><div class="ev-band"><div class="ev-num">23</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Sunday" data-es="Domingo">Sunday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Sunday Morning Worship" data-es="Adoración Matutina del Domingo">Sunday Morning Worship</h3><div class="ev-info">1:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
+        <div class="ev-card"><div class="ev-band"><div class="ev-num">26</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Wednesday" data-es="Miércoles">Wednesday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Prayer Night & Discipleship" data-es="Noche de Oración y Discipulado">Prayer Night & Discipleship</h3><div class="ev-info">9:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
+        <div class="ev-card"><div class="ev-band"><div class="ev-num">28</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Friday" data-es="Viernes">Friday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Friday Night Service" data-es="Servicio Viernes por la Noche">Friday Night Service</h3><div class="ev-info">8:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
+        <div class="ev-card"><div class="ev-band"><div class="ev-num">30</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Sunday" data-es="Domingo">Sunday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Sunday Morning Worship" data-es="Adoración Matutina del Domingo">Sunday Morning Worship</h3><div class="ev-info">1:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
+        <div class="ev-card"><div class="ev-band"><div class="ev-num" style="font-size:24px;line-height:1.5;">TBD</div><div class="ev-meta-wrap"><span class="ev-month" data-en="Coming" data-es="Próximo">Coming</span><span class="ev-dow" data-en="Soon" data-es="Pronto">Soon</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Special Event" data-es="Evento Especial">Special Event</h3><div class="ev-info" data-en="Details coming soon · Follow us on Facebook" data-es="Detalles próximamente · Síguenos en Facebook">Details coming soon · Follow us on Facebook</div><span class="ev-tag" style="background:rgba(139,35,35,.2);color:#c97a7a;" data-en="Special" data-es="Especial">Special</span></div></div>
       </div>
     </div>
   </section>
-
   <section style="background:var(--navy);padding:90px 0;">
     <div style="max-width:700px;margin:0 auto;text-align:center;padding:0 20px;">
-      <div class="section-label center" style="color:var(--soft-gold);">Stay Connected</div>
-      <h2 class="section-heading white" style="text-align:center;margin-bottom:16px;">Never Miss an Event</h2>
-      <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);margin-bottom:36px;">Follow us on Facebook and YouTube to stay up to date with all events, announcements, and live services.</p>
+      <div class="section-label center" style="color:var(--soft-gold);" data-en="Stay Connected" data-es="Mantente Conectado">Stay Connected</div>
+      <h2 class="section-heading white" style="text-align:center;margin-bottom:16px;" data-en="Never Miss an Event" data-es="No Te Pierdas Ningún Evento">Never Miss an Event</h2>
+      <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);margin-bottom:36px;" data-en="Follow us on Facebook and YouTube to stay up to date with all events, announcements, and live services." data-es="Síguenos en Facebook y YouTube para mantenerte al día con todos los eventos, anuncios y servicios en vivo.">Follow us on Facebook and YouTube to stay up to date with all events, announcements, and live services.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Follow on Facebook</a>
-        <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="display:flex;align-items:center;gap:8px;border-color:rgba(255,255,255,.35);">Subscribe on YouTube</a>
+        <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span data-en="Follow on Facebook" data-es="Síguenos en Facebook">Follow on Facebook</span></a>
+        <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="display:flex;align-items:center;gap:8px;border-color:rgba(255,255,255,.35);"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg><span data-en="Subscribe on YouTube" data-es="Suscríbete en YouTube">Subscribe on YouTube</span></a>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ═══════════ GIVE ═══════════ -->
+<!-- ═══ GIVE ═══ -->
 <div class="page" id="page-give">
   <section class="page-hero">
     <div class="page-hero-bg" style="background-image:url('477160286_954500270121127_5162141681045928069_n.jpg');"></div>
     <div class="page-hero-overlay"></div>
-    <div class="page-hero-content"><div class="page-hero-eyebrow">Generosity</div><h1>Give to the Vision</h1></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow" data-en="Generosity" data-es="Generosidad">Generosity</div>
+      <h1 data-en="Give to the Vision" data-es="Da a la Visión">Give to the Vision</h1>
+    </div>
     <div class="page-hero-line"></div>
   </section>
   <section style="background:var(--ivory);padding:110px 0;">
     <div class="inner">
       <div class="give-page-grid">
         <div>
-          <div class="section-label">Why We Give</div>
-          <h2 class="section-heading">Your Gift Makes<br>a Difference</h2>
-          <p class="section-body">At Atrios Elohim Church, we believe generosity is an act of worship. When you give, you partner with everything God is doing through this church — in Flemington and around the world.</p>
+          <div class="section-label" data-en="Why We Give" data-es="Por Qué Damos">Why We Give</div>
+          <h2 class="section-heading" data-en="Your Gift Makes<br>a Difference" data-es="Tu Ofrenda<br>Hace la Diferencia">Your Gift Makes<br>a Difference</h2>
+          <p class="section-body" data-en="At Atrios Elohim Church, we believe generosity is an act of worship. When you give, you partner with everything God is doing through this church — in Flemington and around the world." data-es="En Atrios Elohim Church, creemos que la generosidad es un acto de adoración. Cuando das, te asocias con todo lo que Dios está haciendo a través de esta iglesia — en Flemington y en todo el mundo.">At Atrios Elohim Church, we believe generosity is an act of worship. When you give, you partner with everything God is doing through this church — in Flemington and around the world.</p>
           <div style="margin-top:48px;">
-            <div class="give-why-item"><div class="give-why-icon">🙏</div><div><div class="give-why-title">Fuel Worship & Ministry</div><p class="give-why-text">Your giving sustains Sunday worship, midweek prayer, and Friday night services — creating spaces where people encounter God every week.</p></div></div>
-            <div class="give-why-item"><div class="give-why-icon">📖</div><div><div class="give-why-title">Invest in Discipleship</div><p class="give-why-text">From children's ministry to adult discipleship classes, your generosity helps raise up the next generation of faithful followers of Jesus.</p></div></div>
-            <div class="give-why-item"><div class="give-why-icon">🌍</div><div><div class="give-why-title">Reach the Nations</div><p class="give-why-text">Your gifts help fund outreach locally in Flemington and support missions efforts that extend the Gospel to the ends of the earth.</p></div></div>
+            <div class="give-why-item">
+              <div class="give-why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+              <div><div class="give-why-title" data-en="Fuel Worship & Ministry" data-es="Impulsa la Adoración y el Ministerio">Fuel Worship & Ministry</div><p class="give-why-text" data-en="Your giving sustains Sunday worship, midweek prayer, and Friday night services — creating spaces where people encounter God every week." data-es="Tu ofrenda sostiene la adoración dominical, la oración de mitad de semana y los servicios del viernes por la noche — creando espacios donde las personas se encuentran con Dios cada semana.">Your giving sustains Sunday worship, midweek prayer, and Friday night services.</p></div>
+            </div>
+            <div class="give-why-item">
+              <div class="give-why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+              <div><div class="give-why-title" data-en="Invest in Discipleship" data-es="Invierte en el Discipulado">Invest in Discipleship</div><p class="give-why-text" data-en="From children's ministry to adult discipleship classes, your generosity helps raise up the next generation of faithful followers of Jesus." data-es="Desde el ministerio de niños hasta las clases de discipulado para adultos, tu generosidad ayuda a criar a la próxima generación de fieles seguidores de Jesús.">From children's ministry to adult discipleship classes, your generosity raises up the next generation of faithful followers of Jesus.</p></div>
+            </div>
+            <div class="give-why-item">
+              <div class="give-why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+              <div><div class="give-why-title" data-en="Reach the Nations" data-es="Alcanza las Naciones">Reach the Nations</div><p class="give-why-text" data-en="Your gifts help fund outreach locally in Flemington and support missions efforts that extend the Gospel to the ends of the earth." data-es="Tus ofrendas ayudan a financiar el alcance local en Flemington y apoyan los esfuerzos misioneros que extienden el Evangelio hasta los confines de la tierra.">Your gifts fund outreach locally and support missions that extend the Gospel to the ends of the earth.</p></div>
+            </div>
           </div>
         </div>
         <div class="give-form-card">
-          <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;">Make a Gift</div>
-          <div style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px;">Select an amount or enter your own</div>
+          <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;" data-en="Make a Gift" data-es="Haz una Ofrenda">Make a Gift</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px;" data-en="Select an amount or enter your own" data-es="Selecciona un monto o ingresa el tuyo">Select an amount or enter your own</div>
           <div class="give-amounts" style="justify-content:flex-start;margin-bottom:28px;">
             <button class="give-btn-amt">$25</button>
             <button class="give-btn-amt active">$50</button>
             <button class="give-btn-amt">$100</button>
             <button class="give-btn-amt">$250</button>
           </div>
-          <div class="form-group"><label>Custom Amount</label><input type="text" placeholder="Enter amount ($)"/></div>
-          <div class="form-group"><label>Frequency</label><select><option>One-time gift</option><option>Weekly</option><option>Monthly</option></select></div>
-          <div class="form-group"><label>Designation</label><select><option>General Fund</option><option>Missions</option><option>Children's Ministry</option><option>Building Fund</option></select></div>
-          <button class="form-submit" style="margin-top:8px;">Give Now →</button>
-          <p style="font-size:12px;color:rgba(255,255,255,.35);text-align:center;margin-top:16px;font-style:italic;">All donations are tax-deductible.</p>
+          <div class="form-group"><label data-en="Custom Amount" data-es="Monto Personalizado">Custom Amount</label><input type="text" data-placeholder-en="Enter amount ($)" data-placeholder-es="Ingresa monto ($)" placeholder="Enter amount ($)"/></div>
+          <div class="form-group"><label data-en="Frequency" data-es="Frecuencia">Frequency</label>
+            <select>
+              <option data-en="One-time gift" data-es="Ofrenda única">One-time gift</option>
+              <option data-en="Weekly" data-es="Semanal">Weekly</option>
+              <option data-en="Monthly" data-es="Mensual">Monthly</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-en="Designation" data-es="Designación">Designation</label>
+            <select>
+              <option data-en="General Fund" data-es="Fondo General">General Fund</option>
+              <option data-en="Missions" data-es="Misiones">Missions</option>
+              <option data-en="Children's Ministry" data-es="Ministerio de Niños">Children's Ministry</option>
+              <option data-en="Building Fund" data-es="Fondo de Edificio">Building Fund</option>
+            </select>
+          </div>
+          <button class="form-submit" style="margin-top:8px;" data-en="Give Now →" data-es="Dar Ahora →">Give Now →</button>
+          <p style="font-size:12px;color:rgba(255,255,255,.35);text-align:center;margin-top:16px;font-style:italic;" data-en="All donations are tax-deductible." data-es="Todas las donaciones son deducibles de impuestos.">All donations are tax-deductible.</p>
           <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Other Ways to Give</div>
-            <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;">Cash or cheque during any service. Make cheques payable to <strong style="color:rgba(255,255,255,.7);">Atrios Elohim Church</strong>.<br>Questions? Email <span id="give-email" style="color:var(--gold);"></span></p>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;" data-en="Other Ways to Give" data-es="Otras Formas de Dar">Other Ways to Give</div>
+            <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;"><span data-en="Cash or cheque during any service. Cheques payable to " data-es="Efectivo o cheque durante cualquier servicio. Cheques a nombre de ">Cash or cheque during any service. Cheques payable to </span><strong style="color:rgba(255,255,255,.7);">Atrios Elohim Church</strong>.<br><span data-en="Questions? Email " data-es="¿Preguntas? Email ">Questions? Email </span><span id="give-email" style="color:var(--gold);"></span></p>
           </div>
         </div>
       </div>
     </div>
   </section>
   <section class="scripture-banner">
-    <div class="scripture-inner"><div class="scripture-rule"></div><div><p class="scripture-text">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p><div class="scripture-ref">2 Corinthians 9:7</div></div></div>
+    <div class="scripture-inner"><div class="scripture-rule"></div><div>
+      <p class="scripture-text" data-en='"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."' data-es='"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre."'>"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+      <div class="scripture-ref" data-en="2 Corinthians 9:7" data-es="2 Corintios 9:7">2 Corinthians 9:7</div>
+    </div></div>
   </section>
 </div>
 
-<!-- ═══════════ CONTACT ═══════════ -->
+<!-- ═══ CONTACT ═══ -->
 <div class="page" id="page-contact">
   <section class="page-hero">
     <div class="page-hero-bg" style="background-image:url('476964805_954499930121161_9010086688706564236_n.jpg');"></div>
     <div class="page-hero-overlay"></div>
-    <div class="page-hero-content"><div class="page-hero-eyebrow">Get in Touch</div><h1>Contact Us</h1></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow" data-en="Get in Touch" data-es="Contáctanos">Get in Touch</div>
+      <h1 data-en="Contact Us" data-es="Contáctenos">Contact Us</h1>
+    </div>
     <div class="page-hero-line"></div>
   </section>
   <section style="background:var(--ivory);padding:110px 0;">
     <div class="inner">
       <div class="contact-grid">
         <div>
-          <div class="contact-info-title">We'd Love to<br>Hear from You</div>
-          <p class="section-body">Whether you have a question about our services, want to get involved, or want to know more about Atrios Elohim Church — we are here to help.</p>
-          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-label">Address</div><div class="ci-text">6 Court Street<br>Flemington, NJ</div></div></div>
-          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="ci-label">Phone</div><div class="ci-text"><a href="tel:9085313821">(908) 531-3821</a></div></div></div>
+          <div class="contact-info-title" data-en="We'd Love to<br>Hear from You" data-es="Nos Encantaría<br>Saber de Ti">We'd Love to<br>Hear from You</div>
+          <p class="section-body" data-en="Whether you have a question about our services, want to get involved, or want to know more about Atrios Elohim Church — we are here to help." data-es="Ya sea que tengas una pregunta sobre nuestros servicios, quieras involucrarte o saber más sobre Atrios Elohim Church — estamos aquí para ayudar.">Whether you have a question about our services, want to get involved, or want to know more about Atrios Elohim Church — we are here to help.</p>
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-label" data-en="Address" data-es="Dirección">Address</div><div class="ci-text">6 Court Street<br>Flemington, NJ</div></div></div>
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="ci-label" data-en="Phone" data-es="Teléfono">Phone</div><div class="ci-text"><a href="tel:9085313821">(908) 531-3821</a></div></div></div>
           <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-label">Email</div><div class="ci-text"><span id="contact-email"></span></div></div></div>
-          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ci-label">Service Times</div><div class="ci-text">Sunday — 1:00 PM<br>Wednesday — Prayer Night & Discipleship<br>Friday — 8:00 PM</div></div></div>
-          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><div><div class="ci-label">Follow Us</div><div class="ci-text"><a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank">Facebook — @AtriosElohimChurch1</a><br><a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank">YouTube — @AtriosElohimChurch</a></div></div></div>
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ci-label" data-en="Service Times" data-es="Horarios de Servicio">Service Times</div><div class="ci-text"><span data-en="Sunday — 1:00 PM" data-es="Domingo — 1:00 PM">Sunday — 1:00 PM</span><br><span data-en="Wednesday — Prayer Night & Discipleship — 9:00 PM" data-es="Miércoles — Noche de Oración y Discipulado — 9:00 PM">Wednesday — Prayer Night & Discipleship — 9:00 PM</span><br><span data-en="Friday — 8:00 PM" data-es="Viernes — 8:00 PM">Friday — 8:00 PM</span></div></div></div>
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><div><div class="ci-label" data-en="Follow Us" data-es="Síguenos">Follow Us</div><div class="ci-text"><a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank">Facebook — @AtriosElohimChurch1</a><br><a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank">YouTube — @AtriosElohimChurch</a></div></div></div>
         </div>
         <div class="form-wrap">
-          <div class="form-title">Send Us a Message</div>
-          <div class="form-sub">We'll get back to you within 1–2 business days.</div>
+          <div class="form-title" data-en="Send Us a Message" data-es="Envíanos un Mensaje">Send Us a Message</div>
+          <div class="form-sub" data-en="We'll get back to you within 1–2 business days." data-es="Te responderemos dentro de 1 a 2 días hábiles.">We'll get back to you within 1–2 business days.</div>
           <div class="form-row">
-            <div class="form-group"><label>First Name</label><input type="text" placeholder="John"/></div>
-            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+            <div class="form-group"><label data-en="First Name" data-es="Nombre">First Name</label><input type="text" data-placeholder-en="John" data-placeholder-es="Juan" placeholder="John"/></div>
+            <div class="form-group"><label data-en="Last Name" data-es="Apellido">Last Name</label><input type="text" data-placeholder-en="Smith" data-placeholder-es="García" placeholder="Smith"/></div>
           </div>
-          <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@email.com"/></div>
-          <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="(908) 000-0000"/></div>
-          <div class="form-group"><label>I'm interested in</label><select><option>General inquiry</option><option>Planning a visit</option><option>Getting involved / volunteering</option><option>Prayer request</option><option>Children's ministry</option><option>Youth ministry</option><option>Missions</option><option>Other</option></select></div>
-          <div class="form-group"><label>Message</label><textarea placeholder="How can we help you?"></textarea></div>
-          <button class="form-submit" onclick="submitForm()">Send Message →</button>
-          <div class="form-success" id="formSuccess">✓ Thank you! Your message has been sent. We'll be in touch soon.</div>
+          <div class="form-group"><label data-en="Email Address" data-es="Correo Electrónico">Email Address</label><input type="email" placeholder="john@email.com"/></div>
+          <div class="form-group"><label data-en="Phone (optional)" data-es="Teléfono (opcional)">Phone (optional)</label><input type="tel" placeholder="(908) 000-0000"/></div>
+          <div class="form-group"><label data-en="I'm interested in" data-es="Estoy interesado en">I'm interested in</label>
+            <select>
+              <option data-en="General inquiry" data-es="Consulta general">General inquiry</option>
+              <option data-en="Planning a visit" data-es="Planificar una visita">Planning a visit</option>
+              <option data-en="Getting involved / volunteering" data-es="Involucrarme / voluntariado">Getting involved / volunteering</option>
+              <option data-en="Prayer request" data-es="Petición de oración">Prayer request</option>
+              <option data-en="Children's ministry" data-es="Ministerio de niños">Children's ministry</option>
+              <option data-en="Youth ministry" data-es="Ministerio de jóvenes">Youth ministry</option>
+              <option data-en="Missions" data-es="Misiones">Missions</option>
+              <option data-en="Other" data-es="Otro">Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-en="Message" data-es="Mensaje">Message</label><textarea data-placeholder-en="How can we help you?" data-placeholder-es="¿Cómo podemos ayudarte?" placeholder="How can we help you?"></textarea></div>
+          <button class="form-submit" onclick="submitForm()" data-en="Send Message →" data-es="Enviar Mensaje →">Send Message →</button>
+          <div class="form-success" id="formSuccess" data-en="✓ Thank you! Your message has been sent. We'll be in touch soon." data-es="✓ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.">✓ Thank you! Your message has been sent. We'll be in touch soon.</div>
         </div>
       </div>
     </div>
   </section>
   <section style="background:var(--onyx);padding:110px 0;">
     <div class="inner">
-      <div class="section-label" style="color:var(--soft-gold);">Find Us</div>
-      <h2 class="section-heading white">We're in the Heart<br>of Flemington</h2>
+      <div class="section-label" style="color:var(--soft-gold);" data-en="Find Us" data-es="Encuéntranos">Find Us</div>
+      <h2 class="section-heading white" data-en="We're in the Heart<br>of Flemington" data-es="Estamos en el Corazón<br>de Flemington">We're in the Heart<br>of Flemington</h2>
       <div class="map-box">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <p>6 Court Street, Flemington, NJ</p>
-        <a href="https://maps.google.com/?q=6+Court+Street+Flemington+NJ" target="_blank">Open in Google Maps →</a>
+        <a href="https://maps.google.com/?q=6+Court+Street+Flemington+NJ" target="_blank" data-en="Open in Google Maps →" data-es="Abrir en Google Maps →">Open in Google Maps →</a>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ═══════════ FOOTER ═══════════ -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -918,82 +1091,158 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <img src="Atrios Elohim Church - 1.png" alt="Atrios Elohim Church Logo"/>
         <div><div class="footer-brand-name">Atrios Elohim Church</div><div class="footer-brand-sub">Flemington, NJ</div></div>
       </div>
-      <p class="footer-tagline">"To glorify God by making disciples of all nations."</p>
+      <p class="footer-tagline" data-en='"To glorify God by making disciples of all nations."' data-es='"Glorificar a Dios haciendo discípulos de todas las naciones."'>"To glorify God by making disciples of all nations."</p>
       <div class="footer-contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>6 Court Street, Flemington, NJ</div>
       <div class="footer-contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:9085313821">(908) 531-3821</a></div>
       <div class="footer-contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span id="footer-email"></span></div>
     </div>
     <div>
-      <div class="footer-col-title">Navigate</div>
+      <div class="footer-col-title" data-en="Navigate" data-es="Navegar">Navigate</div>
       <ul class="footer-links">
-        <li><a onclick="showPage('home')">Home</a></li>
-        <li><a onclick="showPage('about')">About Us</a></li>
-        <li><a onclick="showPage('sermons')">Sermons</a></li>
-        <li><a onclick="showPage('events')">Events</a></li>
-        <li><a onclick="showPage('give')">Give</a></li>
-        <li><a onclick="showPage('contact')">Contact</a></li>
+        <li><a onclick="showPage('home')" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a onclick="showPage('about')" data-en="About Us" data-es="Quiénes Somos">About Us</a></li>
+        <li><a onclick="showPage('sermons')" data-en="Sermons" data-es="Sermones">Sermons</a></li>
+        <li><a onclick="showPage('events')" data-en="Events" data-es="Eventos">Events</a></li>
+        <li><a onclick="showPage('give')" data-en="Give" data-es="Dar">Give</a></li>
+        <li><a onclick="showPage('contact')" data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Ministries</div>
+      <div class="footer-col-title" data-en="Ministries" data-es="Ministerios">Ministries</div>
       <ul class="footer-links">
-        <li><a onclick="showPage('about')">Children</a></li>
-        <li><a onclick="showPage('about')">Youth</a></li>
-        <li><a onclick="showPage('about')">Young Adults</a></li>
-        <li><a onclick="showPage('about')">Missions</a></li>
-        <li><a onclick="showPage('contact')">Prayer Team</a></li>
-        <li><a onclick="showPage('contact')">Chaplaincy</a></li>
+        <li><a onclick="showPage('about')" data-en="Children" data-es="Niños">Children</a></li>
+        <li><a onclick="showPage('about')" data-en="Youth" data-es="Juventud">Youth</a></li>
+        <li><a onclick="showPage('about')" data-en="Young Adults" data-es="Jóvenes Adultos">Young Adults</a></li>
+        <li><a onclick="showPage('about')" data-en="Missions" data-es="Misiones">Missions</a></li>
+        <li><a onclick="showPage('contact')" data-en="Prayer Team" data-es="Equipo de Oración">Prayer Team</a></li>
+        <li><a onclick="showPage('about')" data-en="Chaplaincy" data-es="Capellanía">Chaplaincy</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Service Times</div>
+      <div class="footer-col-title" data-en="Service Times" data-es="Horarios">Service Times</div>
       <ul class="footer-links">
-        <li><a>Sunday — 1:00 PM</a></li>
-        <li><a>Wednesday — Prayer & Discipleship</a></li>
-        <li><a>Friday — 8:00 PM</a></li>
+        <li><a data-en="Sunday — 1:00 PM" data-es="Domingo — 1:00 PM">Sunday — 1:00 PM</a></li>
+        <li><a data-en="Wednesday — 9:00 PM" data-es="Miércoles — 9:00 PM">Wednesday — 9:00 PM</a></li>
+        <li><a data-en="Friday — 8:00 PM" data-es="Viernes — 8:00 PM">Friday — 8:00 PM</a></li>
       </ul>
       <div style="margin-top:28px;">
-        <div class="footer-col-title">Follow Us</div>
+        <div class="footer-col-title" data-en="Follow Us" data-es="Síguenos">Follow Us</div>
         <div class="social-row">
-          <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="social-btn" title="Facebook">f</a>
-          <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="social-btn" title="YouTube">▶</a>
+          <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="social-btn" title="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="social-btn" title="YouTube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Atrios Elohim Church · Flemington, NJ · All rights reserved.</span>
+    <span data-en="© 2025 Atrios Elohim Church · Flemington, NJ · All rights reserved." data-es="© 2025 Atrios Elohim Church · Flemington, NJ · Todos los derechos reservados.">© 2025 Atrios Elohim Church · Flemington, NJ · All rights reserved.</span>
     <span>#AtriosElohimChurch</span>
   </div>
 </footer>
 
 <script>
-// Email (Cloudflare-safe)
+/* === EMAIL (Cloudflare-safe) === */
 (function(){
   var e='Atrioselohimchurch'+'@'+'gmail.com';
   var link='<a href="mailto:'+e+'" style="color:inherit;">'+e+'</a>';
   var gold='<a href="mailto:'+e+'" style="color:var(--gold);">'+e+'</a>';
-  ['contact-email','footer-email'].forEach(function(id){var el=document.getElementById(id);if(el)el.innerHTML=link;});
-  var ge=document.getElementById('give-email');if(ge)ge.innerHTML=gold;
+  var ce=document.getElementById('contact-email'); if(ce) ce.innerHTML=link;
+  var fe=document.getElementById('footer-email'); if(fe) fe.innerHTML=link;
+  var ge=document.getElementById('give-email'); if(ge) ge.innerHTML=gold;
 })();
 
-// Page navigation
-function showPage(id){
+/* === LANGUAGE SYSTEM === */
+var currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('htmlRoot').lang = lang;
+  document.getElementById('langLabel').textContent = lang.toUpperCase();
+
+  // Update dropdown options
+  document.querySelectorAll('.lang-option').forEach(function(opt) {
+    opt.classList.remove('selected');
+  });
+  var opts = document.querySelectorAll('.lang-option');
+  if(lang === 'en') opts[0].classList.add('selected');
+  else opts[1].classList.add('selected');
+
+  // Mobile buttons
+  document.querySelectorAll('.mlang-btn').forEach(function(b, i) {
+    b.classList.toggle('active', (lang === 'en' && i === 0) || (lang === 'es' && i === 1));
+  });
+
+  // Translate all data-en/data-es elements
+  document.querySelectorAll('[data-en],[data-es]').forEach(function(el) {
+    var val = el.getAttribute('data-' + lang);
+    if (val === null) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      // handled separately via data-placeholder-*
+    } else if (el.tagName === 'OPTION') {
+      el.textContent = val;
+    } else {
+      el.innerHTML = val;
+    }
+  });
+
+  // Translate placeholders
+  document.querySelectorAll('[data-placeholder-en],[data-placeholder-es]').forEach(function(el) {
+    var ph = el.getAttribute('data-placeholder-' + lang);
+    if (ph) el.placeholder = ph;
+  });
+
+  // Re-apply gallery filter labels
+  document.querySelectorAll('.gallery-filter').forEach(function(btn) {
+    var val = btn.getAttribute('data-' + lang);
+    if (val) btn.textContent = val;
+  });
+
+  closeLangDropdown();
+}
+
+function toggleLangDropdown() {
+  var btn = document.getElementById('langBtn');
+  var dd = document.getElementById('langDropdown');
+  btn.classList.toggle('open');
+  dd.classList.toggle('open');
+}
+
+function closeLangDropdown() {
+  document.getElementById('langBtn').classList.remove('open');
+  document.getElementById('langDropdown').classList.remove('open');
+}
+
+document.addEventListener('click', function(e) {
+  var switcher = document.querySelector('.lang-switcher');
+  if (switcher && !switcher.contains(e.target)) closeLangDropdown();
+});
+
+/* === PAGE NAV === */
+function showPage(id) {
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');p.style.display='none';});
   var t=document.getElementById('page-'+id);
   if(t){t.classList.add('active');t.style.display='block';}
   document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
-  var n=document.getElementById('nav-'+id);if(n)n.classList.add('active');
+  var n=document.getElementById('nav-'+id); if(n)n.classList.add('active');
   window.scrollTo(0,0);
 }
 function openMobile(){document.getElementById('mobileMenu').classList.add('open');}
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');}
 function submitForm(){
   var s=document.getElementById('formSuccess');
-  if(s){s.style.display='block';setTimeout(function(){s.style.display='none';},5000);}
+  if(s){
+    var msg = currentLang === 'es' ? '✓ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.' : '✓ Thank you! Your message has been sent. We\'ll be in touch soon.';
+    s.textContent = msg;
+    s.style.display='block';
+    setTimeout(function(){s.style.display='none';},5000);
+  }
 }
 
-// Give amounts
+/* === GIVE AMOUNTS === */
 document.querySelectorAll('.give-btn-amt').forEach(function(btn){
   btn.addEventListener('click',function(){
     var par=btn.closest('section')||btn.parentElement;
@@ -1002,40 +1251,37 @@ document.querySelectorAll('.give-btn-amt').forEach(function(btn){
   });
 });
 
-// Gallery filter
-function filterGallery(cat, btn){
+/* === GALLERY === */
+function filterGallery(cat, btn) {
   document.querySelectorAll('.gallery-filter').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
   document.querySelectorAll('.gallery-item').forEach(function(item){
-    if(cat==='all'||item.dataset.cat===cat){item.style.display='block';}
-    else{item.style.display='none';}
+    item.style.display = (cat==='all' || item.dataset.cat===cat) ? 'block' : 'none';
   });
 }
 
-// Lightbox
-var lightboxImages=[];
-var lightboxIndex=0;
+/* === LIGHTBOX === */
+var lbImages=[], lbIndex=0;
 function openLightbox(el){
   var img=el.querySelector('img');
-  lightboxImages=Array.from(document.querySelectorAll('.gallery-item img'));
-  lightboxIndex=lightboxImages.indexOf(img);
+  lbImages=Array.from(document.querySelectorAll('#galleryGrid .gallery-item img'));
+  lbIndex=lbImages.indexOf(img);
   document.getElementById('lightbox-img').src=img.src;
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeLightbox(e){
-  if(!e||e.target===document.getElementById('lightbox')||e.currentTarget.classList.contains('lightbox-close')){
+  if(!e||e.target===document.getElementById('lightbox')||e.currentTarget.classList&&e.currentTarget.classList.contains('lightbox-close')){
     document.getElementById('lightbox').classList.remove('open');
     document.body.style.overflow='';
   }
 }
 function lightboxNav(dir){
-  lightboxIndex=(lightboxIndex+dir+lightboxImages.length)%lightboxImages.length;
-  document.getElementById('lightbox-img').src=lightboxImages[lightboxIndex].src;
+  lbIndex=(lbIndex+dir+lbImages.length)%lbImages.length;
+  document.getElementById('lightbox-img').src=lbImages[lbIndex].src;
 }
 document.addEventListener('keydown',function(e){
-  var lb=document.getElementById('lightbox');
-  if(!lb.classList.contains('open'))return;
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
   if(e.key==='Escape')closeLightbox();
   if(e.key==='ArrowRight')lightboxNav(1);
   if(e.key==='ArrowLeft')lightboxNav(-1);
