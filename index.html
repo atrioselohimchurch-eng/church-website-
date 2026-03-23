@@ -337,6 +337,31 @@ nav{position:sticky;top:0;z-index:200;background:var(--onyx);display:flex;align-
 .give-why-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--onyx);margin-bottom:8px;}
 .give-why-text{font-size:14px;line-height:1.75;color:var(--charcoal);}
 
+/* WISH LIST */
+.wishlist-section{background:var(--onyx);padding:110px 0;}
+.wishlist-inner{max-width:1240px;margin:0 auto;padding:0 52px;}
+.wishlist-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:20px;}
+.wishlist-intro{font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);max-width:600px;margin-top:12px;}
+.wishlist-cta-top{display:flex;align-items:center;gap:10px;background:var(--gold);color:var(--onyx);font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:16px 32px;border-radius:2px;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap;flex-shrink:0;}
+.wishlist-cta-top:hover{background:var(--soft-gold);transform:translateY(-2px);}
+.wishlist-cta-top svg{color:var(--onyx);}
+.wishlist-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;}
+.wishlist-card{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.18);border-radius:8px;padding:36px 32px;display:flex;flex-direction:column;gap:16px;transition:border-color .25s,transform .25s;}
+.wishlist-card:hover{border-color:rgba(201,168,76,.5);transform:translateY(-4px);}
+.wishlist-card-icon{width:52px;height:52px;background:rgba(201,168,76,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wishlist-card-icon svg{color:var(--gold);}
+.wishlist-card-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--white);line-height:1.2;}
+.wishlist-card-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,.55);flex:1;}
+.wishlist-card-btn{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:gap .2s;}
+.wishlist-card-btn:hover{gap:14px;}
+.wishlist-banner{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.wishlist-banner-text .title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.wishlist-banner-text .subtitle{font-size:15px;color:rgba(255,255,255,.6);line-height:1.6;}
+.wishlist-banner-btn{display:flex;align-items:center;gap:10px;background:var(--gold);color:var(--onyx);font-family:'Lato',sans-serif;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:18px 40px;border-radius:2px;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap;flex-shrink:0;}
+.wishlist-banner-btn:hover{background:var(--soft-gold);transform:translateY(-2px);}
+@media(max-width:960px){.wishlist-cards{grid-template-columns:1fr 1fr;}.wishlist-inner{padding-left:20px;padding-right:20px;}.wishlist-banner{padding:28px 24px;}}
+@media(max-width:600px){.wishlist-cards{grid-template-columns:1fr;}}
+
 /* FOOTER */
 footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px 32px;}
 .footer-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.08);}
@@ -712,6 +737,8 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <button class="give-btn-amt" data-en="Other" data-es="Otro">Other</button>
       </div>
       <a onclick="showPage('give')" class="btn btn-gold" style="font-size:14px;padding:18px 52px;" data-en="Give Now" data-es="Dar Ahora">Give Now</a>
+      <br><br>
+      <a href="https://giftlist.com/user/Atrios%20Elohim%20Church" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;" data-en="🎁 View Our Wish List" data-es="🎁 Ver Nuestra Lista de Deseos">🎁 View Our Wish List</a>
       <p class="give-note" data-en="Secure giving · All donations are tax-deductible" data-es="Donación segura · Todas las donaciones son deducibles de impuestos">Secure giving · All donations are tax-deductible</p>
     </div>
   </section>
@@ -1011,6 +1038,63 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
       </div>
     </div>
   </section>
+  <!-- WISH LIST SECTION -->
+  <section class="wishlist-section">
+    <div class="wishlist-inner">
+      <div class="wishlist-header">
+        <div>
+          <div class="section-label" style="color:var(--soft-gold);" data-en="Support Our Church" data-es="Apoya Nuestra Iglesia">Support Our Church</div>
+          <h2 class="section-heading white" data-en="Our Wish List" data-es="Nuestra Lista de Deseos">Our Wish List</h2>
+          <p class="wishlist-intro" data-en="Can't give financially right now? You can still make a powerful impact by purchasing items directly from our church wish list. Every item helps us serve our congregation and community better." data-es="¿No puedes dar financieramente ahora? Aún puedes tener un gran impacto comprando artículos directamente de nuestra lista de deseos. Cada artículo nos ayuda a servir mejor a nuestra congregación y comunidad.">Can't give financially right now? You can still make a powerful impact by purchasing items directly from our church wish list. Every item helps us serve our congregation and community better.</p>
+        </div>
+        <a href="https://giftlist.com/user/Atrios%20Elohim%20Church" target="_blank" class="wishlist-cta-top">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span data-en="View Full Wish List" data-es="Ver Lista Completa">View Full Wish List</span>
+        </a>
+      </div>
+
+      <!-- Sample wish list categories — visitors click through to the full list -->
+      <div class="wishlist-cards">
+        <div class="wishlist-card">
+          <div class="wishlist-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg>
+          </div>
+          <div class="wishlist-card-title" data-en="Audio & Sound Equipment" data-es="Equipos de Audio y Sonido">Audio & Sound Equipment</div>
+          <p class="wishlist-card-desc" data-en="Microphones, speakers, mixers, and audio gear to enhance our worship services and help every voice be heard clearly." data-es="Micrófonos, altavoces, mezcladoras y equipos de audio para mejorar nuestros servicios de adoración.">Microphones, speakers, mixers, and audio gear to enhance our worship services and help every voice be heard clearly.</p>
+          <a href="https://giftlist.com/user/Atrios%20Elohim%20Church" target="_blank" class="wishlist-card-btn" data-en="Shop This Category →" data-es="Ver Esta Categoría →">Shop This Category →</a>
+        </div>
+        <div class="wishlist-card">
+          <div class="wishlist-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="wishlist-card-title" data-en="Technology & Screens" data-es="Tecnología y Pantallas">Technology & Screens</div>
+          <p class="wishlist-card-desc" data-en="Projectors, screens, computers, and tech equipment to support our worship presentations, livestreams, and ministry operations." data-es="Proyectores, pantallas, computadoras y equipos tecnológicos para nuestras presentaciones de adoración y transmisiones en vivo.">Projectors, screens, computers, and tech equipment to support our worship presentations, livestreams, and ministry operations.</p>
+          <a href="https://giftlist.com/user/Atrios%20Elohim%20Church" target="_blank" class="wishlist-card-btn" data-en="Shop This Category →" data-es="Ver Esta Categoría →">Shop This Category →</a>
+        </div>
+        <div class="wishlist-card">
+          <div class="wishlist-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <div class="wishlist-card-title" data-en="Community & Outreach" data-es="Comunidad y Alcance">Community & Outreach</div>
+          <p class="wishlist-card-desc" data-en="Supplies for our street ministry, outreach events, children's programs, and community care initiatives that serve Flemington and beyond." data-es="Suministros para nuestro ministerio callejero, eventos de alcance, programas infantiles e iniciativas de cuidado comunitario.">Supplies for our street ministry, outreach events, children's programs, and community care initiatives that serve Flemington and beyond.</p>
+          <a href="https://giftlist.com/user/Atrios%20Elohim%20Church" target="_blank" class="wishlist-card-btn" data-en="Shop This Category →" data-es="Ver Esta Categoría →">Shop This Category →</a>
+        </div>
+      </div>
+
+      <!-- Big CTA Banner -->
+      <div class="wishlist-banner">
+        <div class="wishlist-banner-text">
+          <div class="title" data-en="Browse Our Full Wish List" data-es="Ver Nuestra Lista Completa">Browse Our Full Wish List</div>
+          <div class="subtitle" data-en="Every item you purchase is a direct investment in the ministry of Atrios Elohim Church. Thank you for your generosity and support." data-es="Cada artículo que compras es una inversión directa en el ministerio de Atrios Elohim Church. Gracias por tu generosidad y apoyo.">Every item you purchase is a direct investment in the ministry of Atrios Elohim Church. Thank you for your generosity and support.</div>
+        </div>
+        <a href="https://giftlist.com/user/Atrios%20Elohim%20Church" target="_blank" class="wishlist-banner-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span data-en="Visit Our Wish List" data-es="Visitar Nuestra Lista">Visit Our Wish List</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="scripture-banner">
     <div class="scripture-inner"><div class="scripture-rule"></div><div>
       <p class="scripture-text" data-en='"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."' data-es='"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre."'>"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
