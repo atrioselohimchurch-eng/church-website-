@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Atrios Elohim Church — Flemington, NJ</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600&display=swap" rel="stylesheet"/>
-<!-- Facebook SDK — powers the live page feed on the Events page -->
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"
-  nonce="atrios2026">
-</script>
+<!-- Facebook iframe embed used instead of SDK — no script needed -->
 <style>
 :root{--onyx:#1A1A1A;--gold:#C9A84C;--soft-gold:#E8D5A3;--navy:#1E2E4F;--ivory:#F8F3EA;--charcoal:#2E2E2E;--grey:#6B7280;--white:#ffffff;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -1287,27 +1283,21 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
           </a>
         </div>
 
-        <!-- RIGHT: embedded Facebook Page plugin -->
+        <!-- RIGHT: Facebook Page iframe embed — works on all hosts including GitHub Pages -->
         <div>
-          <!-- Facebook SDK loads the live feed -->
-          <div id="fb-root"></div>
-          <div style="border-radius:8px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.4);">
-            <div class="fb-page"
-              data-href="https://www.facebook.com/AtriosElohimChurch1"
-              data-tabs="timeline"
-              data-width="500"
-              data-height="680"
-              data-small-header="true"
-              data-adapt-container-width="true"
-              data-hide-cover="false"
-              data-show-facepile="false">
-              <!-- Fallback while Facebook loads -->
-              <blockquote cite="https://www.facebook.com/AtriosElohimChurch1" class="fb-xfbml-parse-ignore">
-                <a href="https://www.facebook.com/AtriosElohimChurch1">Atrios Elohim Church</a>
-              </blockquote>
-            </div>
+          <div style="border-radius:8px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.4);background:#18191a;">
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAtriosElohimChurch1&tabs=timeline&width=500&height=680&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+              width="500"
+              height="680"
+              style="border:none;overflow:hidden;width:100%;max-width:500px;display:block;"
+              scrolling="no"
+              frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe>
           </div>
-          <p style="font-size:12px;color:rgba(255,255,255,.3);text-align:center;margin-top:14px;font-style:italic;" data-en="Live feed from Facebook — updates automatically when you post" data-es="Feed en vivo de Facebook — se actualiza automáticamente cuando publicas">Live feed from Facebook — updates automatically when you post</p>
+          <p style="font-size:12px;color:rgba(255,255,255,.3);text-align:center;margin-top:14px;font-style:italic;" data-en="Live feed — updates automatically when you post on Facebook" data-es="Feed en vivo — se actualiza automáticamente cuando publicas en Facebook">Live feed — updates automatically when you post on Facebook</p>
         </div>
 
       </div>
@@ -1729,32 +1719,31 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <div class="form-wrap">
           <div class="form-title" data-en="Send Us a Message" data-es="Envíanos un Mensaje">Send Us a Message</div>
           <div class="form-sub" data-en="We'll get back to you within 1–2 business days." data-es="Te responderemos dentro de 1 a 2 días hábiles.">We'll get back to you within 1–2 business days.</div>
-          <div id="contact-form-inner">
+          <form id="contact-form-inner" onsubmit="submitContactForm(event)">
           <div class="form-row">
-            <div class="form-group"><label data-en="First Name" data-es="Nombre">First Name</label><input type="text" data-placeholder-en="John" data-placeholder-es="Juan" placeholder="John"/></div>
-            <div class="form-group"><label data-en="Last Name" data-es="Apellido">Last Name</label><input type="text" data-placeholder-en="Smith" data-placeholder-es="García" placeholder="Smith"/></div>
+            <div class="form-group"><label>First Name</label><input type="text" name="First Name" placeholder="John" required/></div>
+            <div class="form-group"><label>Last Name</label><input type="text" name="Last Name" placeholder="Smith" required/></div>
           </div>
-          <div class="form-group"><label data-en="Email Address" data-es="Correo Electrónico">Email Address</label><input type="email" placeholder="john@email.com"/></div>
-          <div class="form-group"><label data-en="Phone (optional)" data-es="Teléfono (opcional)">Phone (optional)</label><input type="tel" placeholder="(908) 000-0000"/></div>
-          <div class="form-group"><label data-en="I'm interested in" data-es="Estoy interesado en">I'm interested in</label>
-            <select>
-              <option data-en="General inquiry" data-es="Consulta general">General inquiry</option>
-              <option data-en="Planning a visit" data-es="Planificar una visita">Planning a visit</option>
-              <option data-en="Getting involved / volunteering" data-es="Involucrarme / voluntariado">Getting involved / volunteering</option>
-              <option data-en="Prayer request" data-es="Petición de oración">Prayer request</option>
-              <option data-en="Children's ministry" data-es="Ministerio de niños">Children's ministry</option>
-              <option data-en="Youth ministry" data-es="Ministerio de jóvenes">Youth ministry</option>
-              <option data-en="Missions" data-es="Misiones">Missions</option>
-              <option data-en="Other" data-es="Otro">Other</option>
+          <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="john@email.com" required/></div>
+          <div class="form-group"><label>Phone (optional)</label><input type="tel" name="Phone" placeholder="(908) 000-0000"/></div>
+          <div class="form-group"><label>Topic</label>
+            <select name="Topic">
+              <option>General inquiry</option>
+              <option>Planning a visit</option>
+              <option>Getting involved / volunteering</option>
+              <option>Prayer request</option>
+              <option>Children's ministry</option>
+              <option>Youth ministry</option>
+              <option>Missions</option>
+              <option>Other</option>
             </select>
           </div>
-          <div class="form-group"><label data-en="Message" data-es="Mensaje">Message</label><textarea data-placeholder-en="How can we help you?" data-placeholder-es="¿Cómo podemos ayudarte?" placeholder="How can we help you?"></textarea></div>
-          <!-- Formspree: sends form data to your church email for free -->
-          <!-- SETUP: go to formspree.io, create free account, get your form ID and ID is set: mojpqnzj -->
-          <button class="form-submit" onclick="submitContactForm(event)" data-en="Send Message →" data-es="Enviar Mensaje →">Send Message →</button>
-          <div class="form-success" id="formSuccess" style="display:none;" data-en="✓ Message received! We will get back to you within 1–2 business days." data-es="✓ ¡Mensaje recibido! Te responderemos en 1 a 2 días hábiles.">✓ Message received! We will get back to you within 1–2 business days.</div>
-          <div id="formError" style="display:none;background:rgba(139,35,35,.15);border:1px solid rgba(139,35,35,.4);border-radius:4px;padding:16px;margin-top:12px;color:#f87171;font-size:13px;text-align:center;" data-en="Something went wrong. Please email us directly at Atrioselohimchurch@gmail.com" data-es="Algo salió mal. Por favor envíanos un correo a Atrioselohimchurch@gmail.com">Something went wrong. Please email us directly.</div>
-        </div>
+          <div class="form-group"><label>Message</label><textarea name="Message" placeholder="How can we help you?" required></textarea></div>
+          <input type="hidden" name="_subject" value="New message — Atrios Elohim Church website"/>
+          <button type="submit" class="form-submit" data-en="Send Message →" data-es="Enviar Mensaje →">Send Message →</button>
+          <div class="form-success" id="formSuccess" style="display:none;">✓ Message received! We will reply within 1–2 business days.</div>
+          <div id="formError" style="display:none;background:rgba(139,35,35,.15);border:1px solid rgba(139,35,35,.4);border-radius:4px;padding:16px;margin-top:12px;color:#f87171;font-size:13px;"></div>
+          </form></div>
       </div>
     </div>
   </section>
@@ -2323,69 +2312,59 @@ function showPage(id) {
   document.querySelectorAll('.nav-links a, .nav-dropdown-label').forEach(function(a){a.classList.remove('active');});
   var n=document.getElementById('nav-'+id); if(n)n.classList.add('active');
   window.scrollTo(0,0);
-  // Re-render Facebook embed when Events page is opened
-  if (id === 'events' && window.FB) {
-    setTimeout(function(){ FB.XFBML.parse(); }, 100);
-  }
+
 }
 function openMobile(){document.getElementById('mobileMenu').classList.add('open');}
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');}
 function submitContactForm(e) {
-  if(e && e.preventDefault) e.preventDefault();
+  if (e) e.preventDefault();
   var form = document.getElementById('contact-form-inner');
-  if (!form) return;
-  var btn = form.querySelector('.form-submit');
+  var btn = form ? form.querySelector('button[type="submit"], .form-submit') : null;
   var successEl = document.getElementById('formSuccess');
   var errorEl   = document.getElementById('formError');
+  if (!form) return;
+
+  // Set reply-to from email field
+  var emailInput = form.querySelector('input[name="email"]');
+  var replyTo = form.querySelector('#form-replyto');
+  if (emailInput && replyTo) replyTo.value = emailInput.value;
+
+  // Button loading state
+  var origText = btn ? (btn.getAttribute('data-en') || btn.textContent) : 'Send Message →';
   if (btn) { btn.disabled = true; btn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...'; }
+  if (errorEl) errorEl.style.display = 'none';
 
-  // ── FORMSPREE SETUP ──────────────────────────────────────────────
-  // 1. Go to formspree.io and create a FREE account
-  // 2. Click "New Form", name it "Contact", enter Atrioselohimchurch@gmail.com
-  // 3. Form ID is: mojpqnzj (already active — sends to Atrioselohimchurch@gmail.com)
-  var FORMSPREE_ID = 'mojpqnzj'; // ✓ Active — sends to Atrioselohimchurch@gmail.com
-
-  if (FORMSPREE_ID === 'DISABLED') { // never triggers
-    if (btn) { btn.disabled = false; btn.textContent = currentLang==='es' ? 'Enviar Mensaje →' : 'Send Message →'; }
-    if (errorEl) {
-      errorEl.innerHTML = currentLang === 'es'
-        ? '⚠️ Aún no configurado. Escríbenos a <strong>Atrioselohimchurch@gmail.com</strong> o llama al (908) 531-3821'
-        : '⚠️ Not set up yet. Email us at <strong>Atrioselohimchurch@gmail.com</strong> or call (908) 531-3821';
-      errorEl.style.display = 'block';
-    }
-    return;
-  }
-
-  var fd = new FormData();
-  fd.append('_subject', 'New message — Atrios Elohim Church website');
-  form.querySelectorAll('input, textarea, select').forEach(function(el) {
-    if (!el.value) return;
-    var labelEl = el.closest('.form-group') && el.closest('.form-group').querySelector('label');
-    var key = labelEl ? labelEl.textContent.trim() : (el.placeholder || el.type);
-    fd.append(key, el.value);
-  });
-
-  fetch('https://formspree.io/f/' + FORMSPREE_ID, { method:'POST', body:fd, headers:{'Accept':'application/json'} })
-  .then(function(r){ return r.json().then(function(d){ return {ok:r.ok,d:d}; }); })
+  // Send via Formspree
+  fetch('https://formspree.io/f/mojpqnzj', {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(r) { return r.json().then(function(d){ return { ok: r.ok, data: d }; }); })
   .then(function(res) {
     if (res.ok) {
-      if (successEl) successEl.style.display = 'block';
-      form.querySelectorAll('input, textarea, select').forEach(function(el){ if(el.type!=='submit') el.value=''; });
-      setTimeout(function(){ if(successEl) successEl.style.display='none'; }, 7000);
-    } else { throw new Error('failed'); }
-  })
-  .catch(function() {
-    if (errorEl) {
-      errorEl.innerHTML = currentLang === 'es'
-        ? '⚠️ Algo salió mal. Escríbenos a <strong>Atrioselohimchurch@gmail.com</strong>'
-        : '⚠️ Something went wrong. Email us at <strong>Atrioselohimchurch@gmail.com</strong>';
-      errorEl.style.display = 'block';
+      if (successEl) { successEl.style.display = 'block'; successEl.textContent = currentLang === 'es' ? '✓ ¡Mensaje recibido! Te responderemos en 1 a 2 días hábiles.' : '✓ Message received! We will reply within 1–2 business days.'; }
+      form.reset();
+      setTimeout(function(){ if(successEl) successEl.style.display = 'none'; }, 7000);
+    } else {
+      var msg = res.data && res.data.errors ? res.data.errors.map(function(e){return e.message;}).join(', ') : 'Submission failed';
+      throw new Error(msg);
     }
   })
+  .catch(function(err) {
+    if (errorEl) {
+      errorEl.innerHTML = currentLang === 'es'
+        ? '⚠️ Algo salió mal. Escríbenos directamente a <a href="mailto:Atrioselohimchurch@gmail.com" style="color:#fca5a5;">Atrioselohimchurch@gmail.com</a> o llama al (908) 531-3821'
+        : '⚠️ Something went wrong. Email us at <a href="mailto:Atrioselohimchurch@gmail.com" style="color:#fca5a5;">Atrioselohimchurch@gmail.com</a> or call (908) 531-3821';
+      errorEl.style.display = 'block';
+    }
+    console.error('Formspree error:', err);
+  })
   .finally(function() {
-    if (btn) { btn.disabled = false; btn.textContent = currentLang==='es' ? 'Enviar Mensaje →' : 'Send Message →'; }
+    if (btn) { btn.disabled = false; btn.textContent = currentLang === 'es' ? 'Enviar Mensaje →' : 'Send Message →'; }
   });
 }
+
 function submitForm() { submitContactForm(null); }
 
 /* === GIVE AMOUNTS === */
