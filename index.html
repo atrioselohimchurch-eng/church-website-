@@ -669,7 +669,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <div class="about-img-stack">
           <div class="aimg aimg-main"><img src="477762119_954500310121123_556817394323726053_n.jpg" alt="Apostol Colop preaching"/></div>
           <div class="aimg aimg-sec"><img src="477160286_954500270121127_5162141681045928069_n.jpg" alt="Prayer ministry"/></div>
-          <div class="aimg-badge" data-en="Flemington, NJ · Est. 2025" data-es="Flemington, NJ · Fund. 2025">Flemington, NJ · Est. 2025</div>
+          <div class="aimg-badge" data-en="Flemington, NJ · Est. 2018" data-es="Flemington, NJ · Fund. 2018">Flemington, NJ · Est. 2018</div>
         </div>
       </div>
     </div>
@@ -734,27 +734,29 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
     <div class="inner">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
         <div>
-          <div class="section-label" data-en="Watch & Listen" data-es="Ver y Escuchar">Watch & Listen</div>
+          <div class="section-label" data-en="Watch &amp; Listen" data-es="Ver y Escuchar">Watch &amp; Listen</div>
           <h2 class="section-heading" style="margin-bottom:0;" data-en="Latest Message" data-es="Último Mensaje">Latest Message</h2>
+          <p style="font-size:13px;color:var(--grey);margin-top:6px;" data-en="Auto-updates when we upload a new video to YouTube" data-es="Se actualiza automáticamente cuando subimos un nuevo video a YouTube">Auto-updates when we upload a new video to YouTube</p>
         </div>
         <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline-gold" style="padding:12px 24px;font-size:12px;" data-en="All Messages" data-es="Todos los Mensajes">All Messages</a>
       </div>
       <div class="sermon-card">
-        <div class="sermon-thumb">
-          <img src="477762119_954500310121123_556817394323726053_n.jpg" alt="Apostol Colop preaching"/>
-          <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="play-ring"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></a>
+        <div class="sermon-thumb" style="cursor:pointer;" onclick="var l=document.getElementById('yt-latest-link');if(l)l.click();">
+          <img id="yt-thumbnail" src="477762119_954500310121123_556817394323726053_n.jpg" alt="Latest sermon"/>
+          <a id="yt-latest-link" href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="play-ring"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></a>
           <div class="watch-badges">
             <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="wbadge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook Live</a>
             <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="wbadge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>YouTube</a>
           </div>
         </div>
         <div class="sermon-info">
-          <div class="sermon-series" data-en="Current Series · [Series Name]" data-es="Serie Actual · [Nombre de la Serie]">Current Series · [Series Name]</div>
-          <h3 class="sermon-title" data-en="[This Week's Message]" data-es="[Mensaje de Esta Semana]">[This Week's Message]</h3>
-          <p class="sermon-desc" data-en="Join Apostol Edwin Colop every Sunday at 1:00 PM. Watch live on Facebook or catch up any time on YouTube — new messages posted weekly." data-es="Únete al Apóstol Edwin Colop cada domingo a la 1:00 PM. Mira en vivo en Facebook o ponerte al día en YouTube — nuevos mensajes publicados semanalmente.">Join Apostol Edwin Colop every Sunday at 1:00 PM. Watch live on Facebook or catch up any time on YouTube — new messages posted weekly.</p>
+          <div class="sermon-series" data-en="Atrios Elohim Church · Latest Upload" data-es="Atrios Elohim Church · Última Subida">Atrios Elohim Church · Latest Upload</div>
+          <h3 class="sermon-title" id="yt-title" data-en="Loading latest message..." data-es="Cargando último mensaje...">Loading latest message...</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,.45);margin-bottom:16px;" id="yt-date"></p>
+          <p class="sermon-desc" data-en="Our latest message is pulled directly from YouTube — no manual updates needed. Click to watch, or subscribe to our channel to get notified every time we post." data-es="Nuestro último mensaje se obtiene directamente de YouTube — sin actualizaciones manuales. Haz clic para ver, o suscríbete a nuestro canal para recibir notificaciones cada vez que publiquemos.">Our latest message is pulled directly from YouTube — no manual updates needed. Click to watch, or subscribe to our channel to get notified every time we post.</p>
           <div class="sermon-btns">
-            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="padding:12px 24px;font-size:12px;" data-en="Watch on Facebook" data-es="Ver en Facebook">Watch on Facebook</a>
-            <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="padding:11px 24px;font-size:12px;border-color:rgba(201,168,76,.4);color:var(--soft-gold);" data-en="YouTube" data-es="YouTube">YouTube</a>
+            <a id="yt-watch-btn" href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-gold" style="padding:12px 24px;font-size:12px;" data-en="Watch on YouTube" data-es="Ver en YouTube">Watch on YouTube</a>
+            <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-outline" style="padding:11px 24px;font-size:12px;border-color:rgba(201,168,76,.4);color:var(--soft-gold);" data-en="Facebook Live" data-es="Facebook Live">Facebook Live</a>
           </div>
         </div>
       </div>
@@ -1071,10 +1073,8 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <!-- Card 1 -->
         <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="stc" style="text-decoration:none;">
           <div class="stc-thumb" style="background:linear-gradient(135deg,#1E2E4F 0%,#0d1520 100%);">
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:2;">
-              <div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);" data-en="Watch on YouTube" data-es="Ver en YouTube">Watch on YouTube</div>
-            </div>
+            <img src="" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;"/>
+            <div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
             <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);"></div>
           </div>
           <div class="stc-body">
@@ -1087,10 +1087,8 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <!-- Card 2 -->
         <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="stc" style="text-decoration:none;">
           <div class="stc-thumb" style="background:linear-gradient(135deg,#2a1a0a 0%,#1A1A1A 100%);">
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:2;">
-              <div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);" data-en="Watch on YouTube" data-es="Ver en YouTube">Watch on YouTube</div>
-            </div>
+            <img src="" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;"/>
+            <div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
             <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);"></div>
           </div>
           <div class="stc-body">
@@ -1103,10 +1101,8 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <!-- Card 3 -->
         <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="stc" style="text-decoration:none;">
           <div class="stc-thumb" style="background:linear-gradient(135deg,#0d1f0d 0%,#1A1A1A 100%);">
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:2;">
-              <div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);" data-en="Watch on YouTube" data-es="Ver en YouTube">Watch on YouTube</div>
-            </div>
+            <img src="" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;"/>
+            <div class="stc-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
             <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);"></div>
           </div>
           <div class="stc-body">
@@ -1455,35 +1451,48 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
           </div>
         </div>
         <div class="give-form-card">
-          <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;" data-en="Make a Gift" data-es="Haz una Ofrenda">Make a Gift</div>
-          <div style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px;" data-en="Select an amount or enter your own" data-es="Selecciona un monto o ingresa el tuyo">Select an amount or enter your own</div>
-          <div class="give-amounts" style="justify-content:flex-start;margin-bottom:28px;">
-            <button class="give-btn-amt">$25</button>
-            <button class="give-btn-amt active">$50</button>
-            <button class="give-btn-amt">$100</button>
-            <button class="give-btn-amt">$250</button>
+          <!-- SECURE GIVING via Tithe.ly — no monthly fee, 2.9%+$0.30 per transaction -->
+          <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:6px;" data-en="Give Securely Online" data-es="Dar de Forma Segura en Línea">Give Securely Online</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:28px;" data-en="Powered by Tithe.ly — trusted by 37,000+ churches" data-es="Con Tithe.ly — de confianza de más de 37,000 iglesias">Powered by Tithe.ly — trusted by 37,000+ churches</div>
+
+          <!-- AMOUNT SELECTOR -->
+          <div class="give-amounts" style="justify-content:flex-start;margin-bottom:24px;">
+            <button class="give-btn-amt" onclick="setGiveAmt(25)">$25</button>
+            <button class="give-btn-amt active" onclick="setGiveAmt(50)">$50</button>
+            <button class="give-btn-amt" onclick="setGiveAmt(100)">$100</button>
+            <button class="give-btn-amt" onclick="setGiveAmt(250)">$250</button>
           </div>
-          <div class="form-group"><label data-en="Custom Amount" data-es="Monto Personalizado">Custom Amount</label><input type="text" data-placeholder-en="Enter amount ($)" data-placeholder-es="Ingresa monto ($)" placeholder="Enter amount ($)"/></div>
-          <div class="form-group"><label data-en="Frequency" data-es="Frecuencia">Frequency</label>
-            <select>
-              <option data-en="One-time gift" data-es="Ofrenda única">One-time gift</option>
-              <option data-en="Weekly" data-es="Semanal">Weekly</option>
-              <option data-en="Monthly" data-es="Mensual">Monthly</option>
-            </select>
+          <div class="form-group"><label data-en="Custom Amount" data-es="Monto Personalizado">Custom Amount</label><input type="number" id="give-custom-amount" min="1" data-placeholder-en="Or enter your own amount" data-placeholder-es="O ingresa tu propio monto" placeholder="Or enter your own amount" oninput="clearGiveAmtBtns()"/></div>
+
+          <!-- GIVE NOW — redirects to Tithe.ly giving page -->
+          <button class="form-submit" style="margin-top:8px;font-size:15px;padding:20px;" onclick="goGive()" data-en="Give Now — Secure & Encrypted →" data-es="Dar Ahora — Seguro y Encriptado →">Give Now — Secure &amp; Encrypted →</button>
+
+          <!-- SECURITY BADGES -->
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.35);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>SSL Encrypted</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.35);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Bank-Level Security</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.35);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tax Receipts Auto-Sent</div>
           </div>
-          <div class="form-group"><label data-en="Designation" data-es="Designación">Designation</label>
-            <select>
-              <option data-en="General Fund" data-es="Fondo General">General Fund</option>
-              <option data-en="Missions" data-es="Misiones">Missions</option>
-              <option data-en="Children's Ministry" data-es="Ministerio de Niños">Children's Ministry</option>
-              <option data-en="Building Fund" data-es="Fondo de Edificio">Building Fund</option>
-            </select>
+
+          <p style="font-size:12px;color:rgba(255,255,255,.3);text-align:center;margin-top:14px;font-style:italic;" data-en="All donations are tax-deductible. You will receive an automatic receipt by email." data-es="Todas las donaciones son deducibles de impuestos. Recibirás un recibo automático por correo electrónico.">All donations are tax-deductible. You will receive an automatic receipt by email.</p>
+
+          <!-- PAYMENT METHODS -->
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;" data-en="Accepted Payment Methods" data-es="Métodos de Pago Aceptados">Accepted Payment Methods</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+              <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Credit / Debit Card</div>
+              <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.6);">🏦 Bank Transfer (ACH)</div>
+              <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.6);">📱 Apple &amp; Google Pay</div>
+            </div>
           </div>
-          <button class="form-submit" style="margin-top:8px;" data-en="Give Now →" data-es="Dar Ahora →">Give Now →</button>
-          <p style="font-size:12px;color:rgba(255,255,255,.35);text-align:center;margin-top:16px;font-style:italic;" data-en="All donations are tax-deductible." data-es="Todas las donaciones son deducibles de impuestos.">All donations are tax-deductible.</p>
-          <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;" data-en="Other Ways to Give" data-es="Otras Formas de Dar">Other Ways to Give</div>
-            <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;"><span data-en="Cash or cheque during any service. Cheques payable to " data-es="Efectivo o cheque durante cualquier servicio. Cheques a nombre de ">Cash or cheque during any service. Cheques payable to </span><strong style="color:rgba(255,255,255,.7);">Atrios Elohim Church</strong>.<br><span data-en="Questions? Email " data-es="¿Preguntas? Email ">Questions? Email </span><span id="give-email" style="color:var(--gold);"></span></p>
+
+          <!-- OTHER WAYS TO GIVE -->
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;" data-en="Other Ways to Give" data-es="Otras Formas de Dar">Other Ways to Give</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;">
+              <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" style="margin-top:2px;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-en="In person at any service — cash or cheque payable to Atrios Elohim Church" data-es="En persona en cualquier servicio — efectivo o cheque a nombre de Atrios Elohim Church">In person at any service — cash or cheque payable to <strong style="color:rgba(255,255,255,.7);">Atrios Elohim Church</strong></span></div>
+              <div style="display:flex;align-items:flex-start;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" style="margin-top:2px;flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span data-en="Email us with questions: " data-es="Envíanos un correo electrónico con preguntas: ">Email us with questions: </span><span id="give-email" style="color:var(--gold);"></span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1961,12 +1970,233 @@ document.addEventListener('click', function(e) {
   if (switcher && !switcher.contains(e.target)) closeLangDropdown();
 });
 
+/* === YOUTUBE AUTO-FETCH (No API key, no channel ID needed) === */
+// Uses YouTube handle RSS via multiple CORS proxy fallbacks
+// Automatically shows your latest video — updates every time someone visits the page
+var YT_HANDLE = 'AtriosElohimChurch';
+var YT_CHANNEL_URL = 'https://www.youtube.com/@' + YT_HANDLE;
+
+// Multiple CORS proxies — tries each one until one works
+var CORS_PROXIES = [
+  'https://api.allorigins.win/raw?url=',
+  'https://corsproxy.io/?',
+  'https://cors-anywhere.herokuapp.com/'
+];
+
+// YouTube RSS via handle — works without needing the channel ID
+var RSS_URLS = [
+  'https://www.youtube.com/feeds/videos.xml?user=' + YT_HANDLE,
+  'https://www.youtube.com/feeds/videos.xml?q=' + YT_HANDLE
+];
+
+function fetchLatestYouTube() {
+  // First: try to resolve @handle to channel ID via YouTube's oembed
+  var oembedUrl = 'https://www.youtube.com/oembed?url=' + encodeURIComponent(YT_CHANNEL_URL) + '&format=json';
+  
+  tryFetchWithProxies(oembedUrl, function(text) {
+    try {
+      var data = JSON.parse(text);
+      // Extract channel ID from author_url if present
+      if (data && data.author_url) {
+        var match = data.author_url.match(/channel\/(UC[a-zA-Z0-9_-]+)/);
+        if (match) {
+          fetchRSSWithChannelId(match[1]);
+          return;
+        }
+      }
+    } catch(e) {}
+    // oembed didn't give us channel ID, try RSS directly
+    fetchRSSDirect();
+  }, function() {
+    fetchRSSDirect();
+  });
+}
+
+function fetchRSSWithChannelId(channelId) {
+  var rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
+  tryFetchWithProxies(rssUrl, parseYouTubeRSS, showFallbackSermon);
+}
+
+function fetchRSSDirect() {
+  // Try RSS by username as fallback
+  var rssUrl = 'https://www.youtube.com/feeds/videos.xml?user=' + YT_HANDLE;
+  tryFetchWithProxies(rssUrl, parseYouTubeRSS, showFallbackSermon);
+}
+
+function tryFetchWithProxies(url, onSuccess, onFail, proxyIndex) {
+  proxyIndex = proxyIndex || 0;
+  if (proxyIndex >= CORS_PROXIES.length) { if(onFail) onFail(); return; }
+  var proxyUrl = CORS_PROXIES[proxyIndex] + encodeURIComponent(url);
+  fetch(proxyUrl, {headers:{'X-Requested-With':'XMLHttpRequest'}})
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    })
+    .then(function(text) {
+      if (!text || text.trim().length < 10) throw new Error('Empty response');
+      onSuccess(text);
+    })
+    .catch(function() {
+      tryFetchWithProxies(url, onSuccess, onFail, proxyIndex + 1);
+    });
+}
+
+function parseYouTubeRSS(xml) {
+  try {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(xml, 'application/xml');
+    // Handle both XML namespaces
+    var entries = doc.querySelectorAll('entry');
+    if (!entries || entries.length === 0) { showFallbackSermon(); return; }
+
+    var latest = entries[0];
+    
+    // Extract video ID — try multiple methods
+    var videoId = null;
+    var idEl = latest.querySelector('id');
+    if (idEl) {
+      var m = idEl.textContent.match(/yt:video:([a-zA-Z0-9_-]+)/);
+      if (m) videoId = m[1];
+    }
+    if (!videoId) {
+      var vidEl = latest.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015','videoId')[0];
+      if (vidEl) videoId = vidEl.textContent;
+    }
+
+    var titleEl = latest.querySelector('title');
+    var title = titleEl ? titleEl.textContent.trim() : 'Latest Message';
+    
+    var pubEl = latest.querySelector('published');
+    var published = pubEl ? pubEl.textContent : '';
+
+    var thumbUrl = videoId ? 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg' : '';
+    var videoUrl = videoId ? 'https://www.youtube.com/watch?v=' + videoId : YT_CHANNEL_URL;
+
+    updateHomeSermonCard(title, published, thumbUrl, videoUrl);
+    updateSermonArchive(entries);
+  } catch(e) {
+    console.log('RSS parse error:', e);
+    showFallbackSermon();
+  }
+}
+
+function updateHomeSermonCard(title, published, thumbUrl, videoUrl) {
+  var titleEl = document.getElementById('yt-title');
+  var dateEl  = document.getElementById('yt-date');
+  var thumbEl = document.getElementById('yt-thumbnail');
+  var linkEl  = document.getElementById('yt-latest-link');
+  var btnEl   = document.getElementById('yt-watch-btn');
+
+  if (titleEl) {
+    titleEl.removeAttribute('data-en');
+    titleEl.removeAttribute('data-es');
+    titleEl.textContent = title;
+  }
+  if (dateEl && published) {
+    var d = new Date(published);
+    dateEl.textContent = d.toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+  }
+  if (thumbEl && thumbUrl) {
+    thumbEl.src = thumbUrl;
+    thumbEl.onerror = function(){
+      // maxresdefault may not exist, fall back to hqdefault
+      var vid = videoUrl.split('v=')[1];
+      if (vid) this.src = 'https://img.youtube.com/vi/' + vid + '/hqdefault.jpg';
+      this.onerror = null;
+    };
+    thumbEl.style.opacity = '0.75';
+  }
+  if (linkEl) linkEl.href = videoUrl;
+  if (btnEl) { btnEl.href = videoUrl; }
+}
+
+function updateSermonArchive(entries) {
+  var cards = document.querySelectorAll('.stc');
+  for (var i = 0; i < Math.min(cards.length, entries.length); i++) {
+    (function(card, entry) {
+      var idEl = entry.querySelector('id');
+      var videoId = null;
+      if (idEl) {
+        var m = idEl.textContent.match(/yt:video:([a-zA-Z0-9_-]+)/);
+        if (m) videoId = m[1];
+      }
+      if (!videoId) {
+        var vidEl = entry.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015','videoId')[0];
+        if (vidEl) videoId = vidEl.textContent;
+      }
+      
+      var titleEl2 = entry.querySelector('title');
+      var title2 = titleEl2 ? titleEl2.textContent.trim() : 'Message';
+      var pubEl2 = entry.querySelector('published');
+      var published2 = pubEl2 ? pubEl2.textContent : '';
+      var thumbUrl2 = videoId ? 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg' : '';
+      var videoUrl2 = videoId ? 'https://www.youtube.com/watch?v=' + videoId : YT_CHANNEL_URL;
+      var d2 = published2 ? new Date(published2) : null;
+      var dateStr2 = d2 ? d2.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : '';
+
+      var img = card.querySelector('.stc-thumb img');
+      var stcTitle = card.querySelector('.stc-title');
+      var stcDate = card.querySelector('.stc-date');
+      var stcSeries = card.querySelector('.stc-series');
+
+      if (img && thumbUrl2) {
+        img.src = thumbUrl2;
+        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.75;';
+      }
+      if (stcTitle) { stcTitle.textContent = title2; stcTitle.removeAttribute('data-en'); stcTitle.removeAttribute('data-es'); }
+      if (stcDate) stcDate.textContent = dateStr2;
+      if (stcSeries) stcSeries.textContent = 'Atrios Elohim Church';
+
+      // Make whole card clickable
+      card.style.cursor = 'pointer';
+      card.onclick = function() { window.open(videoUrl2, '_blank'); };
+    })(cards[i], entries[i]);
+  }
+}
+
+function showFallbackSermon() {
+  var titleEl = document.getElementById('yt-title');
+  var dateEl  = document.getElementById('yt-date');
+  if (titleEl) { titleEl.removeAttribute('data-en'); titleEl.removeAttribute('data-es'); titleEl.textContent = 'Watch Our Latest Message'; }
+  if (dateEl) dateEl.textContent = 'New messages posted every Sunday — click to watch on YouTube';
+}
+
+/* === GIVE AMOUNT JS === */
+var selectedGiveAmt = 50;
+function setGiveAmt(amt) {
+  selectedGiveAmt = amt;
+  document.querySelectorAll('.give-btn-amt').forEach(function(b){ b.classList.remove('active'); });
+  event.target.classList.add('active');
+  var custom = document.getElementById('give-custom-amount');
+  if (custom) custom.value = '';
+}
+function clearGiveAmtBtns() {
+  document.querySelectorAll('.give-btn-amt').forEach(function(b){ b.classList.remove('active'); });
+  selectedGiveAmt = null;
+}
+function goGive() {
+  var custom = document.getElementById('give-custom-amount');
+  var amt = (custom && custom.value) ? parseInt(custom.value) : selectedGiveAmt;
+  // Redirect to Tithe.ly giving page
+  // STEP: Sign up at get.tithe.ly → create giving page → replace URL below with your Tithe.ly giving link
+  var tithlyUrl = 'https://tithe.ly/give_new/www/#/tithely/give-one-time/atrioselohimchurch';
+  // Once you have your Tithe.ly page, you can append amount: ?amount=' + (amt * 100)
+  window.open(tithlyUrl, '_blank');
+}
+
 /* === FAQ TOGGLE === */
 function toggleFaq(item) {
   var isOpen = item.classList.contains('faq-open');
   document.querySelectorAll('.visit-faq-item').forEach(function(i){ i.classList.remove('faq-open'); });
   if (!isOpen) item.classList.add('faq-open');
 }
+
+/* === INIT === */
+window.addEventListener('load', function() {
+  // Auto-fetch latest YouTube video — no channel ID or API key needed
+  // Runs every time someone visits the site, showing your newest upload automatically
+  fetchLatestYouTube();
+});
 
 /* === PAGE NAV === */
 function showPage(id) {
