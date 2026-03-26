@@ -388,16 +388,16 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
 
 /* NAV DROPDOWN */
 .nav-dropdown-wrap{position:relative;}
-.nav-dropdown-wrap>a{display:flex;align-items:center;gap:5px;}
-.nav-dropdown-wrap>a svg{transition:transform .2s;}
-.nav-dropdown-wrap:hover>a svg{transform:rotate(180deg);}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--onyx);border:1px solid rgba(201,168,76,.25);border-top:3px solid var(--gold);border-radius:4px;min-width:220px;box-shadow:0 16px 48px rgba(0,0,0,.45);z-index:300;}
-.nav-dropdown-wrap:hover .nav-dropdown-menu{display:block;}
-.nav-dropdown-menu a{display:block;padding:14px 20px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);transition:background .2s,color .2s;cursor:pointer;}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);background:var(--onyx);border:1px solid rgba(201,168,76,.25);border-top:3px solid var(--gold);border-radius:4px;min-width:230px;box-shadow:0 16px 48px rgba(0,0,0,.5);z-index:400;padding:6px 0;}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+.nav-dropdown-menu.dd-open{display:block;}
+.nav-dropdown-menu a{display:block;padding:13px 20px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);transition:background .15s,color .15s;cursor:pointer;}
 .nav-dropdown-menu a:last-child{border-bottom:none;}
-.nav-dropdown-menu a:hover{background:rgba(201,168,76,.1);color:var(--gold);}
-.nav-dropdown-label{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);cursor:pointer;transition:color .2s;}
-.nav-dropdown-label:hover,.nav-dropdown-wrap:hover .nav-dropdown-label{color:var(--gold);}
+.nav-dropdown-menu a:hover{background:rgba(201,168,76,.12);color:var(--gold);}
+.nav-dropdown-label{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);cursor:pointer;transition:color .2s;user-select:none;}
+.nav-dropdown-label:hover,.nav-dropdown-label.dd-active{color:var(--gold);}
+.nav-dropdown-label svg{transition:transform .25s;}
+.nav-dropdown-label.dd-active svg{transform:rotate(180deg);}
 
 /* GET INVOLVED PAGE */
 .involved-page-hero{position:relative;height:500px;background:var(--onyx);display:flex;align-items:center;overflow:hidden;}
@@ -497,6 +497,8 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   .nav-links{display:none;}
   .hamburger{display:flex;}
   .hero-inner,.about-grid,.inv-grid,.pastor-grid,.contact-grid,.give-page-grid,.sermon-card,.mission-grid,.outreach-grid{grid-template-columns:1fr;}
+  #theology-photo-placeholder+div{margin-top:0;}
+  .theology-split{grid-template-columns:1fr!important;}
   .values-grid,.min-grid,.beliefs-grid,.sermons-grid,.events-grid,.gallery-grid,.baptism-grid,.chaplain-grid{grid-template-columns:1fr 1fr;}
   .inv-cards{grid-template-columns:1fr 1fr;}
   .inner,.welcome-strip,.scripture-inner,.page-hero-content{padding-left:20px;padding-right:20px;}
@@ -565,13 +567,13 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
       <li><a onclick="showPage('visit')" id="nav-visit" data-en="Plan a Visit" data-es="Visítanos">Plan a Visit</a></li>
       <li><a onclick="showPage('sermons')" id="nav-sermons" data-en="Sermons" data-es="Sermones">Sermons</a></li>
       <li><a onclick="showPage('events')" id="nav-events" data-en="Events" data-es="Eventos">Events</a></li>
-      <!-- GET INVOLVED DROPDOWN -->
-      <li class="nav-dropdown-wrap">
-        <span class="nav-dropdown-label" id="nav-involved" onclick="showPage('involved')" data-en="Get Involved" data-es="Involúcrate">Get Involved <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-        <div class="nav-dropdown-menu">
-          <a onclick="showPage('involved')" data-en="Get Involved — Overview" data-es="Involúcrate — Resumen">Get Involved — Overview</a>
-          <a onclick="showPage('involved');setTimeout(function(){document.getElementById('family-groups-acc').scrollIntoView({behavior:'smooth'})},150)" data-en="Family Groups" data-es="Grupos Familiares">Family Groups</a>
-          <a onclick="showPage('involved');setTimeout(function(){document.getElementById('outreach-acc').scrollIntoView({behavior:'smooth'})},150)" data-en="Community Outreach" data-es="Alcance Comunitario">Community Outreach</a>
+      <!-- GET INVOLVED DROPDOWN — click-based -->
+      <li class="nav-dropdown-wrap" id="involved-dd-wrap">
+        <span class="nav-dropdown-label" id="involved-dd-label" onclick="toggleInvolvedDropdown(event)" data-en="Get Involved" data-es="Involúcrate">Get Involved <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="nav-dropdown-menu" id="involved-dd-menu">
+          <a onclick="closeInvolvedDropdown();showPage('involved')" data-en="Get Involved — Overview" data-es="Involúcrate — Resumen">Get Involved — Overview</a>
+          <a onclick="closeInvolvedDropdown();showPage('involved');setTimeout(function(){document.getElementById('family-groups-acc').scrollIntoView({behavior:'smooth'})},200)" data-en="Family Groups" data-es="Grupos Familiares">Family Groups</a>
+          <a onclick="closeInvolvedDropdown();showPage('involved');setTimeout(function(){document.getElementById('outreach-acc').scrollIntoView({behavior:'smooth'})},200)" data-en="Community Outreach" data-es="Alcance Comunitario">Community Outreach</a>
         </div>
       </li>
       <li><a onclick="showPage('contact')" id="nav-contact" data-en="Contact" data-es="Contacto">Contact</a></li>
@@ -946,9 +948,9 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
       <div class="section-label" data-en="New Life in Christ" data-es="Nueva Vida en Cristo">New Life in Christ</div>
       <h2 class="section-heading" data-en="Baptism &<br>New Beginnings" data-es="Bautismo y<br>Nuevos Comienzos">Baptism &<br>New Beginnings</h2>
       <p class="section-body" style="max-width:680px;" data-en="At Atrios Elohim Church, baptism is one of the most powerful moments in a believer's journey. We have had the joy of seeing many lives transformed and publicly declaring their faith through the waters of baptism." data-es="En Atrios Elohim Church, el bautismo es uno de los momentos más poderosos en el caminar de un creyente. Hemos tenido el gozo de ver muchas vidas transformadas y declarar públicamente su fe a través de las aguas del bautismo.">At Atrios Elohim Church, baptism is one of the most powerful moments in a believer's journey. We have had the joy of seeing many lives transformed and publicly declaring their faith through the waters of baptism.</p>
-      <div class="baptism-grid">
-        <div class="baptism-img"><img src="476789980_953909333513554_4624479149404193254_n.jpg" alt="River baptism"/></div>
-        <div class="baptism-img"><img src="476745107_953909356846885_504021427031218404_n.jpg" alt="Baptism celebration"/></div>
+      <div class="baptism-grid" style="grid-template-columns:1fr 1fr !important;display:grid;">
+        <div class="baptism-img"><img src="476789980_953909333513554_4624479149404193254_n.jpg" alt="River baptism" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+        <div class="baptism-img"><img src="476745107_953909356846885_504021427031218404_n.jpg" alt="Baptism celebration" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       </div>
     </div>
   </section>
@@ -1008,6 +1010,61 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <div class="belief-item"><div class="belief-num">04</div><div><div class="belief-title" data-en="The Holy Spirit" data-es="El Espíritu Santo">The Holy Spirit</div><p class="belief-text" data-en="We believe in the ongoing work of the Holy Spirit — empowering believers for life, witness, and service." data-es="Creemos en la obra continua del Espíritu Santo — capacitando a los creyentes para la vida, el testimonio y el servicio.">We believe in the ongoing work of the Holy Spirit — empowering believers for life, witness, and service.</p></div></div>
         <div class="belief-item"><div class="belief-num">05</div><div><div class="belief-title" data-en="The Church" data-es="La Iglesia">The Church</div><p class="belief-text" data-en="We believe the local church is God's primary instrument for advancing His Kingdom in the world." data-es="Creemos que la iglesia local es el instrumento principal de Dios para avanzar su Reino en el mundo.">We believe the local church is God's primary instrument for advancing His Kingdom in the world.</p></div></div>
         <div class="belief-item"><div class="belief-num">06</div><div><div class="belief-title" data-en="The Return of Christ" data-es="El Retorno de Cristo">The Return of Christ</div><p class="belief-text" data-en="We believe in the literal, physical, and glorious return of Jesus Christ to establish His eternal Kingdom." data-es="Creemos en el retorno literal, físico y glorioso de Jesucristo para establecer su Reino eterno.">We believe in the literal, physical, and glorious return of Jesus Christ to establish His eternal Kingdom.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ THEOLOGY SECTION ══ -->
+  <section style="background:var(--ivory);padding:110px 0;">
+    <div class="inner">
+      <div class="section-label" data-en="What We Stand On" data-es="En lo que Nos Basamos">What We Stand On</div>
+      <h2 class="section-heading" data-en="Our Theology" data-es="Nuestra Teología">Our Theology</h2>
+      <p class="section-body" style="max-width:780px;" data-en="Atrios Elohim Church is a Spirit-filled, evangelical church. Our theology is rooted in the full authority of Scripture and the apostolic-prophetic heritage of the Christian faith. We hold to historic, orthodox Christianity while embracing the present-day work of the Holy Spirit." data-es="Atrios Elohim Church es una iglesia evangélica llena del Espíritu. Nuestra teología está arraigada en la plena autoridad de las Escrituras y la herencia apostólica-profética de la fe cristiana. Sostenemos el cristianismo histórico y ortodoxo mientras abrazamos la obra presente del Espíritu Santo.">Atrios Elohim Church is a Spirit-filled, evangelical church. Our theology is rooted in the full authority of Scripture and the apostolic-prophetic heritage of the Christian faith. We hold to historic, orthodox Christianity while embracing the present-day work of the Holy Spirit.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;">
+        <!-- LEFT: Theological Pillars -->
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;" data-en="Core Theological Positions" data-es="Posiciones Teológicas Fundamentales">Core Theological Positions</div>
+
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="padding:22px 0;border-bottom:1px solid rgba(26,26,26,.1);display:flex;gap:18px;align-items:flex-start;">
+              <div style="width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+              <div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--onyx);margin-bottom:6px;" data-en="Biblical Authority" data-es="Autoridad Bíblica">Biblical Authority</div><p style="font-size:13px;color:var(--charcoal);line-height:1.7;" data-en="We affirm the Bible as the inspired, inerrant Word of God — the final authority for all matters of faith, conduct, and doctrine. Every sermon, every teaching, every decision flows from Scripture." data-es="Afirmamos que la Biblia es la Palabra de Dios inspirada e inerrante — la autoridad final para todas las cuestiones de fe, conducta y doctrina. Cada sermón, cada enseñanza, cada decisión fluye de las Escrituras.">We affirm the Bible as the inspired, inerrant Word of God — the final authority for all matters of faith, conduct, and doctrine. Every sermon, every teaching, every decision flows from Scripture.</p></div>
+            </div>
+            <div style="padding:22px 0;border-bottom:1px solid rgba(26,26,26,.1);display:flex;gap:18px;align-items:flex-start;">
+              <div style="width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+              <div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--onyx);margin-bottom:6px;" data-en="Apostolic-Prophetic Ministry" data-es="Ministerio Apostólico-Profético">Apostolic-Prophetic Ministry</div><p style="font-size:13px;color:var(--charcoal);line-height:1.7;" data-en="We believe in the five-fold ministry of Ephesians 4:11 — apostles, prophets, evangelists, pastors, and teachers — as gifts given by Christ for the equipping and maturing of the Church in every generation." data-es="Creemos en el ministerio quíntuple de Efesios 4:11 — apóstoles, profetas, evangelistas, pastores y maestros — como dones dados por Cristo para el equipamiento y la madurez de la Iglesia en cada generación.">We believe in the five-fold ministry of Ephesians 4:11 — apostles, prophets, evangelists, pastors, and teachers — as gifts given by Christ for the equipping and maturing of the Church in every generation.</p></div>
+            </div>
+            <div style="padding:22px 0;border-bottom:1px solid rgba(26,26,26,.1);display:flex;gap:18px;align-items:flex-start;">
+              <div style="width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+              <div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--onyx);margin-bottom:6px;" data-en="Baptism in the Holy Spirit" data-es="Bautismo en el Espíritu Santo">Baptism in the Holy Spirit</div><p style="font-size:13px;color:var(--charcoal);line-height:1.7;" data-en="We believe in the baptism of the Holy Spirit as a distinct experience available to all believers, accompanied by spiritual gifts including speaking in tongues, prophecy, healing, and miracles — all for the purpose of advancing God's Kingdom." data-es="Creemos en el bautismo del Espíritu Santo como una experiencia distinta disponible para todos los creyentes, acompañada de dones espirituales que incluyen hablar en lenguas, profecía, sanidad y milagros — todo para el propósito de avanzar el Reino de Dios.">We believe in the baptism of the Holy Spirit as a distinct experience available to all believers, accompanied by spiritual gifts including speaking in tongues, prophecy, healing, and miracles — all for the purpose of advancing God's Kingdom.</p></div>
+            </div>
+            <div style="padding:22px 0;border-bottom:1px solid rgba(26,26,26,.1);display:flex;gap:18px;align-items:flex-start;">
+              <div style="width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+              <div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--onyx);margin-bottom:6px;" data-en="The Great Commission" data-es="La Gran Comisión">The Great Commission</div><p style="font-size:13px;color:var(--charcoal);line-height:1.7;" data-en="We believe every believer is called to make disciples of all nations (Matthew 28:19-20). Missions, evangelism, and church planting are not optional extras — they are the heartbeat of what it means to follow Jesus." data-es="Creemos que todo creyente está llamado a hacer discípulos de todas las naciones (Mateo 28:19-20). Las misiones, la evangelización y la plantación de iglesias no son extras opcionales — son el corazón de lo que significa seguir a Jesús.">We believe every believer is called to make disciples of all nations (Matthew 28:19-20). Missions, evangelism, and church planting are not optional extras — they are the heartbeat of what it means to follow Jesus.</p></div>
+            </div>
+            <div style="padding:22px 0;display:flex;gap:18px;align-items:flex-start;">
+              <div style="width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--onyx);margin-bottom:6px;" data-en="Divine Healing" data-es="Sanidad Divina">Divine Healing</div><p style="font-size:13px;color:var(--charcoal);line-height:1.7;" data-en="We believe healing is provided in the atonement of Christ and that God still heals today — physically, emotionally, and spiritually. We regularly pray for the sick in every service and believe in the miraculous power of God." data-es="Creemos que la sanidad está provista en la expiación de Cristo y que Dios aún sana hoy — física, emocional y espiritualmente. Oramos regularmente por los enfermos en cada servicio y creemos en el poder milagroso de Dios.">We believe healing is provided in the atonement of Christ and that God still heals today — physically, emotionally, and spiritually. We regularly pray for the sick in every service and believe in the miraculous power of God.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Photo placeholder + Statement of Faith -->
+        <div>
+          <!-- Theology Photo — Pastor Colop can add a photo here later -->
+          <div style="background:linear-gradient(135deg,var(--navy),var(--onyx));border-radius:8px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border:2px dashed rgba(201,168,76,.25);margin-bottom:36px;" id="theology-photo-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.4)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p style="font-size:13px;color:rgba(201,168,76,.4);text-align:center;font-style:italic;padding:0 24px;" data-en="Theology section photo — add your image here" data-es="Foto de la sección de teología — agrega tu imagen aquí">Theology section photo — add your image here</p>
+          </div>
+
+          <!-- Statement of Faith card -->
+          <div style="background:var(--onyx);border-radius:8px;padding:36px 32px;border-left:4px solid var(--gold);">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;" data-en="Our Statement of Faith" data-es="Nuestra Declaración de Fe">Our Statement of Faith</div>
+            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--white);line-height:1.65;margin-bottom:20px;" data-en='"We believe in one God — Father, Son, and Holy Spirit. We believe in the death and resurrection of Jesus Christ for the forgiveness of sins. We believe in the present-day power of the Holy Spirit. And we believe the Church is God\'s chosen instrument to redeem the world."' data-es='"Creemos en un solo Dios — Padre, Hijo y Espíritu Santo. Creemos en la muerte y resurrección de Jesucristo para el perdón de los pecados. Creemos en el poder presente del Espíritu Santo. Y creemos que la Iglesia es el instrumento escogido de Dios para redimir el mundo."'>"We believe in one God — Father, Son, and Holy Spirit. We believe in the death and resurrection of Jesus Christ for the forgiveness of sins. We believe in the present-day power of the Holy Spirit. And we believe the Church is God's chosen instrument to redeem the world."</p>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);">— Atrios Elohim Church</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1589,6 +1646,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
         <div class="form-wrap">
           <div class="form-title" data-en="Send Us a Message" data-es="Envíanos un Mensaje">Send Us a Message</div>
           <div class="form-sub" data-en="We'll get back to you within 1–2 business days." data-es="Te responderemos dentro de 1 a 2 días hábiles.">We'll get back to you within 1–2 business days.</div>
+          <div id="contact-form-inner">
           <div class="form-row">
             <div class="form-group"><label data-en="First Name" data-es="Nombre">First Name</label><input type="text" data-placeholder-en="John" data-placeholder-es="Juan" placeholder="John"/></div>
             <div class="form-group"><label data-en="Last Name" data-es="Apellido">Last Name</label><input type="text" data-placeholder-en="Smith" data-placeholder-es="García" placeholder="Smith"/></div>
@@ -1608,8 +1666,11 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
             </select>
           </div>
           <div class="form-group"><label data-en="Message" data-es="Mensaje">Message</label><textarea data-placeholder-en="How can we help you?" data-placeholder-es="¿Cómo podemos ayudarte?" placeholder="How can we help you?"></textarea></div>
-          <button class="form-submit" onclick="submitForm()" data-en="Send Message →" data-es="Enviar Mensaje →">Send Message →</button>
-          <div class="form-success" id="formSuccess" data-en="✓ Thank you! Your message has been sent. We'll be in touch soon." data-es="✓ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.">✓ Thank you! Your message has been sent. We'll be in touch soon.</div>
+          <!-- Formspree: sends form data to your church email for free -->
+          <!-- SETUP: go to formspree.io, create free account, get your form ID and ID is set: mojpqnzj -->
+          <button class="form-submit" onclick="submitContactForm(event)" data-en="Send Message →" data-es="Enviar Mensaje →">Send Message →</button>
+          <div class="form-success" id="formSuccess" style="display:none;" data-en="✓ Message received! We will get back to you within 1–2 business days." data-es="✓ ¡Mensaje recibido! Te responderemos en 1 a 2 días hábiles.">✓ Message received! We will get back to you within 1–2 business days.</div>
+          <div id="formError" style="display:none;background:rgba(139,35,35,.15);border:1px solid rgba(139,35,35,.4);border-radius:4px;padding:16px;margin-top:12px;color:#f87171;font-size:13px;text-align:center;" data-en="Something went wrong. Please email us directly at Atrioselohimchurch@gmail.com" data-es="Algo salió mal. Por favor envíanos un correo a Atrioselohimchurch@gmail.com">Something went wrong. Please email us directly.</div>
         </div>
       </div>
     </div>
@@ -1885,13 +1946,27 @@ function toggleAccordion(id) {
 }
 
 function submitVolForm(){
-  var s=document.getElementById('volFormSuccess');
-  if(s){
-    var msg = currentLang === 'es' ? '✓ ¡Gracias! Nos pondremos en contacto en 1 a 2 días para conectarte con tu equipo.' : '✓ Thank you! We\'ll be in touch within 1–2 days to connect you with your team.';
-    s.textContent = msg;
-    s.style.display='block';
-    setTimeout(function(){s.style.display='none';},6000);
-  }
+  var btn = document.querySelector('.vol-form-section .form-submit');
+  var successEl = document.getElementById('volFormSuccess');
+  if (btn) { btn.disabled = true; btn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...'; }
+  var fd = new FormData();
+  fd.append('_subject', 'New Volunteer Sign-Up — Atrios Elohim Church');
+  document.querySelectorAll('.vol-form-section input, .vol-form-section textarea, .vol-form-section select').forEach(function(el) {
+    if (!el.value) return;
+    var labelEl = el.closest('.form-group') && el.closest('.form-group').querySelector('label');
+    fd.append(labelEl ? labelEl.textContent.trim() : (el.placeholder || el.type), el.value);
+  });
+  fetch('https://formspree.io/f/mojpqnzj', { method:'POST', body:fd, headers:{'Accept':'application/json'} })
+  .then(function(r){ return r.json().then(function(d){ return {ok:r.ok}; }); })
+  .then(function(res) {
+    if (res.ok) {
+      if(successEl){ successEl.style.display='block'; }
+      document.querySelectorAll('.vol-form-section input,.vol-form-section textarea,.vol-form-section select').forEach(function(el){ if(el.type!=='submit') el.value=''; });
+      setTimeout(function(){ if(successEl) successEl.style.display='none'; }, 7000);
+    } else { throw 'err'; }
+  })
+  .catch(function(){ alert(currentLang==='es'?'Algo salió mal. Llámanos: (908) 531-3821':'Something went wrong. Call us: (908) 531-3821'); })
+  .finally(function(){ if(btn){ btn.disabled=false; btn.textContent=currentLang==='es'?'Registrarme →':'Sign Me Up →'; } });
 }
 
 /* === EMAIL (Cloudflare-safe) === */
@@ -1970,195 +2045,128 @@ document.addEventListener('click', function(e) {
   if (switcher && !switcher.contains(e.target)) closeLangDropdown();
 });
 
-/* === YOUTUBE AUTO-FETCH (No API key, no channel ID needed) === */
-// Uses YouTube handle RSS via multiple CORS proxy fallbacks
-// Automatically shows your latest video — updates every time someone visits the page
-var YT_HANDLE = 'AtriosElohimChurch';
-var YT_CHANNEL_URL = 'https://www.youtube.com/@' + YT_HANDLE;
+/* === YOUTUBE AUTO-FETCH === */
+// Strategy: resolve @handle → channel ID via YouTube oembed,
+// then fetch free RSS feed. Multiple CORS proxies as fallback.
+// Completely free, no API key, auto-updates when you upload.
 
-// Multiple CORS proxies — tries each one until one works
-var CORS_PROXIES = [
-  'https://api.allorigins.win/raw?url=',
-  'https://corsproxy.io/?',
-  'https://cors-anywhere.herokuapp.com/'
+var YT_HANDLE   = 'AtriosElohimChurch';
+var YT_URL      = 'https://www.youtube.com/@AtriosElohimChurch';
+var YT_CHANNEL_ID_CACHE = null;
+
+var PROXIES = [
+  function(u){ return 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u); },
+  function(u){ return 'https://corsproxy.io/?' + encodeURIComponent(u); },
+  function(u){ return 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u); }
 ];
 
-// YouTube RSS via handle — works without needing the channel ID
-var RSS_URLS = [
-  'https://www.youtube.com/feeds/videos.xml?user=' + YT_HANDLE,
-  'https://www.youtube.com/feeds/videos.xml?q=' + YT_HANDLE
-];
+function proxyFetch(url, onOk, onFail, idx) {
+  idx = idx || 0;
+  if (idx >= PROXIES.length) { onFail && onFail('All proxies failed'); return; }
+  fetch(PROXIES[idx](url))
+    .then(function(r){ if(!r.ok) throw r.status; return r.text(); })
+    .then(function(t){ if(!t||t.length<20) throw 'empty'; onOk(t); })
+    .catch(function(){ proxyFetch(url, onOk, onFail, idx+1); });
+}
 
 function fetchLatestYouTube() {
-  // First: try to resolve @handle to channel ID via YouTube's oembed
-  var oembedUrl = 'https://www.youtube.com/oembed?url=' + encodeURIComponent(YT_CHANNEL_URL) + '&format=json';
-  
-  tryFetchWithProxies(oembedUrl, function(text) {
-    try {
-      var data = JSON.parse(text);
-      // Extract channel ID from author_url if present
-      if (data && data.author_url) {
-        var match = data.author_url.match(/channel\/(UC[a-zA-Z0-9_-]+)/);
-        if (match) {
-          fetchRSSWithChannelId(match[1]);
-          return;
-        }
+  // Step 1: get channel page HTML to extract channel ID
+  proxyFetch(
+    YT_URL,
+    function(html) {
+      var m = html.match(/"channelId"\s*:\s*"(UC[^"]+)"/);
+      if (!m) m = html.match(/channel\/(UC[a-zA-Z0-9_-]{20,})/);
+      if (m && m[1]) {
+        YT_CHANNEL_ID_CACHE = m[1];
+        fetchRSSByChannelId(m[1]);
+      } else {
+        // Step 2 fallback: try RSS by username
+        fetchRSSByUsername();
       }
-    } catch(e) {}
-    // oembed didn't give us channel ID, try RSS directly
-    fetchRSSDirect();
-  }, function() {
-    fetchRSSDirect();
-  });
+    },
+    fetchRSSByUsername
+  );
 }
 
-function fetchRSSWithChannelId(channelId) {
-  var rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
-  tryFetchWithProxies(rssUrl, parseYouTubeRSS, showFallbackSermon);
+function fetchRSSByChannelId(channelId) {
+  var rss = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
+  proxyFetch(rss, parseYTRSS, fetchRSSByUsername);
 }
 
-function fetchRSSDirect() {
-  // Try RSS by username as fallback
-  var rssUrl = 'https://www.youtube.com/feeds/videos.xml?user=' + YT_HANDLE;
-  tryFetchWithProxies(rssUrl, parseYouTubeRSS, showFallbackSermon);
+function fetchRSSByUsername() {
+  var rss = 'https://www.youtube.com/feeds/videos.xml?user=' + YT_HANDLE;
+  proxyFetch(rss, parseYTRSS, showFallbackSermon);
 }
 
-function tryFetchWithProxies(url, onSuccess, onFail, proxyIndex) {
-  proxyIndex = proxyIndex || 0;
-  if (proxyIndex >= CORS_PROXIES.length) { if(onFail) onFail(); return; }
-  var proxyUrl = CORS_PROXIES[proxyIndex] + encodeURIComponent(url);
-  fetch(proxyUrl, {headers:{'X-Requested-With':'XMLHttpRequest'}})
-    .then(function(r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.text();
-    })
-    .then(function(text) {
-      if (!text || text.trim().length < 10) throw new Error('Empty response');
-      onSuccess(text);
-    })
-    .catch(function() {
-      tryFetchWithProxies(url, onSuccess, onFail, proxyIndex + 1);
-    });
-}
-
-function parseYouTubeRSS(xml) {
+function parseYTRSS(xml) {
   try {
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(xml, 'application/xml');
-    // Handle both XML namespaces
+    var doc = new DOMParser().parseFromString(xml, 'application/xml');
     var entries = doc.querySelectorAll('entry');
-    if (!entries || entries.length === 0) { showFallbackSermon(); return; }
+    if (!entries.length) { showFallbackSermon(); return; }
 
-    var latest = entries[0];
-    
-    // Extract video ID — try multiple methods
-    var videoId = null;
-    var idEl = latest.querySelector('id');
-    if (idEl) {
-      var m = idEl.textContent.match(/yt:video:([a-zA-Z0-9_-]+)/);
-      if (m) videoId = m[1];
-    }
-    if (!videoId) {
-      var vidEl = latest.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015','videoId')[0];
-      if (vidEl) videoId = vidEl.textContent;
-    }
+    var items = [];
+    entries.forEach(function(e) {
+      var id = e.querySelector('id');
+      var videoId = null;
+      if (id) {
+        var m = id.textContent.match(/yt:video:([a-zA-Z0-9_-]+)/);
+        if (m) videoId = m[1];
+      }
+      if (!videoId) return;
+      var titleEl = e.querySelector('title');
+      var pubEl   = e.querySelector('published');
+      items.push({
+        videoId  : videoId,
+        title    : titleEl ? titleEl.textContent.trim() : 'Latest Message',
+        published: pubEl   ? pubEl.textContent : '',
+        thumb    : 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg',
+        url      : 'https://www.youtube.com/watch?v=' + videoId
+      });
+    });
 
-    var titleEl = latest.querySelector('title');
-    var title = titleEl ? titleEl.textContent.trim() : 'Latest Message';
-    
-    var pubEl = latest.querySelector('published');
-    var published = pubEl ? pubEl.textContent : '';
-
-    var thumbUrl = videoId ? 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg' : '';
-    var videoUrl = videoId ? 'https://www.youtube.com/watch?v=' + videoId : YT_CHANNEL_URL;
-
-    updateHomeSermonCard(title, published, thumbUrl, videoUrl);
-    updateSermonArchive(entries);
+    if (!items.length) { showFallbackSermon(); return; }
+    applyLatestToHomePage(items[0]);
+    applyToSermonCards(items);
   } catch(e) {
-    console.log('RSS parse error:', e);
+    console.warn('YT RSS parse error:', e);
     showFallbackSermon();
   }
 }
 
-function updateHomeSermonCard(title, published, thumbUrl, videoUrl) {
-  var titleEl = document.getElementById('yt-title');
-  var dateEl  = document.getElementById('yt-date');
-  var thumbEl = document.getElementById('yt-thumbnail');
-  var linkEl  = document.getElementById('yt-latest-link');
-  var btnEl   = document.getElementById('yt-watch-btn');
-
-  if (titleEl) {
-    titleEl.removeAttribute('data-en');
-    titleEl.removeAttribute('data-es');
-    titleEl.textContent = title;
-  }
-  if (dateEl && published) {
-    var d = new Date(published);
-    dateEl.textContent = d.toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
-  }
-  if (thumbEl && thumbUrl) {
-    thumbEl.src = thumbUrl;
-    thumbEl.onerror = function(){
-      // maxresdefault may not exist, fall back to hqdefault
-      var vid = videoUrl.split('v=')[1];
-      if (vid) this.src = 'https://img.youtube.com/vi/' + vid + '/hqdefault.jpg';
-      this.onerror = null;
-    };
-    thumbEl.style.opacity = '0.75';
-  }
-  if (linkEl) linkEl.href = videoUrl;
-  if (btnEl) { btnEl.href = videoUrl; }
+function applyLatestToHomePage(v) {
+  var fmt = function(s){ var d=new Date(s); return d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}); };
+  var el = function(id){ return document.getElementById(id); };
+  if (el('yt-title'))   { el('yt-title').removeAttribute('data-en'); el('yt-title').removeAttribute('data-es'); el('yt-title').textContent = v.title; }
+  if (el('yt-date'))    { el('yt-date').textContent = v.published ? fmt(v.published) : ''; }
+  if (el('yt-thumbnail')){ el('yt-thumbnail').src = v.thumb; el('yt-thumbnail').style.opacity='0.72'; el('yt-thumbnail').onerror=function(){ this.src='477762119_954500310121123_556817394323726053_n.jpg'; this.onerror=null; }; }
+  if (el('yt-latest-link')){ el('yt-latest-link').href = v.url; }
+  if (el('yt-watch-btn')){ el('yt-watch-btn').href = v.url; }
 }
 
-function updateSermonArchive(entries) {
+function applyToSermonCards(items) {
   var cards = document.querySelectorAll('.stc');
-  for (var i = 0; i < Math.min(cards.length, entries.length); i++) {
-    (function(card, entry) {
-      var idEl = entry.querySelector('id');
-      var videoId = null;
-      if (idEl) {
-        var m = idEl.textContent.match(/yt:video:([a-zA-Z0-9_-]+)/);
-        if (m) videoId = m[1];
-      }
-      if (!videoId) {
-        var vidEl = entry.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015','videoId')[0];
-        if (vidEl) videoId = vidEl.textContent;
-      }
-      
-      var titleEl2 = entry.querySelector('title');
-      var title2 = titleEl2 ? titleEl2.textContent.trim() : 'Message';
-      var pubEl2 = entry.querySelector('published');
-      var published2 = pubEl2 ? pubEl2.textContent : '';
-      var thumbUrl2 = videoId ? 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg' : '';
-      var videoUrl2 = videoId ? 'https://www.youtube.com/watch?v=' + videoId : YT_CHANNEL_URL;
-      var d2 = published2 ? new Date(published2) : null;
-      var dateStr2 = d2 ? d2.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : '';
-
-      var img = card.querySelector('.stc-thumb img');
-      var stcTitle = card.querySelector('.stc-title');
-      var stcDate = card.querySelector('.stc-date');
-      var stcSeries = card.querySelector('.stc-series');
-
-      if (img && thumbUrl2) {
-        img.src = thumbUrl2;
-        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.75;';
-      }
-      if (stcTitle) { stcTitle.textContent = title2; stcTitle.removeAttribute('data-en'); stcTitle.removeAttribute('data-es'); }
-      if (stcDate) stcDate.textContent = dateStr2;
-      if (stcSeries) stcSeries.textContent = 'Atrios Elohim Church';
-
-      // Make whole card clickable
-      card.style.cursor = 'pointer';
-      card.onclick = function() { window.open(videoUrl2, '_blank'); };
-    })(cards[i], entries[i]);
-  }
+  var fmt = function(s){ var d=new Date(s); return d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}); };
+  cards.forEach(function(card, i) {
+    if (i >= items.length) return;
+    var v = items[i];
+    var img      = card.querySelector('.stc-thumb img');
+    var titleEl  = card.querySelector('.stc-title');
+    var dateEl   = card.querySelector('.stc-date');
+    var seriesEl = card.querySelector('.stc-series');
+    if (img)      { img.src = v.thumb; img.style.opacity='0.75'; img.onerror=null; }
+    if (titleEl)  { titleEl.removeAttribute('data-en'); titleEl.removeAttribute('data-es'); titleEl.textContent = v.title; }
+    if (dateEl)   { dateEl.textContent = v.published ? fmt(v.published) : ''; }
+    if (seriesEl) { seriesEl.textContent = 'Atrios Elohim Church'; }
+    card.style.cursor = 'pointer';
+    card.onclick = (function(url){ return function(){ window.open(url,'_blank'); }; })(v.url);
+  });
 }
 
 function showFallbackSermon() {
-  var titleEl = document.getElementById('yt-title');
-  var dateEl  = document.getElementById('yt-date');
-  if (titleEl) { titleEl.removeAttribute('data-en'); titleEl.removeAttribute('data-es'); titleEl.textContent = 'Watch Our Latest Message'; }
-  if (dateEl) dateEl.textContent = 'New messages posted every Sunday — click to watch on YouTube';
+  var t = document.getElementById('yt-title');
+  var d = document.getElementById('yt-date');
+  if (t) { t.removeAttribute('data-en'); t.removeAttribute('data-es'); t.textContent = 'Watch Our Latest Message'; }
+  if (d) d.textContent = 'Posted every Sunday — click to watch on YouTube';
 }
 
 /* === GIVE AMOUNT JS === */
@@ -2193,9 +2201,35 @@ function toggleFaq(item) {
 
 /* === INIT === */
 window.addEventListener('load', function() {
-  // Auto-fetch latest YouTube video — no channel ID or API key needed
-  // Runs every time someone visits the site, showing your newest upload automatically
   fetchLatestYouTube();
+});
+
+/* === NAV DROPDOWN (click-based so items are always clickable) === */
+var ddOpen = false;
+function toggleInvolvedDropdown(e) {
+  e.stopPropagation();
+  var menu  = document.getElementById('involved-dd-menu');
+  var label = document.getElementById('involved-dd-label');
+  ddOpen = !ddOpen;
+  if (ddOpen) {
+    menu.classList.add('dd-open');
+    label.classList.add('dd-active');
+  } else {
+    menu.classList.remove('dd-open');
+    label.classList.remove('dd-active');
+  }
+}
+function closeInvolvedDropdown() {
+  var menu  = document.getElementById('involved-dd-menu');
+  var label = document.getElementById('involved-dd-label');
+  if (menu)  menu.classList.remove('dd-open');
+  if (label) label.classList.remove('dd-active');
+  ddOpen = false;
+}
+// Close dropdown when clicking anywhere outside it
+document.addEventListener('click', function(e) {
+  var wrap = document.getElementById('involved-dd-wrap');
+  if (wrap && !wrap.contains(e.target)) closeInvolvedDropdown();
 });
 
 /* === PAGE NAV === */
@@ -2209,15 +2243,63 @@ function showPage(id) {
 }
 function openMobile(){document.getElementById('mobileMenu').classList.add('open');}
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');}
-function submitForm(){
-  var s=document.getElementById('formSuccess');
-  if(s){
-    var msg = currentLang === 'es' ? '✓ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.' : '✓ Thank you! Your message has been sent. We\'ll be in touch soon.';
-    s.textContent = msg;
-    s.style.display='block';
-    setTimeout(function(){s.style.display='none';},5000);
+function submitContactForm(e) {
+  if(e && e.preventDefault) e.preventDefault();
+  var form = document.getElementById('contact-form-inner');
+  if (!form) return;
+  var btn = form.querySelector('.form-submit');
+  var successEl = document.getElementById('formSuccess');
+  var errorEl   = document.getElementById('formError');
+  if (btn) { btn.disabled = true; btn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...'; }
+
+  // ── FORMSPREE SETUP ──────────────────────────────────────────────
+  // 1. Go to formspree.io and create a FREE account
+  // 2. Click "New Form", name it "Contact", enter Atrioselohimchurch@gmail.com
+  // 3. Form ID is: mojpqnzj (already active — sends to Atrioselohimchurch@gmail.com)
+  var FORMSPREE_ID = 'mojpqnzj'; // ✓ Active — sends to Atrioselohimchurch@gmail.com
+
+  if (FORMSPREE_ID === 'DISABLED') { // never triggers
+    if (btn) { btn.disabled = false; btn.textContent = currentLang==='es' ? 'Enviar Mensaje →' : 'Send Message →'; }
+    if (errorEl) {
+      errorEl.innerHTML = currentLang === 'es'
+        ? '⚠️ Aún no configurado. Escríbenos a <strong>Atrioselohimchurch@gmail.com</strong> o llama al (908) 531-3821'
+        : '⚠️ Not set up yet. Email us at <strong>Atrioselohimchurch@gmail.com</strong> or call (908) 531-3821';
+      errorEl.style.display = 'block';
+    }
+    return;
   }
+
+  var fd = new FormData();
+  fd.append('_subject', 'New message — Atrios Elohim Church website');
+  form.querySelectorAll('input, textarea, select').forEach(function(el) {
+    if (!el.value) return;
+    var labelEl = el.closest('.form-group') && el.closest('.form-group').querySelector('label');
+    var key = labelEl ? labelEl.textContent.trim() : (el.placeholder || el.type);
+    fd.append(key, el.value);
+  });
+
+  fetch('https://formspree.io/f/' + FORMSPREE_ID, { method:'POST', body:fd, headers:{'Accept':'application/json'} })
+  .then(function(r){ return r.json().then(function(d){ return {ok:r.ok,d:d}; }); })
+  .then(function(res) {
+    if (res.ok) {
+      if (successEl) successEl.style.display = 'block';
+      form.querySelectorAll('input, textarea, select').forEach(function(el){ if(el.type!=='submit') el.value=''; });
+      setTimeout(function(){ if(successEl) successEl.style.display='none'; }, 7000);
+    } else { throw new Error('failed'); }
+  })
+  .catch(function() {
+    if (errorEl) {
+      errorEl.innerHTML = currentLang === 'es'
+        ? '⚠️ Algo salió mal. Escríbenos a <strong>Atrioselohimchurch@gmail.com</strong>'
+        : '⚠️ Something went wrong. Email us at <strong>Atrioselohimchurch@gmail.com</strong>';
+      errorEl.style.display = 'block';
+    }
+  })
+  .finally(function() {
+    if (btn) { btn.disabled = false; btn.textContent = currentLang==='es' ? 'Enviar Mensaje →' : 'Send Message →'; }
+  });
 }
+function submitForm() { submitContactForm(null); }
 
 /* === GIVE AMOUNTS === */
 document.querySelectorAll('.give-btn-amt').forEach(function(btn){
