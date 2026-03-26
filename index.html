@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Atrios Elohim Church — Flemington, NJ</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600&display=swap" rel="stylesheet"/>
+<!-- Facebook SDK — powers the live page feed on the Events page -->
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"
+  nonce="atrios2026">
+</script>
 <style>
 :root{--onyx:#1A1A1A;--gold:#C9A84C;--soft-gold:#E8D5A3;--navy:#1E2E4F;--ivory:#F8F3EA;--charcoal:#2E2E2E;--grey:#6B7280;--white:#ffffff;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -496,7 +501,7 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
   nav{padding:0 20px;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .hero-inner,.about-grid,.inv-grid,.pastor-grid,.contact-grid,.give-page-grid,.sermon-card,.mission-grid,.outreach-grid{grid-template-columns:1fr;}
+  .hero-inner,.about-grid,.inv-grid,.pastor-grid,.contact-grid,.give-page-grid,.sermon-card,.mission-grid,.outreach-grid,.events-fb-grid{grid-template-columns:1fr;}
   #theology-photo-placeholder+div{margin-top:0;}
   .theology-split{grid-template-columns:1fr!important;}
   .values-grid,.min-grid,.beliefs-grid,.sermons-grid,.events-grid,.gallery-grid,.baptism-grid,.chaplain-grid{grid-template-columns:1fr 1fr;}
@@ -1217,26 +1222,104 @@ footer{background:var(--onyx);border-top:3px solid var(--gold);padding:80px 52px
     </div>
     <div class="page-hero-line"></div>
   </section>
-  <section style="background:var(--ivory);padding:110px 0;">
+
+  <!-- WEEKLY SERVICES — always accurate -->
+  <section style="background:var(--ivory);padding:90px 0;">
     <div class="inner">
-      <div class="section-label" data-en="What's Coming" data-es="Próximamente">What's Coming</div>
-      <h2 class="section-heading" data-en="Upcoming Events" data-es="Próximos Eventos">Upcoming Events</h2>
-      <p class="section-body" style="max-width:680px;" data-en="Stay connected with what God is doing at Atrios Elohim Church. Follow us on Facebook and YouTube to stay up to date." data-es="Mantente conectado con lo que Dios está haciendo en Atrios Elohim Church. Síguenos en Facebook y YouTube para estar al día.">Stay connected with what God is doing at Atrios Elohim Church. Follow us on Facebook and YouTube to stay up to date.</p>
-      <div class="events-grid">
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">21</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Friday" data-es="Viernes">Friday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Friday Night Service" data-es="Servicio Viernes por la Noche">Friday Night Service</h3><div class="ev-info">8:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">23</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Sunday" data-es="Domingo">Sunday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Sunday Morning Worship" data-es="Adoración Matutina del Domingo">Sunday Morning Worship</h3><div class="ev-info">1:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">26</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Wednesday" data-es="Miércoles">Wednesday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Prayer Night & Discipleship" data-es="Noche de Oración y Discipulado">Prayer Night & Discipleship</h3><div class="ev-info">9:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">28</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Friday" data-es="Viernes">Friday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Friday Night Service" data-es="Servicio Viernes por la Noche">Friday Night Service</h3><div class="ev-info">8:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num">30</div><div class="ev-meta-wrap"><span class="ev-month" data-en="March" data-es="Marzo">March</span><span class="ev-dow" data-en="Sunday" data-es="Domingo">Sunday</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Sunday Morning Worship" data-es="Adoración Matutina del Domingo">Sunday Morning Worship</h3><div class="ev-info">1:00 PM · 6 Court St, Flemington NJ</div><span class="ev-tag" data-en="Weekly" data-es="Semanal">Weekly</span></div></div>
-        <div class="ev-card"><div class="ev-band"><div class="ev-num" style="font-size:24px;line-height:1.5;">TBD</div><div class="ev-meta-wrap"><span class="ev-month" data-en="Coming" data-es="Próximo">Coming</span><span class="ev-dow" data-en="Soon" data-es="Pronto">Soon</span></div></div><div class="ev-body"><h3 class="ev-title" data-en="Special Event" data-es="Evento Especial">Special Event</h3><div class="ev-info" data-en="Details coming soon · Follow us on Facebook" data-es="Detalles próximamente · Síguenos en Facebook">Details coming soon · Follow us on Facebook</div><span class="ev-tag" style="background:rgba(139,35,35,.2);color:#c97a7a;" data-en="Special" data-es="Especial">Special</span></div></div>
+      <div class="section-label" data-en="Every Week" data-es="Cada Semana">Every Week</div>
+      <h2 class="section-heading" data-en="Regular Services" data-es="Servicios Regulares">Regular Services</h2>
+      <p class="section-body" style="max-width:680px;" data-en="These services happen every single week without exception. Come as you are — everyone is welcome." data-es="Estos servicios ocurren cada semana sin excepción. Ven como eres — todos son bienvenidos.">These services happen every single week without exception. Come as you are — everyone is welcome.</p>
+      <div class="visit-svc-grid" style="margin-top:0;">
+        <div class="visit-svc-card">
+          <div class="visit-svc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="visit-svc-day" data-en="Every Sunday" data-es="Cada Domingo">Every Sunday</div>
+          <div class="visit-svc-name" data-en="Morning Worship" data-es="Adoración Matutina">Morning Worship</div>
+          <div class="visit-svc-time">1:00 PM</div>
+          <p class="visit-svc-desc">6 Court Street, Flemington NJ</p>
+        </div>
+        <div class="visit-svc-card">
+          <div class="visit-svc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <div class="visit-svc-day" data-en="Every Wednesday" data-es="Cada Miércoles">Every Wednesday</div>
+          <div class="visit-svc-name" data-en="Prayer Night & Discipleship" data-es="Noche de Oración y Discipulado">Prayer Night & Discipleship</div>
+          <div class="visit-svc-time">9:00 PM</div>
+          <p class="visit-svc-desc">6 Court Street, Flemington NJ</p>
+        </div>
+        <div class="visit-svc-card">
+          <div class="visit-svc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="visit-svc-day" data-en="Every Friday" data-es="Cada Viernes">Every Friday</div>
+          <div class="visit-svc-name" data-en="Friday Night Service" data-es="Servicio del Viernes">Friday Night Service</div>
+          <div class="visit-svc-time">8:00 PM</div>
+          <p class="visit-svc-desc">6 Court Street, Flemington NJ</p>
+        </div>
       </div>
     </div>
   </section>
-  <section style="background:var(--navy);padding:90px 0;">
+
+  <!-- LIVE FACEBOOK FEED — auto-updates when you post -->
+  <section style="background:var(--onyx);padding:110px 0;">
+    <div class="inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+
+        <!-- LEFT: explanation -->
+        <div>
+          <div class="section-label" style="color:var(--soft-gold);" data-en="Always Up to Date" data-es="Siempre Actualizado">Always Up to Date</div>
+          <h2 class="section-heading white" data-en="Latest from<br>Our Facebook" data-es="Lo Último de<br>Nuestro Facebook">Latest from<br>Our Facebook</h2>
+          <p style="font-size:16px;line-height:1.8;color:rgba(255,255,255,.65);margin-bottom:28px;" data-en="This feed updates automatically every time we post on Facebook — events, announcements, photos, live services, and more. Everything in one place, always current." data-es="Este feed se actualiza automáticamente cada vez que publicamos en Facebook — eventos, anuncios, fotos, servicios en vivo y más. Todo en un lugar, siempre actualizado.">This feed updates automatically every time we post on Facebook — events, announcements, photos, live services, and more. Everything in one place, always current.</p>
+
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:36px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:36px;height:36px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span style="font-size:14px;color:rgba(255,255,255,.65);" data-en="Posts update automatically — no manual work on your end" data-es="Las publicaciones se actualizan automáticamente — sin trabajo manual de tu parte">Posts update automatically — no manual work on your end</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:36px;height:36px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span style="font-size:14px;color:rgba(255,255,255,.65);" data-en="Post an event on Facebook — it appears here instantly" data-es="Publica un evento en Facebook — aparece aquí al instante">Post an event on Facebook — it appears here instantly</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:36px;height:36px;background:rgba(201,168,76,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span style="font-size:14px;color:rgba(255,255,255,.65);" data-en="Visitors can like, comment, and share directly from this feed" data-es="Los visitantes pueden dar like, comentar y compartir directamente desde este feed">Visitors can like, comment, and share directly from this feed</span>
+            </div>
+          </div>
+
+          <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="display:inline-flex;align-items:center;gap:10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            <span data-en="Follow Us on Facebook" data-es="Síguenos en Facebook">Follow Us on Facebook</span>
+          </a>
+        </div>
+
+        <!-- RIGHT: embedded Facebook Page plugin -->
+        <div>
+          <!-- Facebook SDK loads the live feed -->
+          <div id="fb-root"></div>
+          <div style="border-radius:8px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.4);">
+            <div class="fb-page"
+              data-href="https://www.facebook.com/AtriosElohimChurch1"
+              data-tabs="timeline"
+              data-width="500"
+              data-height="680"
+              data-small-header="true"
+              data-adapt-container-width="true"
+              data-hide-cover="false"
+              data-show-facepile="false">
+              <!-- Fallback while Facebook loads -->
+              <blockquote cite="https://www.facebook.com/AtriosElohimChurch1" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/AtriosElohimChurch1">Atrios Elohim Church</a>
+              </blockquote>
+            </div>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,.3);text-align:center;margin-top:14px;font-style:italic;" data-en="Live feed from Facebook — updates automatically when you post" data-es="Feed en vivo de Facebook — se actualiza automáticamente cuando publicas">Live feed from Facebook — updates automatically when you post</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section style="background:var(--navy);padding:72px 0;">
     <div style="max-width:700px;margin:0 auto;text-align:center;padding:0 20px;">
-      <div class="section-label center" style="color:var(--soft-gold);" data-en="Stay Connected" data-es="Mantente Conectado">Stay Connected</div>
-      <h2 class="section-heading white" style="text-align:center;margin-bottom:16px;" data-en="Never Miss an Event" data-es="No Te Pierdas Ningún Evento">Never Miss an Event</h2>
-      <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);margin-bottom:36px;" data-en="Follow us on Facebook and YouTube to stay up to date with all events, announcements, and live services." data-es="Síguenos en Facebook y YouTube para mantenerte al día con todos los eventos, anuncios y servicios en vivo.">Follow us on Facebook and YouTube to stay up to date with all events, announcements, and live services.</p>
+      <div class="section-label center" style="color:var(--soft-gold);" data-en="Never Miss a Moment" data-es="No Te Pierdas Nada">Never Miss a Moment</div>
+      <h2 class="section-heading white" style="text-align:center;margin-bottom:14px;" data-en="Stay Connected With Us" data-es="Mantente Conectado Con Nosotros">Stay Connected With Us</h2>
+      <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:32px;" data-en="Follow us on Facebook for daily updates, live services, and event announcements. Subscribe on YouTube to catch every sermon." data-es="Síguenos en Facebook para actualizaciones diarias, servicios en vivo y anuncios de eventos. Suscríbete en YouTube para ver cada sermón.">Follow us on Facebook for daily updates, live services, and event announcements. Subscribe on YouTube to catch every sermon.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
         <a href="https://www.facebook.com/AtriosElohimChurch1" target="_blank" class="btn btn-gold" style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span data-en="Follow on Facebook" data-es="Síguenos en Facebook">Follow on Facebook</span></a>
         <a href="https://www.youtube.com/@AtriosElohimChurch" target="_blank" class="btn btn-outline" style="display:flex;align-items:center;gap:8px;border-color:rgba(255,255,255,.35);"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg><span data-en="Subscribe on YouTube" data-es="Suscríbete en YouTube">Subscribe on YouTube</span></a>
@@ -2237,9 +2320,13 @@ function showPage(id) {
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');p.style.display='none';});
   var t=document.getElementById('page-'+id);
   if(t){t.classList.add('active');t.style.display='block';}
-  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+  document.querySelectorAll('.nav-links a, .nav-dropdown-label').forEach(function(a){a.classList.remove('active');});
   var n=document.getElementById('nav-'+id); if(n)n.classList.add('active');
   window.scrollTo(0,0);
+  // Re-render Facebook embed when Events page is opened
+  if (id === 'events' && window.FB) {
+    setTimeout(function(){ FB.XFBML.parse(); }, 100);
+  }
 }
 function openMobile(){document.getElementById('mobileMenu').classList.add('open');}
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');}
